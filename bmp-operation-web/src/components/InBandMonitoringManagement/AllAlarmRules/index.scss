@@ -1,0 +1,121 @@
+.alarm-history-count {
+    .el-dialog {
+        &--center {
+            width: 860px;
+            box-shadow: $boxShadow;
+            border-radius: 10px;
+            padding: 0 22.5px;
+            // background: $background7;
+            height: 520px;
+            // width: 726px;
+            // height: 520px;
+            margin: auto;
+            background: $whiteBackground;
+        }
+
+        &__body {
+            padding: 0;
+            position: absolute;
+            min-height: calc(100% - 33px);
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+            width: 860px;
+            // width: 720px;
+            // width: 680.5px;
+    
+            .currency-count {
+                display: flex;
+                flex-direction: column;
+                height: calc(91%);
+                position: absolute;
+                margin: 0;
+                // overflow: auto;
+                overflow: hidden;
+                width: 815px;
+                z-index: 1;
+                padding: 0 22.5px;
+
+                .el-table__body {
+                    margin-bottom: 30px;
+
+                }
+
+                .el-range-input {
+                    font-size: $fontSize;
+                }
+                
+                .reduce-search-opt {
+                    margin: 20px 0 10px;
+                }
+
+                .search-opt {
+                    margin: 20px 0;
+                }
+
+                .reduce-search-opt,
+                .search-opt {
+                    display: flex;
+                    align-items: center;
+
+                    button {
+                        margin-left: 30px;
+                    }
+                }
+
+                // &-table {
+                //     .el-table {
+                //         margin-bottom: 100px;
+                //     }
+                // }
+    
+                .check-all {
+                    position: absolute;
+                    left: 10px;
+                    top: 6px;
+                }
+    
+                &-name-title {
+                    font-size: $fontSize;
+                    font-weight: $fontLargeWeight;
+                    color: $defaultColor;
+                    margin: 20px 0 0px;
+                }
+    
+                &-title {
+                    font-size: $fontSize;
+                    font-weight: $fontLargeWeight;
+                    color: $defaultColor;
+                    margin: 6px 0 16px;
+                }
+            }
+        }
+
+        &__footer {
+            width: 95%;
+            display: none;
+        }
+
+        .currency-count-table {
+            .img-empty {
+                .el-table__empty-block {
+                    background: #fff;
+
+                    .el-table__empty-text {
+                        color: #333;
+                    }
+                }
+            }
+            .footer-count {
+                position: fixed;
+                bottom: 20px !important;
+                line-height: 55px;
+                bottom: 0;
+                background: $whiteBackground;
+                z-index: 9;
+                margin-bottom: 10px;
+                left: 0;
+            }
+        }
+    }
+}

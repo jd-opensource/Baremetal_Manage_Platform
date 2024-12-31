@@ -1,0 +1,260 @@
+
+$height: 28px;
+$center: center;
+
+.set-instance {
+    input {
+        width: 420px;
+        padding-right: 165px;
+    }
+    .input-select {
+        &-count {
+            .el-input__inner {
+                width: 115px;
+                padding: 0;
+            }
+        }
+    }
+
+    .input-search-clear {
+        right: 143px;
+    }
+}
+
+.set-input {
+    input {
+        width: 485px;
+        padding-right: 220px;
+    }
+
+    .el-input__inner {
+        margin-right: 8px !important;
+    }
+
+    .input-select {
+        &-count {
+            .el-input__inner {
+                width: 185px;
+                padding-right: 20px;
+                padding-left: 8px;
+            }
+        }
+    }
+
+    .input-search-clear {
+        right: 207px
+    }
+
+    .el-input__suffix {
+        right: 16px !important;
+    }
+}
+
+.small-input {
+    input {
+        width: 415px;
+        padding-right: 160px;
+    }
+
+    .input-select {
+        &-count {
+            .el-input__inner {
+                width: 115px;
+                padding: 0;
+            }
+        }
+    }
+
+    .input-search-clear {
+        right: 138px;
+    }
+
+    .input-select-division-line {
+        left: -3px !important;
+    }
+}
+
+.operate-management-input {
+    input {
+        width: 320px;
+        padding-right: 130px;
+    }
+    .input-select {
+        &-count {
+            .el-input__inner {
+                width: 100px;
+                padding: 0;
+            }
+        }
+    }
+
+    .input-search-clear {
+        right: 123px;
+    }
+}
+
+.set-input,
+.small-input,
+.set-instance,
+.operate-management-input {
+    display: flex;
+    align-items: $center;
+    position: relative;
+
+    input {
+        height: $height;
+        border: 1.05px solid #999;
+        border-radius: 14px !important;
+        overflow-x: auto;
+        font-size: 12px;
+        padding-left: 36px;
+
+        &::placeholder {
+            font-size: 12px;
+            color: #999;
+            font-weight: 400;
+        }
+
+        &:hover {
+            border-color: #979797;
+        }
+
+        &:focus,
+        &:active {
+            border-color: #108ee9;
+        }
+    }
+
+    .el-input-group__append {
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0;
+        background: transparent;
+    
+        .search-icon {
+            width: 15px;
+            height: 15px;
+            margin-left: -7px;
+            margin-top: 2px;
+            cursor: pointer;
+        }
+    }
+
+    .input-select {
+        display: flex;
+        align-items: $center;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        input {
+            border: 0;
+            outline: 0;
+        }
+        
+        span {
+            font-size: 12px;
+            color: #666;
+        }
+
+        &-division-line {
+            width: 0.5px;
+            height: 11.5px;
+            margin-top: 2px;
+            background: #999;
+            position: absolute;
+            left: -3px;
+        }
+
+        &-count {
+            height: $height;
+
+            .el-input__inner {
+                background: transparent;
+                font-size: 12px !important;
+                line-height: 1;
+                text-align: center;
+                margin-right: 14px;
+            }
+
+            .el-input__suffix {
+                right: 8px;
+            }
+        }
+    }
+
+    .input-search-clear {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+    }
+}
+
+.operate-content {
+
+    &-ipt {
+        width: 344px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+
+        input {
+            padding-left: 57px;
+            height: 40px;
+            border: 1px solid #979797;
+            border-radius: 4px;
+            padding-right: 32px;
+
+            &:hover {
+                border-color: #979797;
+            }
+
+            &:focus,
+            &:active {
+                border-color: #108ee9;
+            }
+        }
+
+        &-open-eye,
+        &-close-eye {
+            cursor: pointer;
+        }
+
+        &-user-img,
+        &-open-eye,
+        &-close-eye {
+            width: 32px;
+            height: 32px;
+            transform: scale(.5);
+            position: absolute;
+            left: 15px;
+            z-index: 9;
+        }
+
+        &-clear {
+            width: 32px;
+            height: 32px;
+            transform: scale(.5);
+            position: absolute;
+            right: 5px;
+            cursor: pointer;
+        }
+    }
+}
+
+.input-select-count {
+    .el-input__suffix {
+        .el-input__suffix-inner {
+            i {
+                svg {
+                    color: #666;
+                    margin-top: -3px;
+                }
+            }
+        }
+    }
+}

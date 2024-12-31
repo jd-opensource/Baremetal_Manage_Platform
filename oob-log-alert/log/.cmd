@@ -1,0 +1,1 @@
+rm aaa.log log-alert.log oob-log-alert.2023-03-08.001.log oob-log-alert.2023-03-31.001.log oob-log-alert.2023-04-01.001.log oob-log-alert.2023-04-02.001.log oob-log-alert.2023-04-03.001.log oob-log-alert.2023-04-04.001.log oob-log-alert.2023-04-05.001.log oob-log-alert.2023-04-06.001.log oob-log-alert.log run.log

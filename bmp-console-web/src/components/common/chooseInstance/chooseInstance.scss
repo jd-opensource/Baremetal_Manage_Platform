@@ -1,0 +1,218 @@
+.choose-instance {
+    display: flex;
+    .el-checkbox__inner {
+        width: 10px;
+        height: 10px;
+        margin-top: 1px;
+        border-radius: 2px;
+        border: 1px solid #333;
+    
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: #108EF9  !important;
+        }
+    
+        &::after {
+            height: 5px;
+            left: 2px;
+            top: 0px;
+        }
+    }
+
+    .switch-img {
+        width:14px;
+        height: 12px;
+        margin: auto 30px;
+        padding-top: 12px;
+    }
+
+    .clear-img {
+        vertical-align: sub;
+        color: #108EF9 !important;
+    }
+
+    .table-search {
+        .el-table__body {
+            margin-top: 46px;            
+        }
+
+        .el-table tr {
+            height: 40px;
+        }
+    
+        .el-table__row {
+            height: 28px;
+        } 
+        
+        .selectAllbtnDis {
+            .el-checkbox__inner {
+                display: none;
+              }
+        }
+        .is-checked,
+        .is-focus {
+            .el-checkbox__inner {
+                border: 1px solid #108EF9;
+            }
+        }   
+        .el-checkbox__inner {
+            width: 10px;
+            height: 10px;
+            margin-top: 1px;
+            border-radius: 2px;
+            border: 1px solid #333;
+
+            &:hover,
+            &:focus,
+            &:active {
+                border-color: #108EF9  !important;
+            }
+
+            &::after {
+                height: 5px;
+                left: 2px;
+                top: 0px;
+            }
+        }
+
+        .is-disabled {
+
+            .el-checkbox__label {
+                font-size: 12px;
+                color: #999 !important;
+                font-weight: 400;
+            }
+            .el-checkbox__inner {
+                background: #999 !important;
+                border: 1px solid #999 !important;
+                border-radius: 2px;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    border-color: #999 !important;
+                }
+
+                &::after {
+                    border-color: #fff !important;
+                }
+            }
+        }
+
+        .el-checkbox__label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
+            color: #333 !important;
+            font-weight: 400;
+            max-width: 80px;
+        }
+    }
+
+    .table-change {
+        .el-table tr {
+            height: 28px;
+        }
+    
+        .el-table__row {
+            height: 28px;
+        }
+
+        .el-table__header {
+            height: 40px;
+        }
+
+        .el-table .el-table__cell {
+            padding: 0;
+        }
+
+        .cell {
+            padding: 0 10px;
+        }
+    }
+
+    .search-position {
+        position: absolute;
+        background-color: #fff;
+        z-index: 3;
+        top: 65px;
+        padding: 12px 8px 6px 7px;
+        border-left: 1px solid #EAEAEA;
+        border-right: 1px solid #EAEAEA;
+        input {
+            height: 28px;
+            width: 380px !important;
+            border: 1.05px solid #999;
+            border-radius: 14px !important;
+            overflow-x: auto;
+            font-size: 12px;
+            padding-left: 36px;
+    
+            &::placeholder {
+                font-size: 12px;
+                color: #999;
+                font-weight: 400;
+            }
+    
+            &:hover {
+                border-color: #979797;
+            }
+    
+            &:focus,
+            &:active {
+                border-color: #108ee9;
+            }
+
+            
+        }
+
+        .el-input__inner {
+            padding: 0 31px;
+        }
+    
+        .el-input-group__append {
+            position: absolute;
+            left: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 0;
+            background: transparent;
+        
+            .search-icon {
+                width: 15px;
+                height: 15px;
+                margin-left: -7px;
+                margin-top: 2px;
+                cursor: pointer;
+            }
+        }
+        
+        .input-search-clear {
+            width: 16px;
+            height: 16px;
+            right: 16px;
+            top: 60%;
+            transform: translateY(-50%);
+            position: absolute;
+        }
+    
+    }
+
+    .clear-position {
+        position: absolute;
+        z-index: 3;
+        right: 2px;
+        top: 36px;
+        font-size: 12px;
+    }
+
+    .select-column {
+        .cell {
+            padding: 0;
+            .el-checkbox {
+                top:2px
+            }
+        }
+    }
+}

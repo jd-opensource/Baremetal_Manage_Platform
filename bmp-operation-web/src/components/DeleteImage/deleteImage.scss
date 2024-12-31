@@ -1,0 +1,24 @@
+.delete-image {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 526px;
+            height: 298px;;
+        }
+
+        &__footer {
+            width: 481px;
+        }
+    }
+
+    &-count {
+        @include display-align(center);
+        @extend %justify-center;
+        margin-top: 80.5px;
+
+        &-title {
+            @include display-align(center);
+            @include text-align(center);
+            @include size-weight-color($fontSize2, $fontSmallWeight, $defaultColor);
+        }
+    }
+}

@@ -1,0 +1,147 @@
+.associated-models {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 1046px;
+            height: 530px;;
+            margin: auto;
+        }
+
+        .el-loading-mask {
+            top: 42px;
+        }
+
+        &__body {
+            padding: 0;
+            position: absolute;
+            min-height: calc(100% - 33px);
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+            width: 1046px;
+
+            .currency-count {
+                @extend %display-flex-column;
+                height: calc(91%);
+                position: absolute;
+                margin: 0;
+                overflow: hidden;
+                width: 1000px;
+                z-index: 1;
+                padding: 0 22.5px;
+
+                &-table {
+                    .el-table {
+                        margin-bottom: 100px;
+
+                        .el-table__empty-block {
+                            background: $background3;
+                        }
+                    }
+                }
+    
+            }
+
+            .el-table__body {
+                padding-bottom: 0 !important;
+
+                .el-table-fixed-column--right,
+                .el-table-fixed-column--left {
+                    background-color: $background15;
+                }
+            }
+
+            .error-tip {
+                input {
+                    border-color: $border9;
+
+                    &::placeholder {
+                        color: $color13;
+                    }
+                }
+            }
+
+            .def-tip {
+                input {
+                    border-color: $border15;
+
+                    &::placeholder {
+                        color: $color15;
+                    }
+                }
+            }
+
+            .def-select,
+            .multiple-choice {
+                margin: 10px;
+
+                input {
+                    width: 360px !important;
+                }
+            }
+        }
+
+        &__footer {
+            width: 1101px;
+        }
+    }
+
+    .add-new-model {
+        margin-left: 20px;
+
+        span {
+            font-size: $fontSize;
+            color: $color1;
+            @include set-cursor(pointer);
+        }
+    }
+
+    .set-empty {
+        margin-bottom: 30px !important;
+        
+        .el-form-item__error {
+            padding-top: 8px;
+        }
+    }
+    // table为空
+    .currency-count-table {
+
+        .el-table__header-wrapper {
+            margin-bottom: 5px;
+        }
+
+        .el-table__body-wrapper {
+            max-height: 240px;
+            overflow-y: auto;
+        }
+
+        .el-table__inner-wrapper tr:first-child th {
+            &:first-child {
+                border-left: none;
+            }
+        
+            &:last-child {
+                border-color: $border16;
+            }
+        }
+
+        .el-table__row {
+            background-color: $background3;
+
+            &:hover {
+                td {
+                    background-color: $background10 !important;
+                }
+            }
+        }
+    }
+
+    &-count {
+        @extend %display-flex-column;
+        margin-top: 20.5px;
+
+        &-title {
+            @include text-align(center);
+            @include size-weight-color($fontSize2, $fontSmallWeight, $defaultColor);
+        }
+    }
+}

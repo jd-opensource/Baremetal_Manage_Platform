@@ -1,0 +1,52 @@
+.check-all {
+    position: absolute;
+    left: 46.6px;
+    top: 14.5px;
+}
+
+.batch-operate {
+    position: absolute;
+    left: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &-device-list {
+        border: .53px solid $border2;
+        margin-left: 20px;
+        border-radius: 5px;
+        padding: 3px 9px;
+        @include display-align(center);
+        @include set-cursor(pointer);
+        @include size-weight-color($fontSize, $fontSmallWeight, $color6);
+
+        .text-color {
+            color: $color12;
+        }
+
+        &:hover {
+            color: $color12;
+            border-color: $border4;
+        }
+
+        &:hover .arrow-bottom-img {
+            background-image: url('~@/assets/img/listImg/arrow-bottom.png');
+            @include position-repeat(0);
+        }
+
+        .arrow-bottom-img {
+            background-image: url('~@/assets/img/uiImg/table-arrow-bottom.png');
+            @include position-repeat(0);
+        }
+
+        &:hover .arrow-bottom-img,
+        .arrow-bottom-img {
+            @include set-width-height(16px);
+            background-size: backgoundSize(auto);
+        }
+    }
+
+    button {
+        padding: 5px 12px;
+        border-radius: 5px;
+    }
+}

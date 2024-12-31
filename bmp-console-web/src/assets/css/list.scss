@@ -1,0 +1,106 @@
+.operation-header {
+    .setting-position {
+        display: flex;
+        height: 30px;
+        margin-right: 30px;
+        margin-top: -10px;
+        float: right;
+        .operate-ipt {
+            display: flex;
+            align-items: center;
+            margin-top: 22px;
+            margin-right: 30px;
+        }
+        .el-button--text {
+            &:hover{
+                color: #108EF9 !important;
+            }
+        }
+        .operate-refresh,
+        .operate-set-up,
+        .no-export,
+        .operate-export {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-top: 22px;
+            cursor: pointer;
+    
+            .my-update-gray,
+            .my-settings-gray,
+            .my-download-gray {
+                width: 16px;
+                height: 16px;
+                background-size: 100% auto !important;
+                background-position: center center;
+                background-repeat: no-repeat;
+                margin-right: 5px;
+            }
+    
+            .refresh-title,
+            .set-up-title,
+            .export-title {
+                font-size: 12px;
+            }
+    
+            &:hover {
+                color: #108EF9;
+            }
+        }
+    
+        .operate-refresh {
+            .my-update-gray {
+                background-image: url('~@/assets/img/updateGray.png');
+            }
+    
+            &:hover {
+                .my-update-gray {
+                    background-image: url('~@/assets/img/update.png');
+                }
+            }
+        }
+    
+        .operate-set-up {
+            .my-settings-gray {
+                background-image: url('~@/assets/img/settingGray.png');
+            }
+    
+            &:hover {
+                .my-settings-gray {
+                    background-image: url('~@/assets/img/setting.png');
+                }
+            }
+        }
+    
+        .no-export {
+            margin-right: 0;
+            pointer-events: none;
+            color: #333;
+    
+            .my-download-gray {
+                background-image: url('~@/assets/img/downloadGray.png');
+            }
+    
+            &:hover {
+                color: #333;
+                .my-download-gray {
+                    background-image: url('~@/assets/img/download.png');
+                }
+            }
+        }
+    
+        .operate-export {
+            margin-right: 0;
+    
+            .my-download-gray {
+                background-image: url('~@/assets/img/downloadGray.png');
+            }
+    
+            &:hover {
+                .my-download-gray {
+                    background-image: url('~@/assets/img/download.png');
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+Loongson storcli installation
+
+The list of the packet:
+
+	MegaRAID/  qemu-x86_64  installer  uninstaller storcli64_ls  README
+
+
+installation:
+	Execution the "installer", it can automaticlly install.
+		./installer
+
+remove:
+	Execution the "uninstaller", it can automaticlly remove.
+		./uninstaller
+
+	qemu: version is v5.2.0-1-g0aca0361ea-dirty
+	storcli64: StorCli SAS Customization Utility Ver 1.23.02 Mar 28, 2017

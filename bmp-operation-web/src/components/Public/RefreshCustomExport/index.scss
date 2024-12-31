@@ -1,0 +1,67 @@
+%operate {
+    @include display-align(center);
+    margin-right: 20px;
+}
+
+%operate-img {
+    @include set-width-height(16px);
+    background-size: backgoundSize(auto) !important;
+    @include position-repeat(0);
+    margin-right: 5px;
+}
+
+@mixin set-background-img($key) {
+    @if $key == 0 {
+        background-image: url('~@/assets/img/listImg/default-refresh.png');
+    }
+    @else if $key == 1 {
+        background-image: url('~@/assets/img/listImg/default-set-up.png');
+    }
+    @else {
+        background-image: url('~@/assets/img/listImg/default-export.png');
+    }
+}
+
+@mixin background-img-hover($key) {
+    @if $key == 0 {
+        &:hover {
+            .default-img-style {
+                background-image: url('~@/assets/img/listImg/refresh.png');
+            }
+        }
+    }
+    @else if $key == 1 {
+        &:hover {
+            .default-img-style {
+                background-image: url('~@/assets/img/listImg/set-up.png');
+            }
+        }
+    }
+    @else {
+        &:hover {
+            .default-img-style {
+                background-image: url('~@/assets/img/listImg/export.png');
+            }
+        }
+    }
+}
+
+%public-operate-style {
+    .default-img-style {
+        @extend %operate-img;
+    }
+
+    .default-text-size {
+        font-size: $fontSize;
+    }
+}
+
+@mixin operate-count($key) {
+    @extend %operate;
+    @extend %public-operate-style;
+
+    .default-img-style {
+        @include set-background-img($key);
+    }
+    @include background-img-hover($key);
+}

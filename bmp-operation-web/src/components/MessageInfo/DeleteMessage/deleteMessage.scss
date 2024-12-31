@@ -1,0 +1,27 @@
+.delete-message {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 576px;
+            height: 298px;
+        }
+
+        &__body {
+            padding: 0;
+    
+            .delete-message-count {
+                height: 190px;
+                @include display-align(center);
+                @extend %justify-center;
+
+                &-title {
+                    @include size-weight-color($fontSize2, $fontSize2, $defaultColor);
+                    @include text-align(center);
+                }
+            }
+        }
+
+        &__footer {
+            width: 531px;
+        }
+    }
+}

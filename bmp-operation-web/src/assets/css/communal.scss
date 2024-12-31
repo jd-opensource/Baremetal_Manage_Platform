@@ -1,0 +1,190 @@
+/** 存放一些公共的样式 **/
+$color1: #108ee9;
+$color2: #e0e0e0;
+$color3: #fff;
+$color4: #e8f4fd;
+$color5: #000;
+$color6: #666;
+$color7: #999;
+$color8: #aaa;
+$color9: #43b561;
+$color10: #9254de;
+$color11: #d48806;
+$color12: #0f8fe9;
+$color13: #f56c6c;
+$color14: #ff4d4f;
+$color15: #c0c4cc;
+$color16: #f04134;
+$defaultColor: #333;
+$border: #f0f0f0;
+$border2: #979797;
+$border3: #108ee9;
+$border4: #0f8fe9;
+$border5: #c7c7c7;
+$border6: #0f81d4;
+$border7: #999;
+$border8: #fff;
+$border9: #f56c6c;
+$border10: #bcbcbc;
+$border11: #d48806;
+$border12: #9254de;
+$border13: #ff4d4f;
+$border14: #43b561;
+$border15: #dcdfe6;
+$border16: #e8f4fd;
+$border17: #333;
+$border18: #e9e9e9;
+$border19: #666;
+$border20: #d2d2d2;
+$whiteBackground: #fff;
+$background1: #108ee9;
+$background2: #0f81d4;
+$background3: #f7f7f7;
+$background4: #d7eeff;
+$background5: #eee;
+$background6: #dfdfdf;
+$background7: rgba(255, 255, 255, .8);
+$background8: #0f8fe9;
+$background9: #999;
+$background10: #ededed;
+$background11: rgba(212, 217, 221, .6);
+$background12: rgba(247, 247, 247, .6);
+$background13: rgb(249, 237, 239);
+$background14: #e8f4fd;
+$background15: #f5f5f5;
+$background16: #979797;
+$background17: #f9ecee;
+$transparent: transparent;
+$fontSize: 12px;
+$fontSize2: 14px;
+$fontSize3: 19px;
+$borderRadius: 14px;
+$fontLargeWeight2: 700;
+$fontLargeWeight: 600;
+$fontSmallWeight: 400;
+$percentageWidth: 100%;
+$percentageHeight: 100%;
+$boxShadow: 0 1px 3px 0 rgba(0, 0, 0, .30);
+$backdropFilter: blur(100px);
+
+@mixin set-cursor($val) {
+    cursor: $val;
+}
+
+%resize-none {
+    resize: none;
+}
+
+%pointer-events {
+    pointer-events: none;
+}
+
+%justify-center {
+    justify-content: center;
+}
+
+%justify-start {
+    justify-content: flex-start !important;
+}
+
+%display-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+%displafy-flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin display-justify($val) {
+    display: flex;
+    justify-content: $val;
+}
+
+@mixin display-align($val) {
+    display: flex !important;
+    align-items: $val !important;
+}
+
+@mixin position-repeat($key) {
+    @if $key == 0 {
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    // 后续可以自由发挥
+}
+
+@mixin text-align($val) {
+    text-align: $val;
+}
+
+%header-info {
+    width: 100%;
+    height: 60px;
+    background: $whiteBackground;
+    box-shadow: 0 2px 4px 0 rgba(210, 210, 210, .50);
+    border-radius: 10px 10px 0 0;
+    @include display-align(center);
+    position: absolute;
+    z-index: 9;
+}
+
+@mixin set-width-height($val) {
+    width: $val;
+    height: $val;
+}
+
+%white-flw-over {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin break-wrap($val) {
+    /** 允许长的内容可以自动换行：长单词内部进行换行 */
+    word-wrap: break-word;
+    /** word-break属性用于指定非CJK（中日韩）脚本的断行规则，规定了自动换行的处理方法 break-all： 允许在单词内换行 */
+    word-break: $val;
+}
+
+%more-two-ellipsis {
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+%def-c-f-style {
+    color: $defaultColor;
+    font-size: $fontSize;
+}
+@mixin size-weight-color($size, $weight, $colors) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $colors;
+}
+
+@mixin active-style($size) {
+    font-size: $size;
+    @include set-cursor(pointer);
+    color: $color1;
+}
+
+@function backgoundSize($val) {
+    @if $val == auto {
+        @return 100% auto;
+    }
+    @else if $val == cover {
+        @return cover;
+    }
+    @else {
+        @return contain;
+    }
+}
+
+%no-btn-opt {
+    justify-content: flex-end;
+    margin-top: 7px;
+}

@@ -1,0 +1,68 @@
+@import '@/assets/css/communal';
+
+.create-api-key {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 540px;
+            height: 292px;
+        }
+
+        &__footer {
+            width: 495px;
+        }
+    }
+
+    .create-apicontent {
+        display: flex;
+
+        .create-apiscope {
+            font-size: $fontSize;
+            font-weight: $fontLargeWeight;
+            margin-top: 19.5px;
+            color: $defaultColor;
+
+        }
+
+        .el-form-item__label {
+            font-size: $fontSize;
+            color: $defaultColor;
+            font-weight: 500;
+           
+            &::before {
+                display: none;
+            }
+        }
+
+        .api-key-name {
+            margin-top: 19.5px;
+        }
+
+        input {
+            width: 204px;
+            height: 30px;
+            border-radius: 4px;
+            font-size: $fontSize;
+        }
+
+        .el-form-item__content {
+            margin-left: 10px;
+        }
+
+        .read-only {
+            margin-bottom: 10px;
+        }
+        .name-tip {
+            font-size: $fontSize;
+            color: $color7;
+        }
+        .error-tip {
+            color: #f56c6c;
+            font-size: $fontSize;
+        }
+
+        .set-error-tip {
+            line-height: 1.5;
+            margin-top: 5px;
+        }
+    }
+}

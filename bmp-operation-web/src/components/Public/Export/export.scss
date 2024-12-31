@@ -1,0 +1,54 @@
+.export-data {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 446px;
+            height: 252px;
+        }
+
+        &__body {
+            height: calc(100% - 116px);
+        }
+
+        &__footer {
+            width: 401px;
+        }
+    }
+
+    .export-content,
+    .radio-style1 {
+        @extend %display-flex-column;
+        height: 100%;
+        position: relative;
+
+        .export-flex {
+            display: flex;
+        }
+
+        .el-progress {
+            width: 100%;
+            position: absolute;
+            bottom: 15px;
+        }
+
+        .export-scope {
+            margin-top: 19.5px;
+            margin-right: 23px;
+            @include size-weight-color($fontSize, $fontLargeWeight, $defaultColor);
+        }
+
+        .el-radio {
+            height: 16px;
+            margin-bottom: 16px;
+
+            &:last-child {
+                margin-right: 30px;
+            }
+
+            &-group {
+                @extend %display-flex-column;
+                margin-top: 19.5px;
+                @include  display-align(flex-start);
+            }
+        }
+    }
+}

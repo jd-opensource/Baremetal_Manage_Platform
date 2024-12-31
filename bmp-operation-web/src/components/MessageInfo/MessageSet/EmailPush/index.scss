@@ -1,0 +1,29 @@
+.email-push-count {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 530px;
+            height: 292px;
+        }
+
+        &__body {
+
+            .currency-count {
+                display: flex;
+                flex-direction: column;
+
+                &-title {
+                    font-size: $fontSize2;
+                    font-weight: $fontSmallWeight;
+                    color: $defaultColor;
+                    text-align: center;
+                    margin-top: 80px;
+                    padding-bottom: 131px;
+                }
+            }
+        }
+
+        &__footer {
+            width: 485px;
+        }
+    }
+}

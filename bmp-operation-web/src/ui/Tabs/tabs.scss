@@ -1,0 +1,14 @@
+.el-tabs.tabs-zh-width {
+    :deep(.el-tabs__item) {
+        width: 125px;
+        text-align: center;
+    }
+}
+
+.el-tabs.tabs-en-width {
+    :deep(.el-tabs__item) {
+        // width: 190px;
+        width: 240px;
+        text-align: center;
+    }
+}

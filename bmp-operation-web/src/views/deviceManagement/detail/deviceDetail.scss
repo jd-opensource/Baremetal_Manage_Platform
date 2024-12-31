@@ -1,0 +1,146 @@
+@import '@/assets/css/detail.scss';
+
+.device-detail {
+    .en-model-info {
+        .el-tabs__nav {
+            margin-left: -28px;
+        }
+    }
+    
+    .opt-logs-count {
+        .operate-log-list {
+            margin-bottom: 0;
+        }
+    }
+
+    .collect-count {
+        cursor: pointer;
+        color: #108ee9;
+
+        .collect-img {
+            width: 16px;
+            height: 16px;
+            margin-left: 15px;
+        }
+    }
+
+    .zh-model-info {
+        .el-tabs__nav {
+            margin-left: 6px;
+        }
+    }
+
+    .hardware-monitoring {
+        background: #fff !important;
+
+        .info-title {
+            font-weight: $fontSmallWeight;
+        }
+
+        .info-content {
+            display: flex;
+            flex-wrap: wrap;
+
+            .hardware-device-status {
+                display: flex;
+                align-items: center;
+                // min-height: 3px;
+                background: #f7f7f7;
+                border-radius: 7px;
+                justify-content: center;
+                // justify-content: space-between;
+                padding: 7px 10px;
+                margin-right: 36px;
+                margin-bottom: 31px;
+
+                .normal-background {
+                    background: #43b561;
+                }
+
+                .normal-title {
+                    color: #43b561;
+                }
+
+                .error-background {
+                    background: #ff4d4f;
+                }
+
+                .error-title {
+                    color: #ff4d4f;
+                }
+
+                .line {
+                    width: 1.5px;
+                    height: 18.5px;
+                    background: #333;
+                    flex-shrink: 0;
+                    margin: 0 13px;
+                }
+
+                span {
+                    &:first-child {
+                        font-size: 20px;
+                        font-weight: 400;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    &:nth-child(3) {
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+                        flex-shrink: 0;
+                        margin-right: 13px;
+                    }
+
+                    &:last-child {
+                        font-size: 18px;
+                        // color: #43B561;
+                        font-weight: 400;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+
+        .search-tip {
+            display: flex;
+            justify-content: flex-end;
+            // margin-top: 7px;
+    
+            .operate-management-content-operate {
+                margin-bottom: 16px !important;
+                padding: 0;
+            }
+        }
+    }
+
+    .el-form-item__content {
+        align-items: flex-start;
+    }
+
+    .switch-info {
+        .el-form-item__label {
+            width: 165px;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .ilo-count {
+            .el-form-item__label {
+                width: auto !important;
+            }
+        }
+    }
+
+    &-tip-show {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 160px;
+        display: inline !important;
+    }
+}

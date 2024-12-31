@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp MegaRAID/ /opt/ -af
+cp qemu-x86_64 /usr/bin/
+cp storcli64_ls /usr/bin/

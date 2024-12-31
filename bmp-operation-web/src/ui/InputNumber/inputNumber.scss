@@ -1,0 +1,49 @@
+.change-input-number,
+.disabled-input-number {
+    .el-input-number {
+        width: 115px;
+    }
+}
+
+.el-input-number__decrease.is-disabled {
+    left: 1px;
+}
+
+.el-input-number__increase.is-disabled {
+    right: 1px;
+    bottom: 1px;
+    border-left: 1px solid #dcdfe6;
+
+}
+.el-input-number__decrease.is-disabled, .el-input-number__increase.is-disabled {
+    background: #eee;
+    font-size: 12px;
+    top: 1px;
+
+    &:hover {
+        color: $color15;
+    }
+}
+
+.el-input-number__decrease {
+    background-color: $whiteBackground;
+    color: $defaultColor;
+
+    &:hover {
+        color: $defaultColor;
+    }
+}
+
+.el-input-number__increase {
+    background: $background1;
+    color: $color3;
+    border: 0;
+    border-color: $border3;
+    right: .5px;
+    top: 0px;
+    bottom: 0px;
+
+    &:hover {
+        color: $color3;
+    }
+}

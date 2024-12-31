@@ -1,0 +1,28 @@
+.open-shut-down-restart {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 526px;
+            height: 298px;
+        }
+
+        &__footer {
+            width: 481px;
+        }
+    }
+
+    &-count {
+        @include display-align(center);
+        @extend %justify-center;
+        margin-top: 80px;
+        @include size-weight-color($fontSize2, $fontSmallWeight, $defaultColor);
+
+        &-title {
+            color: $defaultColor;
+        }
+
+        &-info {
+            font-weight: $fontLargeWeight;
+            margin-right: 5px;
+        }
+    }
+}

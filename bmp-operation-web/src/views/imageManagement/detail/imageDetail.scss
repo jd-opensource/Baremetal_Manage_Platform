@@ -1,0 +1,43 @@
+.image-detail {
+
+    .operate-management-detail-info {
+        margin-top: 0;
+    }
+
+    .image-delete {
+        &:hover,
+        &:active {
+            border-radius: 3px;
+        }
+    }
+
+    .sys-partition-module {
+        @include display-align(flex-start);
+    }
+
+    .edit-opt-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    .en-model-info {
+        .el-tabs__nav {
+            margin-left: -5px;
+        }
+    }
+
+    .zh-model-info {
+        .el-tabs__nav {
+            margin-left: 6px;
+        }
+    }
+
+    .btn-bottom {
+        margin-bottom: 18px !important;
+    }
+
+    .image-add-model {
+        border-radius: 15px;
+        @include size-weight-color($fontSize, $fontLargeWeight, $color3);
+    }
+}

@@ -1,0 +1,113 @@
+%error-tip {
+    position: absolute;
+    color: $color13;
+    text-align: left;
+    left: 0;
+    padding-top: 35px;
+    top: 0;
+    line-height: 1.4;
+    font-size: $fontSize;
+    z-index: -1;
+}
+
+%word-css {
+    align-items: flex-start;
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+
+%template-tip-css {
+    font-size: $fontSize;
+    color: $defaultColor;
+    font-weight: $fontLargeWeight;
+    margin-bottom: 15px;
+}
+
+%volume-manager {
+    // @extend %display-flex-start;
+    @include display-align(flex-start);
+    margin-bottom: 0 !important;
+
+    label {
+        line-height: 4;
+
+        &::before {
+            content: "*";
+            color: var(--el-color-danger);
+            margin-right: 4px;
+        }
+    }
+}
+
+.model-operate {
+    .volume-manager-table {
+
+        .el-form-item__content {
+            @extend %justify-center;
+        }
+
+        .ipt-height {
+            margin-top: 20px;
+            margin-bottom: 45px !important;
+
+            .el-form-item__content {
+                position: relative;
+                margin-bottom: 10px;
+    
+                .el-form-item__error {
+                    text-align: left;
+                    line-height: 1.2;
+                    top: 100%;
+                    padding-top: 7px;
+                }
+            }
+        }
+        
+        .ipt-default {
+            .el-form-item__content {
+                .el-input-number {
+                    margin-bottom: 0px;
+
+                    .el-input {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .el-input {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    &-rule-form {
+
+        .flex-checkbox {
+            // @extend %display-flex-align;
+            @include display-align(center);
+
+            .el-checkbox {
+                width: auto;
+                margin-bottom: 0;
+                align-items: center !important;
+            }
+        }
+
+        .is-loading {
+            position: absolute;
+            top: 8px;
+            right: 0;
+            transform: translateY(-50%);
+            animation: custom-loading .7s linear ease-in-out;
+        }
+
+        @keyframes custom-loading {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(100deg);
+            }
+        }
+    }
+}

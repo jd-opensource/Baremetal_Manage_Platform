@@ -1,0 +1,3 @@
+[submodule "bmp-deploy"]
+	path = bmp-deploy
+	url = git@coding.jd.com:aidc-bmp/bmp-deploy.git

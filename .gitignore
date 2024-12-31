@@ -1,0 +1,9 @@
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+ [user]
+   name = <ERP>
+   email = <京东邮箱>

@@ -1,0 +1,149 @@
+.item-position {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    .el-form-item {
+        margin-left: 25px;
+        margin-bottom: 20px;
+    } 
+    .el-tabs__item {
+        height: 50px;
+        margin: 4px 0 4px 36px;
+        padding: 5px 35px;
+        font-weight:400;
+        color: #333333;
+        &:hover {
+            color: #333333;
+            background: #F7F7F7;
+            border-radius: 25px 0 0 25px;
+        }
+    }
+    .el-tabs__item.is-active {
+        color: #108EF9;
+        background: #E8F4FD;
+        border-radius: 25px 0 0 25px;
+    }
+    
+    .el-tabs--left .el-tabs__item.is-left {
+        text-align: left;
+    }
+
+    .el-tabs--left .el-tabs__header.is-left {
+        padding-top: 26px;
+        margin-right: 0;
+    }
+
+    .el-tabs__nav-wrap:after {
+        background: #F0F0F0;
+        z-index: 3;
+    }
+    
+    .el-tabs--left .el-tabs__nav-wrap.is-left {
+        margin-right: -2px;
+    }
+    .el-tabs--left{
+        height: 95%;
+    }
+      
+}
+
+.pane-content {
+    min-height: calc(100vh);
+    border-left: 2px solid #F0F0F0;
+    .el-input__inner {
+        width: 400px;
+        height: 36px;
+    }  
+        
+}
+
+.custom-tabs-label {
+    .personal-title {
+        bottom: 2px;
+        margin-left: 29px;
+        position: relative;
+    }
+}
+
+.button-style {
+    font-size: 12px;
+    background-color: #108EF9;
+    width: 130px;
+    height: 36px;
+    margin-left: 105px;
+}
+
+.phone-select {
+    .el-input__inner {
+        width: 265px;
+    }
+    .el-input-group__prepend {
+        background-color: white;
+    }
+    .el-select .el-input.is-focus .el-input__inner {
+        border-color: white !important;
+    }  
+    .el-select .el-input {
+        .el-input__inner {
+            width: 135px;
+            color: #333;
+            &:focus {
+                border: none;
+            }
+        }            
+    }
+}
+
+.language-width {
+    .el-input__inner {
+            width: 135px;
+        }
+}
+
+
+.lh22 {
+    line-height: 22px;
+}
+
+.lh18 {
+    .el-form-item__label {
+        line-height: 18px;
+    }
+}
+
+.password-tip {
+    font-size: 12px;
+    color: #999999;
+    width: 550px;
+}
+
+.el-divider--horizontal {
+    margin: 32px 0;
+}
+
+.input-change {
+    .el-input.is-disabled .el-input__inner {
+        background-color: #f3f3f3;
+        color: #333;
+        cursor: text;
+    }
+}
+
+.tag-state {
+    .el-tag {
+        height: 17px;
+        padding: 0 6px;
+        border-radius: 5px;
+    }
+}
+
+.license-content {
+    .el-form-item__label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .el-form-item {
+        margin-left: 23px;
+        margin-bottom: 12px;
+    }
+}

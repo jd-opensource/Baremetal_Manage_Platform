@@ -1,0 +1,241 @@
+services:
+  bmp-db:
+    image: "${bmp_db_image}"
+    env_file:
+      - ./env/bmp-db.env
+    ports:
+      - 3306:3306
+    volumes:
+      - /var/lib/bmp/bmp-db:/var/lib/mysql
+  bmp-redis:
+    image: "${bmp_redis_image}"
+    env_file:
+      - ./env/bmp-redis.env
+    ports:
+      - 6379:6379
+    volumes:
+      - /var/lib/bmp/bmp-redis:/data
+      - ./template/redis.conf.tpl:/redis.conf.tpl
+      - ./script/redis_init.sh:/redis_init.sh
+    command: ["sh", "/redis_init.sh"]
+  bmp-mq:
+    image: "${bmp_mq_image}"
+    env_file:
+      - ./env/bmp-mq.env
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - /var/lib/bmp/bmp-mq:/var/lib/rabbitmq
+      - ./script/rabbitmq_init.sh:/rabbitmq_init.sh
+    command: ["sh", "-x", "/rabbitmq_init.sh"]
+    hostname: bmp-mq
+  bmp-tftp:
+    image: "${bmp_tftp_image}"
+    env_file:
+      - ./env/bmp-tftp.env
+    ports:
+      - 69:69/udp
+    volumes:
+      - /var/lib/bmp/bmp-tftp:/var/tftpboot
+      - ./script/tftp_init.sh:/tftp_init.sh
+      - ./template/pxelinux.tpl:/pxelinux.tpl
+      - ./template/grub_x86_64.cfg.tpl:/grub_x86_64.cfg.tpl
+      - ./template/grub_arm64.cfg.tpl:/grub_arm64.cfg.tpl
+      - ./template/grub_loongarch64.cfg.tpl:/grub_loongarch64.cfg.tpl
+    entrypoint: ""
+    command: ["sh", "/tftp_init.sh"]
+  bmp-image:
+    image: "${bmp_image_image}"
+    env_file:
+      - ./env/bmp-image.env
+    ports:
+      - 10000:80
+    volumes:
+      - /var/lib/bmp/bmp-image:/usr/share/nginx/html
+  bmp-rsyslog:
+    image: "${bmp_rsyslog_image}"
+    env_file:
+      - ./env/bmp-rsyslog.env
+    ports:
+      - 1514:514/udp
+    volumes:
+      - /var/log/bmp/bmp-rsyslog:/var/log/bmp/bmp-rsyslog
+      - ./template/bmp-rsyslog.conf.tpl:/etc/rsyslog.d/bmp-rsyslog.conf
+  bmp-driver:
+    image: "${bmp_driver_image}"
+    env_file:
+      - ./env/bmp-driver.env
+    volumes:
+      - /var/log/bmp/bmp-driver:/var/log/bmp/bmp-driver
+    depends_on:
+      - bmp-mq
+  bmp-dhcp-agent:
+    image: "${bmp_dhcp_agent_image}"
+    env_file:
+      - ./env/bmp-dhcp-agent.env
+    volumes:
+      - /var/log/bmp/bmp-dhcp-agent:/var/log/bmp/bmp-dhcp-agent
+      - /var/lib/bmp/bmp-dhcp-agent:/data
+      - ./template/dhcpd.conf.tpl:/dhcpd.conf.tpl
+      - ./script/dhcpd_control.sh:/dhcpd_control.sh
+      - /var/lib/bmp/bmp-tftp:/var/tftpboot
+    depends_on:
+      - bmp-mq
+    network_mode: "host"
+  bmp-openapi:
+    image: "${bmp_openapi_image}"
+    env_file:
+      - ./env/bmp-openapi.env
+    ports:
+      - 8801:8801
+    volumes:
+      - /var/log/bmp/bmp-openapi:/var/log/bmp/bmp-openapi
+      - /dev/mem:/dev/mem
+    depends_on:
+      - bmp-db
+      - bmp-redis
+      - bmp-mq
+    privileged: true
+  bmp-openapi-console:
+    image: "${bmp_openapi_console_image}"
+    env_file:
+      - ./env/bmp-openapi-console.env
+    ports:
+      - 8802:8802
+    volumes:
+      - /var/log/bmp/bmp-openapi-console:/var/log/bmp/bmp-openapi-console
+      - /dev/mem:/dev/mem
+    depends_on:
+      - bmp-db
+      - bmp-redis
+      - bmp-mq
+    privileged: true
+  bmp-scheduler:
+    image: "${bmp_scheduler_image}"
+    env_file:
+      - ./env/bmp-scheduler.env
+    volumes:
+      - /var/log/bmp/bmp-scheduler:/var/log/bmp/bmp-scheduler
+    depends_on:
+      - bmp-db
+      - bmp-redis
+      - bmp-mq
+  bmp-console-api:
+    image: "${bmp_console_api_image}"
+    env_file:
+      - ./env/bmp-console-api.env
+    ports:
+      - 8800:8800
+    volumes:
+      - /var/log/bmp/bmp-console-api:/var/log/bmp/bmp-console-api
+    depends_on:
+      - bmp-db
+      - bmp-redis
+  bmp-operation-api:
+    image: "${bmp_operation_api_image}"
+    env_file:
+      - ./env/bmp-operation-api.env
+    ports:
+      - 8799:8799
+    volumes:
+      - /var/log/bmp/bmp-operation-api:/var/log/bmp/bmp-operation-api
+      - /var/lib/bmp/bmp-image:/home/bmp/bmp-operation-api/data
+    depends_on:
+      - bmp-db
+      - bmp-redis
+  bmp-console-web:
+    image: "${bmp_console_web_image}"
+    env_file:
+      - ./env/bmp-console-web.env
+    ports:
+      - 8080:8080
+    volumes:
+      - ./template/bmp-console-web.nginx.tpl:/etc/nginx/templates/bmp-console-web.conf.template
+    depends_on:
+      - bmp-console-api
+  bmp-operation-web:
+    image: "${bmp_operation_web_image}"
+    env_file:
+      - ./env/bmp-operation-web.env
+    ports:
+      - 8081:8081
+    volumes:
+      - ./template/bmp-operation-web.nginx.tpl:/etc/nginx/templates/bmp-operation-web.conf.template
+      - /var/lib/bmp/bmp-image:/home/bmp/bmp-operation-web/data
+    depends_on:
+      - bmp-operation-api
+  bmp-oob-alert:
+    image: "${bmp_oob_alert_image}"
+    env_file:
+      - ./env/bmp-oob-alert.env
+    ports:
+      - 8804:8804
+    volumes:
+      - /var/log/bmp/bmp-oob-alert:/var/log/bmp/bmp-oob-alert
+    depends_on:
+      - bmp-db
+      - bmp-redis
+  bmp-oob-agent:
+    image: "${bmp_oob_agent_image}"
+    env_file:
+      - ./env/bmp-oob-agent.env
+    volumes:
+      - /var/log/bmp/bmp-oob-agent:/var/log/bmp/bmp-oob-agent
+    depends_on:
+      - bmp-redis
+  bmp-monitor-proxy:
+    image: "${bmp_monitor_proxy_image}"
+    env_file:
+      - ./env/bmp-monitor-proxy.env
+    ports:
+      - 8805:8805
+    volumes:
+      - /var/log/bmp/bmp-monitor-proxy:/var/log/bmp/bmp-monitor-proxy
+    depends_on:
+      - bmp-redis
+  bmp-pushgateway:
+    image: "${bmp_pushgateway_image}"
+    ports:
+      - 9091:9091
+    command: ["--web.enable-admin-api"]
+  bmp-alertmanager:
+    image: "${bmp_alertmanager_image}"
+    env_file:
+      - ./env/bmp-alertmanager.env
+    ports:
+      - 9093:9093
+    volumes:
+      - ./script/alertmanager_init.sh:/alertmanager_init.sh
+      - ./template/alertmanager.tpl:/alertmanager.tpl
+    entrypoint: ""
+    command: ["sh", "/alertmanager_init.sh"]
+  bmp-prometheus:
+    image: "${bmp_prometheus_image}"
+    env_file:
+      - ./env/bmp-prometheus.env
+    ports:
+      - 9090:9090
+    volumes:
+      - /var/lib/bmp/bmp-prometheus/conf:/var/lib/prometheus/conf
+      - ./script/prometheus_init.sh:/prometheus_init.sh
+      - ./template/prometheus.tpl:/prometheus.tpl
+      - ${BMP_PROMETHEUS_DATA_DIR}:/var/lib/prometheus/data
+    entrypoint: ""
+    command: ["sh", "/prometheus_init.sh"]
+    user: root
+    depends_on:
+      - bmp-pushgateway
+      - bmp-alertmanager
+  bmp-pronoea:
+    image: "${bmp_pronoea_image}"
+    env_file:
+      - ./env/bmp-pronoea.env
+    ports:
+      - 9999:9999
+    volumes:
+      - /var/log/bmp/bmp-pronoea:/var/log/bmp/bmp-pronoea
+      - /var/lib/bmp/bmp-prometheus/conf:/var/lib/prometheus/conf
+    depends_on:
+      - bmp-pushgateway
+      - bmp-prometheus   

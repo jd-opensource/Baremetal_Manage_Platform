@@ -1,0 +1,18 @@
+@import '@/assets/css/communal';
+
+.empty-text {
+    font-size: $fontSize;
+    font-weight: $fontSmallWeight;
+    text-align: center;
+    margin-top: 20px;
+
+    &-title {
+        color: $defaultColor;
+    }
+    
+    &-operate {
+        color: $color1;
+        cursor: pointer;
+        margin-left: 3px;
+    }
+}

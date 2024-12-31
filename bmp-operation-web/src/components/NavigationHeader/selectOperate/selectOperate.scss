@@ -1,0 +1,70 @@
+/* 右侧下拉样式 */
+.user {
+
+    .line {
+        border-top: 1px solid $border18;
+    }
+
+    &-img {
+        @include set-width-height(40px);
+        margin: 8px auto 0;
+        @include set-cursor(text);
+    }
+
+    &-count {
+        @extend %display-flex-column;
+        @include display-align(center);
+        width: 175px;
+
+        &:hover {
+            background: $transparent !important;
+        }
+    }
+
+    &-name {
+        margin-bottom: -2px !important;
+    }
+
+    &-email,
+    &-name {
+        @extend %def-c-f-style;
+        font-weight: $fontSmallWeight;
+        margin: 0px 0 4px;
+        @include text-align(center);
+        @include set-cursor(text);
+        width: 155px;
+        @extend %white-flw-over;
+    }
+
+   
+    &-center {
+        @extend %def-c-f-style;
+        min-height: 38px;
+        @include display-align(center);
+        width: 175px;
+        @extend %justify-center;
+
+        &:hover {
+            background: $background3;
+            color: $color1;
+        }
+    }
+
+    .login-out {
+        width: 175px;
+        font-size: $fontSize;
+        min-height: 38px;
+        @include display-align(center);
+        @extend %justify-center;
+        font-weight: $fontLargeWeight;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background: $background1;
+        color: $color3;
+
+        &:active {
+            background: $background2;
+            color: $color3;
+        }
+    }
+}

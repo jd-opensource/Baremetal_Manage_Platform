@@ -1,0 +1,23 @@
+[DEFAULT]
+username=Administrator
+groups=Administrators
+inject_user_password=true
+config_drive_raw_hhd=true
+config_drive_cdrom=true
+config_drive_vfat=true
+bsdtar_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\bsdtar.exe
+mtools_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\bin\
+verbose=true
+debug=true
+logdir=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\
+logfile=cloudbase-init.log
+default_log_levels=comtypes=INFO,suds=INFO,iso8601=WARN,requests=WARN
+logging_serial_port_settings=COM1,115200,N,8
+mtu_use_dhcp_config=true
+ntp_use_dhcp_config=true
+local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
+check_latest_version=true
+{% if only_set_network %}
+plugins=cloudbaseinit.plugins.common.networkconfig.NetworkConfigPlugin
+{% endif %}
+first_logon_behaviour=no

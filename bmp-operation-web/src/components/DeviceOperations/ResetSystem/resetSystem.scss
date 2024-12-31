@@ -1,0 +1,496 @@
+@import 'assets/css/deviceOperate.scss';
+
+.reset-system {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 906px;
+            // height: 598px;
+            background: $whiteBackground;
+            padding-bottom: 100px;
+        }
+
+        &__body {
+            // padding: 0;
+            height: 508px;
+            // margin: auto;
+            overflow-y: auto;
+            // overflow-x: hidden;
+            // padding-bottom: 100px !important;
+        }
+
+        &__footer {
+            width: 844px;
+        }
+    }
+
+    .input-select {
+        width: 240px;
+    }
+
+    .install-bmp-agent {
+        .el-checkbox__inner {
+            border-radius: 0;
+        }
+
+        img {
+            margin-left: 10px;
+        }
+    }
+
+    &-content {
+        // height: 290px;
+
+        .warnning-tip {
+            text-align: center;
+            border-radius: 2px;
+            background: rgb(249, 237, 239);
+            // @extend %display-flex-start;
+            @include display-align(flex-start);
+            margin-top: 15px;
+
+            img {
+                @extend %img-count;
+                margin-top: 2px !important;
+            }
+
+            .tip-count {
+                font-size: $fontSize;
+                padding: 10px 0;
+
+                .reset-system-tip {
+                    text-align: left;
+                    line-height: 24px;
+                    padding: 0 10px 0 0;
+                }
+            }
+        }
+
+        // 实例信息
+        .instance-count {
+            .title {
+                font-size: $fontSize;
+                color: $defaultColor;
+                font-weight: $fontLargeWeight;
+                margin: 20.5px 0 16px;
+            }
+
+            .el-table__inner-wrapper tr:first-child th:first-child {
+                border-left: 0;
+            }
+        }
+
+        .currency-count-table {
+            .img-empty {
+                .el-table__empty-block {
+                    background: $whiteBackground;
+
+                    .el-table__empty-text {
+                        color: $defaultColor;
+                    }
+                }
+            }
+        }
+
+        .reset-system-information {
+            margin-top: 30px;
+
+            .el-form-item--default {
+                margin-bottom: 30px;
+            }
+
+            &-count {
+                width: 240px;
+                height: 60px;
+                // @extend %display-flex-align;
+                @include display-align(center);
+                border: 1px solid $border2;
+                border-radius: 5px;
+                margin-top: 8px;
+                @include set-cursor(pointer);
+
+                &:hover {
+                    border-color: $border3 !important;
+                }
+                // margin-right: 30px;
+
+                .img {
+                    width: 35px;
+                    height: 35px;
+                    margin-left: 11px;
+                }
+
+                .info {
+                    @extend %display-flex-column;
+                    line-height: 1.3;
+                    margin-left: 5px;
+
+                    span {
+                        color: $defaultColor;
+
+                        &:first-child {
+                            font-size: $fontSize2;
+                        }
+
+                        &:last-child {
+                            font-size: $fontSize;
+                        }
+                    }
+                }
+
+                .custom-icon {
+                    position: absolute;
+                    right: 13px;
+                    bottom: 16px;
+                    @include set-cursor(pointer);
+                    transition: all .3s;
+                }
+
+                .rotate180 {
+                    transform: rotate(180deg);
+                }
+
+                .rotate0 {
+                    transform: rotate(0deg);
+                }
+            }
+
+            
+            .custom-yes-icon {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+
+            .triangle {
+                width: 0;
+                right: 0;
+                bottom: 0;
+                height: 0;
+                border-bottom: 15px solid $border3;
+                border-top: 15px solid transparent;
+                border-left: 15px solid transparent;
+                position: absolute;
+                border-bottom-right-radius: 4px !important;
+            }
+
+            .rule-form {
+
+                label {
+                    font-weight: $fontLargeWeight;
+                    @include break-wrap(break-all);
+
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                .custom-image {
+                    overflow: hidden;
+                    max-height: 155px;
+                    transition: max-height .3s;
+
+                    .el-form-item__content {
+                        .el-dropdown {
+                            margin-right: 30px;
+                            margin-bottom: 8px;
+                        }
+                    }
+
+                    // 展开收起按钮
+                    .active-bottom {
+                        width: 29px;
+                        height: 29px;
+                        border-radius: 50%;
+                        border: 1px solid $border7;
+                        position: absolute;
+                        right: 86px;
+                        // @extend %display-flex-align;
+                        @include display-align(center);
+                        top: 0;
+                        margin-top: 100px;
+                        @extend %justify-center;
+
+                        &:hover {
+                            border-color: $border3;
+                            background-color: $background1;
+                            @include set-cursor(pointer);
+
+                            .el-icon {
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    // 下拉展开收起
+                    .icon-rotate180,
+                    .icon-rotate0 {
+                        transition: transform .3s;
+                    }
+
+                    .icon-rotate180 {
+                        transform: rotate(180deg);
+                    }
+
+                    .icon-rotate0 {
+                        transform: rotate(0);
+                    }
+                }
+
+                // 系统盘
+                .custom-system-disk {
+                    position: relative;
+                    z-index: 10;
+                    background: $whiteBackground;
+
+                    .system-disk {
+                        // width: 150px;
+                        min-width: 110px;
+                        position: relative;
+                        z-index: 10;
+                        height: 78px;
+                        margin-right: 30px;
+                        @include set-cursor(pointer);
+                        margin-bottom: 16px;
+
+                        &:hover {
+                            .system-disk-header {
+                                color: $color12;
+                                border-color: $border4 !important;
+                                background-color: $whiteBackground;
+                            }
+
+                            .system-disk-count {
+                                border-color: $border4 !important;
+                            }
+                        }
+
+                        .volume-detail {
+                            padding: 0 5px;
+                        }
+
+                        &-header {
+                            border: 1px solid $border2;
+                            border-radius: 5px 5px 0 0;
+                            font-size: $fontSize;
+                            color: $defaultColor;
+                            text-align: center;
+                            font-weight: $fontLargeWeight;
+                            height: 23px;
+                            // @extend %display-flex-align;
+                            @include display-align(center);
+                            @extend %justify-center;
+                        }
+
+                        &-count {
+                            border: 1px solid $border2;
+                            border-top: 0;
+                            padding-top: 5px;
+                            height: 47px;
+                            font-size: $fontSize;
+                            color: $defaultColor;
+                            text-align: center;
+                            font-weight: $fontSmallWeight;
+                            border-radius: 0 0 5px 5px;
+
+                            p {
+                                line-height: 1.7;
+                            }
+                        }
+                    }
+                }
+                
+                .custom-label {
+                    label {
+                        line-height: 1.5;
+                    }
+                }
+
+                // 系统盘分区
+                .system-partition {
+                    // min-width: 68px;
+                    min-width: 71px;
+                    height: 84px;
+                    border: 1px solid $border2;
+                    border-radius: 5px;
+                    position: relative;
+                    margin-right: 30px;
+                    margin-bottom: 16px;
+
+                    &-header {
+                        font-size: $fontSize;
+                        font-weight: $fontLargeWeight;
+                        margin-left: 8px;
+                    }
+
+                    &-line {
+                        height: 1px;
+                        background: $background16;
+                        position: absolute;
+                        top: 32px;
+                        width: calc(100% - 16px);
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    &-num,
+                    &-unit {
+                        font-size: $fontSize;
+                        text-align: center;
+                        line-height: 1;
+                    }
+
+                    &-num {
+                        margin-top: 13px;
+                        padding: 0 10px;
+                        margin-bottom: 5px;
+                    }
+
+                    %w-h-p-triangle {
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                    }
+
+                    &-triangle {
+                        @extend %w-h-p-triangle;
+                        right: 0;
+                        top: 0;
+                        border-top: 30px solid $border2;
+                        border-bottom: 30px solid $transparent;
+                        border-left: 30px solid $transparent;
+                       
+                    }
+
+                    &-triangle2 {
+                        @extend %w-h-p-triangle;
+                        right: -1.5px;
+                        top: -1px;
+                        border-top: 31.5px solid $border8;
+                        border-bottom: 31.5px solid $transparent;
+                        border-left: 31.5px solid $transparent;
+                    }
+                }
+               
+                // 引导模式
+                .boot-mode {
+                    // margin-bottom: 20px;
+                    .custom-radio-btn {
+                        border: 0.62px solid $border2;
+                        &:hover {
+                            // color: #fff;
+                            border-color: $border3;
+                            color: $color1;
+                            // background: #108ee9;
+                        }
+                    }
+
+                    .custom-radio-btn-active {
+                        border: 0.62px solid $border3;
+                        background: $background1;
+                        color: $color3;
+                    }
+
+                    .custom-radio-btn,
+                    .custom-radio-btn-active {
+                        @include set-cursor(pointer);
+                        width: 99px;
+                        height: 30px;
+                        border-radius: 4px;
+                        margin-right: 21px;
+                        font-size: $fontSize;
+                        // @extend %display-flex-align;
+                        @include display-align(center);
+                        @extend %justify-center ;
+                    }
+                }
+
+                // 间隔
+                .set-empty {
+                    margin-bottom: 45px;
+                }
+
+                // 自定义input宽高度
+                .custom-ipt {
+                    width: 340px;
+                    height: 30px;
+                }
+
+                // 表单校验异常
+                .el-form-item__error {
+                    line-height: 1.5;
+                    padding-top: 6px;
+                    @include break-wrap(break-all);
+                }
+
+                // 设置密码-radio切换
+                .set-password {
+                    .el-radio__label {
+                        color: $color6;
+                    }
+                }
+
+                // 自定义密码
+                .custom-password {
+                    .el-form-item__content {
+                        @extend %display-flex-column;
+                        // @extend %display-flex-start;
+                        @include display-align(flex-start);
+                    }
+                }
+
+                // 自定义表单error文案颜色
+                .error-color-tip {
+                    color: $color13;
+                }
+
+                // 常态表单error文案颜色
+                .password-tip {
+                    color: $color7;
+                }
+
+                // 表单error文案、自定义表单error文案公共样式
+                .error-color-tip,
+                .password-tip {
+                    font-size: $fontSize;
+                    font-weight: $fontSmallWeight;
+                    // @extend %display-flex-align;
+                    @include display-align(center);
+                    margin-top: 12px;
+                    @include break-wrap(break-all);
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+}
+
+// drop-down-下拉item
+.custom-card-select {
+    .el-dropdown-menu__item {
+        width: 240px;
+        height: 36px;
+        // @extend %display-flex-align;
+        @include display-align(center);
+        font-size: $fontSize;
+        @extend %justify-center;
+
+        &:focus {
+            background: $background3 !important;
+            color: $color1;
+        }
+    }
+
+    .drop-down-item-active,
+        .custom-drop-down-item {
+            width: $percentageWidth;
+            height: $percentageHeight;
+            // @extend %display-flex-align;
+            @include display-align(center);
+            @extend %justify-center;
+        }
+
+        .drop-down-item-active {
+            background: $background3;
+            color: $color1;
+        }
+}

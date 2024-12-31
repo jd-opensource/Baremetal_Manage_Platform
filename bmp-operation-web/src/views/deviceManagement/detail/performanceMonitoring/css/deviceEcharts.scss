@@ -1,0 +1,71 @@
+@import 'assets/css/listSearch.scss';
+
+.echarts-search-count {
+    .search-radio-count {
+        margin-bottom: 20px;
+        padding: 0 30px;
+
+        :deep(.el-radio__label) {
+            display: flex;
+            align-items: center;
+        }
+
+        :deep(.el-select) {
+            .el-input__inner {
+                width: 130px;
+                height: 30px;
+                margin-left: 10px;
+            }
+        }
+
+        .common-img {
+            margin-left: 3px;
+        }
+    }
+
+    .echarts-count {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 30px;
+
+        :deep(.el-loading-mask) {
+            border-radius: 8px;
+        }
+    }
+
+    :deep(.seach-opt-count) {
+        display: flex;
+        margin: 18px 0 20px;
+        position: relative;
+
+        .el-range-input {
+            font-size: $fontSize;
+        }
+
+        .radio-active {
+            margin-right: 16px
+        }
+
+        .el-range-editor {
+            height: 30px;
+
+            .el-range-separator {
+                font-size: 12px;
+            }
+        }
+
+        .operate-management-content-operate2 {
+            width: auto;
+            margin-bottom: 0 !important;
+            padding: 0 16px 0 30px;
+
+            &-right {
+                margin-top: 0;
+            }
+
+            .list-data-operate0 {
+                margin-right: 0;
+            }
+        }
+    }
+}

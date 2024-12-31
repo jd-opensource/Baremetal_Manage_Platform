@@ -1,0 +1,60 @@
+.security-verification {
+
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 526px;
+            height: 298px;
+
+            .title {
+
+                .common-img {
+                    position: absolute;
+                    left: 17.5px;
+                    object-fit: contain;
+                }
+        
+                span {
+                    margin-left: 27px;
+                }
+            }
+        }
+
+        &__footer {
+            width: 481px;
+        }
+    }
+
+    &-ruleForm {
+        margin-top: 50.5px;
+
+        .el-form-item__label {
+            margin-left: 106px;
+            font-weight: $fontLargeWeight;
+
+            &::before {
+                display: none;
+            }
+        }
+
+        .el-form-item__error {
+            margin-top: 5px;
+        }
+
+        .el-form-item__label,
+        .el-input__inner {
+            // 不要用全局样式
+            --el-form-label-font-size: 12px;
+            --el-text-color-regular: #333;
+        }
+
+        input {
+            width: 204px;
+            height: 30px;
+            --el-input-bg-color: transparent;
+
+            &::placeholder {
+                font-size: $fontSize;
+            }
+        }
+    }
+}

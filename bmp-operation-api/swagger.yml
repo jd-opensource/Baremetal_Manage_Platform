@@ -1,0 +1,4488 @@
+basePath: /
+consumes:
+    - application/json
+definitions:
+    AddUserRequest:
+        description: 【用户管理】【添加用户】
+        properties:
+            description:
+                type: string
+                x-go-name: Description
+            email:
+                type: string
+                x-go-name: Email
+            language:
+                type: string
+                x-go-name: Language
+            password:
+                type: string
+                x-go-name: Password
+            phoneNumber:
+                type: string
+                x-go-name: PhoneNumber
+            phonePrefix:
+                type: string
+                x-go-name: PhonePrefix
+            roleId:
+                description: BaseRequest
+                type: string
+                x-go-name: RoleID
+            userName:
+                type: string
+                x-go-name: UserName
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    AssociateDeviceTypeImageRequest:
+        properties:
+            deviceTypeId:
+                type: string
+                x-go-name: DeviceTypeID
+            imageIds:
+                type: string
+                x-go-name: ImageIds
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    CommonResponse:
+        description: 新增加或者删除返给前端的true或者false
+        properties:
+            success:
+                type: boolean
+                x-go-name: Success
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    CreateDeviceRequest:
+        properties:
+            deviceTypeId:
+                type: string
+                x-go-name: DeviceTypeId
+            devices:
+                items:
+                    $ref: '#/definitions/UploadDevice'
+                type: array
+                x-go-name: Devices
+            idcId:
+                type: string
+                x-go-name: IdcId
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    CreateDeviceTypeRequest:
+        description: 机型管理 模块请求字段
+        properties:
+            architecture:
+                type: string
+                x-go-name: Architecture
+            bootMode:
+                description: boot模式[UEFI Legacy/BIOS]支持多选，逗号分隔
+                type: string
+                x-go-name: BootMode
+            cpuAmount:
+                format: int64
+                type: integer
+                x-go-name: CPUAmount
+            cpuCores:
+                format: int64
+                type: integer
+                x-go-name: CPUCores
+            cpuFrequency:
+                type: string
+                x-go-name: CPUFrequency
+            cpuManufacturer:
+                type: string
+                x-go-name: CPUManufacturer
+            cpuModel:
+                type: string
+                x-go-name: CPUModel
+            cpuSpec:
+                description: CPU 预置规格
+                type: string
+                x-go-name: CpuSpec
+            createdBy:
+                type: string
+                x-go-name: CreatedBy
+            createdTime:
+                format: int64
+                type: integer
+                x-go-name: CreatedTime
+            dataVolumeAmount:
+                format: int64
+                type: integer
+                x-go-name: DataVolumeAmount
+            dataVolumeInterfaceType:
+                type: string
+                x-go-name: DataVolumeInterfaceType
+            dataVolumeSize:
+                format: double
+                type: number
+                x-go-name: DataVolumeSize
+            dataVolumeType:
+                type: string
+                x-go-name: DataVolumeType
+            dataVolumeUnit:
+                type: string
+                x-go-name: DataVolumeUnit
+            description:
+                type: string
+                x-go-name: Description
+            deviceSeries:
+                type: string
+                x-go-name: DeviceSeries
+            deviceType:
+                type: string
+                x-go-name: DeviceType
+            gpuAmount:
+                format: int64
+                type: integer
+                x-go-name: GpuAmount
+            gpuManufacturer:
+                type: string
+                x-go-name: GpuManufacturer
+            gpuModel:
+                type: string
+                x-go-name: GpuModel
+            height:
+                format: int64
+                type: integer
+                x-go-name: Height
+            idcId:
+                description: ID                        int    `gorm:"primaryKey;column:id" json:"-"`                                        // 主键
+                type: string
+                x-go-name: IDcID
+            interfaceMode:
+                type: string
+                x-go-name: InterfaceMode
+            memAmount:
+                format: int64
+                type: integer
+                x-go-name: MemAmount
+            memFrequency:
+                format: int64
+                type: integer
+                x-go-name: MemFrequency
+            memSize:
+                format: int64
+                type: integer
+                x-go-name: MemSize
+            memSpec:
+                description: 内存 预置规格
+                type: string
+                x-go-name: MemSpec
+            memType:
+                type: string
+                x-go-name: MemType
+            name:
+                description: DeviceTypeID              string `json:"deviceTypeId"`              // 设备类型uuid
+                type: string
+                x-go-name: Name
+            nicAmount:
+                format: int64
+                type: integer
+                x-go-name: NicAmount
+            nicRate:
+                format: int64
+                type: integer
+                x-go-name: NicRate
+            raidCan:
+                description: 是否做raid，[RAID/NO RAID]
+                type: string
+                x-go-name: RaidCan
+            raidId:
+                type: string
+                x-go-name: RaidID
+            systemVolumeAmount:
+                format: int64
+                type: integer
+                x-go-name: SystemVolumeAmount
+            systemVolumeInterfaceType:
+                type: string
+                x-go-name: SystemVolumeInterfaceType
+            systemVolumeSize:
+                format: double
+                type: number
+                x-go-name: SystemVolumeSize
+            systemVolumeType:
+                type: string
+                x-go-name: SystemVolumeType
+            systemVolumeUnit:
+                type: string
+                x-go-name: SystemVolumeUnit
+            updatedBy:
+                type: string
+                x-go-name: UpdatedBy
+            updatedTime:
+                format: int64
+                type: integer
+                x-go-name: UpdatedTime
+        required:
+            - cpuSpec
+            - memSpec
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    CreateDeviceTypeResult:
+        properties:
+            deviceTypeId:
+                type: string
+                x-go-name: DeviceTypeId
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    CreateIdcRequest:
+        description: 机房管理 模块请求字段
+        properties:
+            address:
+                type: string
+                x-go-name: Address
+            iloPassword:
+                description: ilo password
+                type: string
+                x-go-name: IloPassword
+            iloUser:
+                description: ilo user
+                type: string
+                x-go-name: IloUser
+            level:
+                description: level
+                type: string
+                x-go-name: Level
+            name:
+                description: name
+                type: string
+                x-go-name: Name
+            nameEn:
+                description: nameEn
+                type: string
+                x-go-name: NameEn
+            shortname:
+                description: shortname
+                type: string
+                x-go-name: Shortname
+            switchPassword1:
+                description: switch password1
+                type: string
+                x-go-name: SwitchPassword1
+            switchPassword2:
+                description: switch password2
+                type: string
+                x-go-name: SwitchPassword2
+            switchUser1:
+                description: switch user1
+                type: string
+                x-go-name: SwitchUser1
+            switchUser2:
+                description: switch user2
+                type: string
+                x-go-name: SwitchUser2
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    CreateIdcResult:
+        properties:
+            idcId:
+                type: string
+                x-go-name: IdcId
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    CreateImageRequest:
+        properties:
+            architecture:
+                type: string
+                x-go-name: Architecture
+            bootMode:
+                description: boot模式[UEFI Legacy/BIOS]支持多选，逗号分隔
+                type: string
+                x-go-name: BootMode
+            dataPartition:
+                type: string
+                x-go-name: DataPartition
+            description:
+                type: string
+                x-go-name: Description
+            fileName:
+                type: string
+                x-go-name: FileName
+            format:
+                description: |-
+                    OsID            string         `json:"osId" validate:"required"`
+                    ImageFile       multipart.File `json:"imageFile"`
+                type: string
+                x-go-name: Format
+            hash:
+                type: string
+                x-go-name: Hash
+            imageName:
+                type: string
+                x-go-name: ImageName
+            osType:
+                type: string
+                x-go-name: OsType
+            systemPartition:
+                type: string
+                x-go-name: SystemPartition
+            url:
+                type: string
+                x-go-name: Url
+            version:
+                type: string
+                x-go-name: Version
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    Device:
+        properties:
+            adapterId:
+                format: int64
+                type: integer
+                x-go-name: AdapterID
+            architecture:
+                type: string
+                x-go-name: Architecture
+            brand:
+                description: 硬件配置
+                type: string
+                x-go-name: Brand
+            cabinet:
+                type: string
+                x-go-name: Cabinet
+            cpuAmount:
+                format: int64
+                type: integer
+                x-go-name: CPUAmount
+            cpuCores:
+                format: int64
+                type: integer
+                x-go-name: CPUCores
+            cpuFrequency:
+                type: string
+                x-go-name: CPUFrequency
+            cpuInfo:
+                description: 额外拼接的字段，省去前端工作
+                type: string
+                x-go-name: CpuInfo
+            cpuManufacturer:
+                type: string
+                x-go-name: CPUManufacturer
+            cpuModel:
+                type: string
+                x-go-name: CPUModel
+            cpuRoads:
+                format: int8
+                type: integer
+                x-go-name: CPURoads
+            createdBy:
+                type: string
+                x-go-name: CreatedBy
+            createdTime:
+                type: string
+                x-go-name: CreatedTime
+            dataVolumeAmount:
+                description: DataVolumeUnit            string `json:"dataVolumeUnit"`            // 数据盘单位（GB，TB）
+                format: int64
+                type: integer
+                x-go-name: DataVolumeAmount
+            dataVolumeInterfaceType:
+                type: string
+                x-go-name: DataVolumeInterfaceType
+            dataVolumeSize:
+                format: int64
+                type: integer
+                x-go-name: DataVolumeSize
+            dataVolumeType:
+                type: string
+                x-go-name: DataVolumeType
+            description:
+                type: string
+                x-go-name: Description
+            deviceId:
+                type: string
+                x-go-name: DeviceID
+            deviceSeries:
+                type: string
+                x-go-name: DeviceSeries
+            deviceSeriesName:
+                type: string
+                x-go-name: DeviceSeriesName
+            deviceType:
+                type: string
+                x-go-name: DeviceType
+            deviceTypeId:
+                type: string
+                x-go-name: DeviceTypeID
+            deviceTypeName:
+                type: string
+                x-go-name: DeviceTypeName
+            dvInfo:
+                type: string
+                x-go-name: DvInfo
+            enclosure1:
+                description: 添加到disk表
+                type: string
+                x-go-name: Enclosure1
+            enclosure2:
+                type: string
+                x-go-name: Enclosure2
+            eth1Mask:
+                type: string
+                x-go-name: Eth1Mask
+            gateway:
+                type: string
+                x-go-name: Gateway
+            gpuAmount:
+                format: int64
+                type: integer
+                x-go-name: GpuAmount
+            gpuInfo:
+                type: string
+                x-go-name: GpuInfo
+            gpuManufacturer:
+                type: string
+                x-go-name: GpuManufacturer
+            gpuModel:
+                type: string
+                x-go-name: GpuModel
+            id:
+                format: int64
+                type: integer
+                x-go-name: ID
+            idcId:
+                type: string
+                x-go-name: IdcID
+            idcName:
+                description: 以下是通过别的表查询出来的数据，用于返回给上层
+                type: string
+                x-go-name: IdcName
+            idcNameEn:
+                type: string
+                x-go-name: IdcNameEn
+            iloIp:
+                type: string
+                x-go-name: IloIP
+            iloPassword:
+                type: string
+                x-go-name: IloPassword
+            iloUser:
+                type: string
+                x-go-name: IloUser
+            imageName:
+                type: string
+                x-go-name: ImageName
+            instanceCreatedTime:
+                type: string
+                x-go-name: InstanceCreatedTime
+            instanceDescription:
+                type: string
+                x-go-name: InstanceDescription
+            instanceId:
+                type: string
+                x-go-name: InstanceID
+            instanceName:
+                description: 实例信息
+                type: string
+                x-go-name: InstanceName
+            instanceReason:
+                description: 实例失败原因
+                type: string
+                x-go-name: InstanceReason
+            instanceStatus:
+                type: string
+                x-go-name: InstanceStatus
+            instanceStatusName:
+                type: string
+                x-go-name: InstanceStatusName
+            interfaceMode:
+                type: string
+                x-go-name: InterfaceMode
+            interfaceModeName:
+                type: string
+                x-go-name: InterfaceModeName
+            locked:
+                description: 实例是否锁定 锁定locked 未锁定unlocked
+                type: string
+                x-go-name: Locked
+            lockedname:
+                type: string
+                x-go-name: LockedName
+            mac1:
+                type: string
+                x-go-name: Mac1
+            mac2:
+                type: string
+                x-go-name: Mac2
+            manageStatus:
+                type: string
+                x-go-name: ManageStatus
+            manageStatusName:
+                type: string
+                x-go-name: ManageStatusName
+            mask:
+                type: string
+                x-go-name: Mask
+            memAmount:
+                format: int64
+                type: integer
+                x-go-name: MemAmount
+            memFrequency:
+                format: int64
+                type: integer
+                x-go-name: MemFrequency
+            memInfo:
+                type: string
+                x-go-name: MemInfo
+            memSize:
+                format: int64
+                type: integer
+                x-go-name: MemSize
+            memType:
+                type: string
+                x-go-name: MemType
+            model:
+                type: string
+                x-go-name: Model
+            nicAmount:
+                format: int64
+                type: integer
+                x-go-name: NicAmount
+            nicInfo:
+                type: string
+                x-go-name: NicInfo
+            nicRate:
+                format: int64
+                type: integer
+                x-go-name: NicRate
+            privateEth1Ipv4:
+                type: string
+                x-go-name: PrivateEth1IPV4
+            privateEth1Ipv6:
+                type: string
+                x-go-name: PrivateEth1IPV6
+            privateIpv4:
+                type: string
+                x-go-name: PrivateIPv4
+            privateIpv6:
+                type: string
+                x-go-name: PrivateIPv6
+            raidDriver:
+                type: string
+                x-go-name: RaidDriver
+            reason:
+                type: string
+                x-go-name: Reason
+            slot1:
+                format: int64
+                type: integer
+                x-go-name: Slot1
+            slot2:
+                format: int64
+                type: integer
+                x-go-name: Slot2
+            sn:
+                type: string
+                x-go-name: Sn
+            svInfo:
+                type: string
+                x-go-name: SvInfo
+            switchIp:
+                type: string
+                x-go-name: SwitchIP
+            switchIp1:
+                type: string
+                x-go-name: SwitchIP1
+            switchIp2:
+                type: string
+                x-go-name: SwitchIP2
+            switchPassword1:
+                type: string
+                x-go-name: SwitchPassword1
+            switchPassword2:
+                type: string
+                x-go-name: SwitchPassword2
+            switchPort1:
+                type: string
+                x-go-name: SwitchPort1
+            switchPort2:
+                type: string
+                x-go-name: SwitchPort2
+            switchUser1:
+                type: string
+                x-go-name: SwitchUser1
+            switchUser2:
+                type: string
+                x-go-name: SwitchUser2
+            systemVolumeAmount:
+                description: SystemVolumeUnit          string `json:"systemVolumeUnit"`          // 系统盘单位（GB，TB）
+                format: int64
+                type: integer
+                x-go-name: SystemVolumeAmount
+            systemVolumeInterfaceType:
+                type: string
+                x-go-name: SystemVolumeInterfaceType
+            systemVolumeSize:
+                format: int64
+                type: integer
+                x-go-name: SystemVolumeSize
+            systemVolumeType:
+                type: string
+                x-go-name: SystemVolumeType
+            uPosition:
+                type: string
+                x-go-name: UPosition
+            updatedBy:
+                type: string
+                x-go-name: UpdatedBy
+            updatedTime:
+                type: string
+                x-go-name: UpdatedTime
+            userId:
+                type: string
+                x-go-name: UserID
+            userName:
+                type: string
+                x-go-name: UserName
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    DeviceIds:
+        properties:
+            deviceIds:
+                items:
+                    type: string
+                type: array
+                x-go-name: DeviceIds
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    DevicePage:
+        properties:
+            devices:
+                items:
+                    $ref: '#/definitions/Device'
+                type: array
+                x-go-name: Devices
+            pageNumber:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            pageSize:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            totalCount:
+                format: int64
+                type: integer
+                x-go-name: TotalCount
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    DeviceType:
+        properties:
+            architecture:
+                type: string
+                x-go-name: Architecture
+            bootMode:
+                description: boot模式
+                type: string
+                x-go-name: BootMode
+            cpuAmount:
+                format: int64
+                type: integer
+                x-go-name: CPUAmount
+            cpuCores:
+                format: int64
+                type: integer
+                x-go-name: CPUCores
+            cpuFrequency:
+                type: string
+                x-go-name: CPUFrequency
+            cpuInfo:
+                description: 额外拼接的字段，省去前端工作
+                type: string
+                x-go-name: CpuInfo
+            cpuManufacturer:
+                type: string
+                x-go-name: CPUManufacturer
+            cpuModel:
+                type: string
+                x-go-name: CPUModel
+            cpuSpec:
+                type: string
+                x-go-name: CPUSpec
+            createdBy:
+                type: string
+                x-go-name: CreatedBy
+            createdTime:
+                type: string
+                x-go-name: CreatedTime
+            dataVolumeAmount:
+                format: int64
+                type: integer
+                x-go-name: DataVolumeAmount
+            dataVolumeInterfaceType:
+                type: string
+                x-go-name: DataVolumeInterfaceType
+            dataVolumeSize:
+                format: double
+                type: number
+                x-go-name: DataVolumeSize
+            dataVolumeType:
+                type: string
+                x-go-name: DataVolumeType
+            dataVolumeUnit:
+                type: string
+                x-go-name: DataVolumeUnit
+            description:
+                type: string
+                x-go-name: Description
+            deviceCount:
+                format: int64
+                type: integer
+                x-go-name: DeviceCount
+            deviceSeries:
+                type: string
+                x-go-name: DeviceSeries
+            deviceSeriesName:
+                type: string
+                x-go-name: DeviceSeriesName
+            deviceType:
+                type: string
+                x-go-name: DeviceType
+            deviceTypeId:
+                type: string
+                x-go-name: DeviceTypeID
+            dvInfo:
+                type: string
+                x-go-name: DvInfo
+            gpuAmount:
+                format: int64
+                type: integer
+                x-go-name: GpuAmount
+            gpuInfo:
+                type: string
+                x-go-name: GpuInfo
+            gpuManufacturer:
+                type: string
+                x-go-name: GpuManufacturer
+            gpuModel:
+                type: string
+                x-go-name: GpuModel
+            height:
+                format: int64
+                type: integer
+                x-go-name: Height
+            id:
+                format: int64
+                type: integer
+                x-go-name: ID
+            idcId:
+                type: string
+                x-go-name: IDcID
+            idcName:
+                type: string
+                x-go-name: IdcName
+            idcNameEn:
+                type: string
+                x-go-name: IdcNameEn
+            imageCount:
+                type: string
+                x-go-name: ImageCount
+            instanceCount:
+                format: int64
+                type: integer
+                x-go-name: InstanceCount
+            instanceStatus:
+                items:
+                    type: string
+                type: array
+                x-go-name: InstanceStatus
+            interfaceMode:
+                type: string
+                x-go-name: InterfaceMode
+            interfaceModeName:
+                type: string
+                x-go-name: InterfaceModeName
+            memAmount:
+                format: int64
+                type: integer
+                x-go-name: MemAmount
+            memFrequency:
+                format: int64
+                type: integer
+                x-go-name: MemFrequency
+            memInfo:
+                type: string
+                x-go-name: MemInfo
+            memSize:
+                format: int64
+                type: integer
+                x-go-name: MemSize
+            memSpec:
+                type: string
+                x-go-name: MemSpec
+            memType:
+                type: string
+                x-go-name: MemType
+            name:
+                type: string
+                x-go-name: Name
+            nic:
+                type: string
+                x-go-name: Nic
+            nicAmount:
+                format: int64
+                type: integer
+                x-go-name: NicAmount
+            nicInfo:
+                type: string
+                x-go-name: NicInfo
+            nicRate:
+                format: int64
+                type: integer
+                x-go-name: NicRate
+            raid:
+                description: |-
+                    DeletedTime               int    `json:"deletedTime"`               // 删除时间
+                    IsDel                     int8   `son:"isDel"`                      // 是否删除0未删除 1已删除
+                type: string
+                x-go-name: Raid
+            raidCan:
+                description: 是否做raid，[RAID/NO RAID]
+                type: string
+                x-go-name: RaidCan
+            svInfo:
+                type: string
+                x-go-name: SvInfo
+            systemVolumeAmount:
+                format: int64
+                type: integer
+                x-go-name: SystemVolumeAmount
+            systemVolumeInterfaceType:
+                type: string
+                x-go-name: SystemVolumeInterfaceType
+            systemVolumeSize:
+                format: double
+                type: number
+                x-go-name: SystemVolumeSize
+            systemVolumeType:
+                type: string
+                x-go-name: SystemVolumeType
+            systemVolumeUnit:
+                type: string
+                x-go-name: SystemVolumeUnit
+            updatedBy:
+                type: string
+                x-go-name: UpdatedBy
+            updatedTime:
+                type: string
+                x-go-name: UpdatedTime
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    DeviceTypeImage:
+        properties:
+            architecture:
+                description: 架构:x86/x64/i386/
+                type: string
+                x-go-name: Architecture
+            createdBy:
+                description: 创建者
+                type: string
+                x-go-name: CreatedBy
+            createdTime:
+                description: 创建时间
+                type: string
+                x-go-name: CreatedTime
+            dataPartition:
+                description: 数据分区信息
+                type: string
+                x-go-name: DataPartition
+            description:
+                description: 描述
+                type: string
+                x-go-name: Description
+            deviceTypeNum:
+                description: 绑定了机型数量
+                format: int64
+                type: integer
+                x-go-name: DeviceTypeNum
+            filename:
+                description: 镜像文件名称
+                type: string
+                x-go-name: Filename
+            format:
+                description: 镜像格式（qcow2、tar）
+                type: string
+                x-go-name: Format
+            hash:
+                description: 镜像校验码
+                type: string
+                x-go-name: Hash
+            id:
+                format: uint64
+                type: integer
+                x-go-name: ID
+            imageId:
+                description: 镜像uuid
+                type: string
+                x-go-name: ImageID
+            imageName:
+                description: 镜像名称
+                type: string
+                x-go-name: ImageName
+            isBind:
+                description: 是否绑定了某个机型
+                type: boolean
+                x-go-name: IsBind
+            osId:
+                description: 源os uuid
+                type: string
+                x-go-name: OsID
+            osName:
+                description: CentOS 7.2 64-bit
+                type: string
+                x-go-name: OsName
+            osType:
+                description: 操作系统分类:linux/windows
+                type: string
+                x-go-name: OsType
+            osVersion:
+                description: 操作系统版本
+                type: string
+                x-go-name: OsVersion
+            source:
+                description: 镜像来源(common通用、customize定制、user_defined自定义)
+                type: string
+                x-go-name: Source
+            sourceName:
+                description: 镜像来源(common通用、customize定制、user_defined自定义)
+                type: string
+                x-go-name: SourceName
+            systemPartition:
+                description: 系统分区信息（系统盘：“/ ” ：50GiB，xfs；swap：10GiB，swap）
+                type: string
+                x-go-name: SystemPartition
+            updatedBy:
+                description: 更新者
+                type: string
+                x-go-name: UpdatedBy
+            updatedTime:
+                description: 更新时间
+                type: string
+                x-go-name: UpdatedTime
+            url:
+                description: 镜像源路径
+                type: string
+                x-go-name: URL
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    DeviceTypeImageList:
+        properties:
+            deviceTypes:
+                items:
+                    $ref: '#/definitions/DeviceTypeImage'
+                type: array
+                x-go-name: DeviceTypeImages
+            pageNumber:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            pageSize:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            totalCount:
+                format: int64
+                type: integer
+                x-go-name: TotalCount
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    DeviceTypePage:
+        properties:
+            deviceTypes:
+                items:
+                    $ref: '#/definitions/DeviceType'
+                type: array
+                x-go-name: DeviceTypes
+            pageNumber:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            pageSize:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            totalCount:
+                format: int64
+                type: integer
+                x-go-name: TotalCount
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    DisassociateDeviceTypeImageRequest:
+        properties:
+            deviceTypeId:
+                type: string
+                x-go-name: DeviceTypeID
+            imageId:
+                type: string
+                x-go-name: ImageId
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    ErrorResponse:
+        properties:
+            code:
+                format: int64
+                type: integer
+                x-go-name: Code
+            message:
+                type: string
+                x-go-name: Message
+            status:
+                type: string
+                x-go-name: Status
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/controllers
+    File:
+        allOf:
+            - properties:
+                Close:
+                    type: string
+              type: object
+            - type: object
+            - type: object
+            - type: object
+            - properties:
+                Close:
+                    type: string
+              type: object
+            - type: object
+            - type: object
+            - type: object
+        description: |-
+            Its contents may be either stored in memory or on disk.
+            If stored on disk, the File's underlying concrete type will be an *os.File.
+        title: File is an interface to access the file part of a multipart message.
+        type: object
+        x-go-package: mime/multipart
+    GetMessageByIdRequest:
+        properties:
+            messageId:
+                type: string
+                x-go-name: MessageId
+        required:
+            - messageId
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    HasUnreadMessage:
+        properties:
+            hasUnread:
+                type: boolean
+                x-go-name: HasUnread
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    Idc:
+        properties:
+            address:
+                description: address
+                type: string
+                x-go-name: Address
+            createTime:
+                description: create time
+                type: string
+                x-go-name: CreateTime
+            createdBy:
+                description: created by
+                type: string
+                x-go-name: CreatedBy
+            id:
+                description: ID
+                format: int64
+                type: integer
+                x-go-name: ID
+            idcId:
+                description: i dc ID
+                type: string
+                x-go-name: IDcID
+            iloPassword:
+                description: ilo password
+                type: string
+                x-go-name: IloPassword
+            iloUser:
+                description: ilo user
+                type: string
+                x-go-name: IloUser
+            level:
+                description: level
+                type: string
+                x-go-name: Level
+            name:
+                description: name
+                type: string
+                x-go-name: Name
+            nameEn:
+                description: name en
+                type: string
+                x-go-name: NameEn
+            shortname:
+                description: shortname
+                type: string
+                x-go-name: Shortname
+            switchPassword1:
+                description: switch password1
+                type: string
+                x-go-name: SwitchPassword1
+            switchPassword2:
+                description: switch password2
+                type: string
+                x-go-name: SwitchPassword2
+            switchUser1:
+                description: switch user1
+                type: string
+                x-go-name: SwitchUser1
+            switchUser2:
+                description: switch user2
+                type: string
+                x-go-name: SwitchUser2
+            updateTime:
+                description: update time
+                type: string
+                x-go-name: UpdateTime
+            updatedBy:
+                description: updated by
+                type: string
+                x-go-name: UpdatedBy
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    IdcPage:
+        properties:
+            idcs:
+                items:
+                    $ref: '#/definitions/Idc'
+                type: array
+                x-go-name: Idcs
+            pageNumber:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            pageSize:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            totalCount:
+                format: int64
+                type: integer
+                x-go-name: TotalCount
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    Image:
+        properties:
+            architecture:
+                description: |-
+                    DeletedTime     int    `json:"deletedTime"`     // 删除时间戳
+                    IsDel           int8   `json:"isDel"`           // 是否删除0未删除 1已删除
+                    Platform      string `json:"platform"`  // suse/centos/ubuntu
+                type: string
+                x-go-name: Architecture
+            bootMode:
+                description: boot模式
+                type: string
+                x-go-name: BootMode
+            createdBy:
+                type: string
+                x-go-name: CreatedBy
+            createdTime:
+                type: string
+                x-go-name: CreatedTime
+            dataPartition:
+                type: string
+                x-go-name: DataPartition
+            description:
+                type: string
+                x-go-name: Description
+            deviceTypeNum:
+                format: int64
+                type: integer
+                x-go-name: DeviceTypeNum
+            filename:
+                type: string
+                x-go-name: Filename
+            format:
+                type: string
+                x-go-name: Format
+            hash:
+                type: string
+                x-go-name: Hash
+            imageId:
+                type: string
+                x-go-name: ImageID
+            imageName:
+                type: string
+                x-go-name: ImageName
+            isBind:
+                type: boolean
+                x-go-name: IsBind
+            osId:
+                type: string
+                x-go-name: OsID
+            osType:
+                type: string
+                x-go-name: OsType
+            osVersion:
+                type: string
+                x-go-name: OsVersion
+            source:
+                type: string
+                x-go-name: Source
+            sourceName:
+                type: string
+                x-go-name: SourceName
+            systemPartition:
+                type: string
+                x-go-name: SystemPartition
+            updatedBy:
+                type: string
+                x-go-name: UpdatedBy
+            updatedTime:
+                type: string
+                x-go-name: UpdatedTime
+            url:
+                type: string
+                x-go-name: URL
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    ImageId:
+        properties:
+            imageId:
+                type: string
+                x-go-name: ImageId
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    ImageList:
+        properties:
+            images:
+                items:
+                    $ref: '#/definitions/Image'
+                type: array
+                x-go-name: Images
+            pageNumber:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            pageSize:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            totalCount:
+                format: int64
+                type: integer
+                x-go-name: TotalCount
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    ImageUpload:
+        properties:
+            fileName:
+                type: string
+                x-go-name: FileName
+            format:
+                type: string
+                x-go-name: Format
+            hash:
+                type: string
+                x-go-name: Hash
+            url:
+                type: string
+                x-go-name: Url
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    LoginRequest:
+        properties:
+            password:
+                type: string
+                x-go-name: Password
+            username:
+                type: string
+                x-go-name: Username
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    MessageList:
+        properties:
+            apikeys:
+                items:
+                    $ref: '#/definitions/WebMessage'
+                type: array
+                x-go-name: Messages
+            pageNumber:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            pageSize:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            totalCount:
+                format: int64
+                type: integer
+                x-go-name: TotalCount
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    MessageStatistic:
+        properties:
+            totalCount:
+                format: int64
+                type: integer
+                x-go-name: TotalCount
+            unreadCount:
+                format: int64
+                type: integer
+                x-go-name: UnreadCount
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    MessageWithNextPrev:
+        properties:
+            apikeys:
+                $ref: '#/definitions/WebMessage'
+            nextMessageId:
+                type: string
+                x-go-name: NextMessageId
+            prevMessageId:
+                type: string
+                x-go-name: PrevMessageId
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    ModifyDeviceTypeRequest:
+        description: 【机型管理】【编辑机型】
+        properties:
+            architecture:
+                type: string
+                x-go-name: Architecture
+            bootMode:
+                description: boot模式[UEFI Legacy/BIOS]支持多选，逗号分隔
+                type: string
+                x-go-name: BootMode
+            cpuAmount:
+                format: int64
+                type: integer
+                x-go-name: CPUAmount
+            cpuCores:
+                format: int64
+                type: integer
+                x-go-name: CPUCores
+            cpuFrequency:
+                type: string
+                x-go-name: CPUFrequency
+            cpuManufacturer:
+                type: string
+                x-go-name: CPUManufacturer
+            cpuModel:
+                type: string
+                x-go-name: CPUModel
+            cpuSpec:
+                description: CPU 预置规格
+                type: string
+                x-go-name: CpuSpec
+            createdBy:
+                type: string
+                x-go-name: CreatedBy
+            createdTime:
+                format: int64
+                type: integer
+                x-go-name: CreatedTime
+            dataVolumeAmount:
+                format: int64
+                type: integer
+                x-go-name: DataVolumeAmount
+            dataVolumeInterfaceType:
+                type: string
+                x-go-name: DataVolumeInterfaceType
+            dataVolumeSize:
+                format: double
+                type: number
+                x-go-name: DataVolumeSize
+            dataVolumeType:
+                type: string
+                x-go-name: DataVolumeType
+            dataVolumeUnit:
+                type: string
+                x-go-name: DataVolumeUnit
+            description:
+                type: string
+                x-go-name: Description
+            deviceSeries:
+                type: string
+                x-go-name: DeviceSeries
+            deviceType:
+                type: string
+                x-go-name: DeviceType
+            deviceTypeId:
+                type: string
+                x-go-name: DeviceTypeID
+            gpuAmount:
+                format: int64
+                type: integer
+                x-go-name: GpuAmount
+            gpuManufacturer:
+                type: string
+                x-go-name: GpuManufacturer
+            gpuModel:
+                type: string
+                x-go-name: GpuModel
+            height:
+                format: int64
+                type: integer
+                x-go-name: Height
+            idcId:
+                description: ID                        int    `gorm:"primaryKey;column:id" json:"-"`                                        // 主键
+                type: string
+                x-go-name: IDcID
+            interfaceMode:
+                type: string
+                x-go-name: InterfaceMode
+            memAmount:
+                format: int64
+                type: integer
+                x-go-name: MemAmount
+            memFrequency:
+                format: int64
+                type: integer
+                x-go-name: MemFrequency
+            memSize:
+                format: int64
+                type: integer
+                x-go-name: MemSize
+            memSpec:
+                description: 内存 预置规格
+                type: string
+                x-go-name: MemSpec
+            memType:
+                type: string
+                x-go-name: MemType
+            name:
+                type: string
+                x-go-name: Name
+            nicAmount:
+                format: int64
+                type: integer
+                x-go-name: NicAmount
+            nicRate:
+                format: int64
+                type: integer
+                x-go-name: NicRate
+            raidCan:
+                description: 是否做raid，[RAID/NO RAID]
+                type: string
+                x-go-name: RaidCan
+            raidId:
+                type: string
+                x-go-name: RaidID
+            systemVolumeAmount:
+                format: int64
+                type: integer
+                x-go-name: SystemVolumeAmount
+            systemVolumeInterfaceType:
+                type: string
+                x-go-name: SystemVolumeInterfaceType
+            systemVolumeSize:
+                format: double
+                type: number
+                x-go-name: SystemVolumeSize
+            systemVolumeType:
+                type: string
+                x-go-name: SystemVolumeType
+            systemVolumeUnit:
+                type: string
+                x-go-name: SystemVolumeUnit
+            updatedBy:
+                type: string
+                x-go-name: UpdatedBy
+            updatedTime:
+                format: int64
+                type: integer
+                x-go-name: UpdatedTime
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    ModifyIdcRequest:
+        description: 【机房管理】【编辑机房】
+        properties:
+            address:
+                description: address
+                type: string
+                x-go-name: Address
+            idcId:
+                description: ID                        int    `gorm:"primaryKey;column:id" json:"-"`                                        // 主键
+                type: string
+                x-go-name: IdcID
+            iloPassword:
+                description: ilo password
+                type: string
+                x-go-name: IloPassword
+            iloUser:
+                description: ilo user
+                type: string
+                x-go-name: IloUser
+            level:
+                description: level
+                type: string
+                x-go-name: Level
+            name:
+                description: name
+                type: string
+                x-go-name: Name
+            nameEn:
+                description: name en
+                type: string
+                x-go-name: NameEn
+            shortname:
+                description: shortname
+                type: string
+                x-go-name: Shortname
+            switchPassword1:
+                description: switch password1
+                type: string
+                x-go-name: SwitchPassword1
+            switchPassword2:
+                description: switch password2
+                type: string
+                x-go-name: SwitchPassword2
+            switchUser1:
+                description: switch user1
+                type: string
+                x-go-name: SwitchUser1
+            switchUser2:
+                description: switch user2
+                type: string
+                x-go-name: SwitchUser2
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    ModifyUserInfoRequest:
+        description: 【用户管理】【编辑用户信息】
+        properties:
+            defaultProjectId:
+                type: string
+                x-go-name: DefaultProjectID
+            description:
+                type: string
+                x-go-name: Description
+            email:
+                type: string
+                x-go-name: Email
+            language:
+                type: string
+                x-go-name: Language
+            password:
+                description: Timezone         time.Time `gorm:"column:timezone" json:"timezone"`                   // UTC或者本时区时间
+                type: string
+                x-go-name: Password
+            phoneNumber:
+                type: string
+                x-go-name: PhoneNumber
+            phonePrefix:
+                type: string
+                x-go-name: PhonePrefix
+            roleId:
+                description: UserID           string  `json:"userId"`
+                type: string
+                x-go-name: RoleID
+            userName:
+                type: string
+                x-go-name: UserName
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    Os:
+        properties:
+            architecture:
+                type: string
+                x-go-name: Architecture
+            bits:
+                format: int64
+                type: integer
+                x-go-name: Bits
+            createdBy:
+                type: string
+                x-go-name: CreatedBy
+            createdTime:
+                type: string
+                x-go-name: CreatedTime
+            deletedTime:
+                type: string
+                x-go-name: DeletedTime
+            id:
+                format: uint64
+                type: integer
+                x-go-name: ID
+            isDel:
+                format: int8
+                type: integer
+                x-go-name: IsDel
+            osId:
+                type: string
+                x-go-name: OsID
+            osName:
+                type: string
+                x-go-name: OsName
+            osType:
+                type: string
+                x-go-name: OsType
+            osVersion:
+                type: string
+                x-go-name: OsVersion
+            sysUser:
+                type: string
+                x-go-name: SysUser
+            updatedBy:
+                type: string
+                x-go-name: UpdatedBy
+            updatedTime:
+                type: string
+                x-go-name: UpdatedTime
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    OsList:
+        properties:
+            oss:
+                items:
+                    $ref: '#/definitions/Os'
+                type: array
+                x-go-name: Oss
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    PutawayDeviceRequest:
+        description: 【设备管理】【设备上架】支持多sn
+        properties:
+            deviceId:
+                type: string
+                x-go-name: DeviceID
+            sns:
+                type: string
+                x-go-name: Sns
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    Raid:
+        properties:
+            availableValue:
+                format: int64
+                type: integer
+                x-go-name: AvailableValue
+            descriptionEn:
+                type: string
+                x-go-name: DescriptionEn
+            descriptionZh:
+                type: string
+                x-go-name: DescriptionZh
+            deviceTypeId:
+                type: string
+                x-go-name: DeviceTypeId
+            diskType:
+                type: string
+                x-go-name: DiskType
+            name:
+                type: string
+                x-go-name: Name
+            raidId:
+                type: string
+                x-go-name: RaidID
+            systemPartitionCount:
+                format: int64
+                type: integer
+                x-go-name: SystemPartitionCount
+            volumeDetail:
+                type: string
+                x-go-name: VolumeDetail
+            volumeType:
+                type: string
+                x-go-name: VolumeType
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    RaidList:
+        properties:
+            raids:
+                items:
+                    $ref: '#/definitions/Raid'
+                type: array
+                x-go-name: Raids
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    ReadMessagesRequest:
+        properties:
+            messageIds:
+                items:
+                    type: string
+                type: array
+                x-go-name: MessageIds
+        required:
+            - messageIds
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    ResetInstancesPasswdRequest:
+        properties:
+            az:
+                type: string
+                x-go-name: Az
+            instanceIds:
+                items:
+                    type: string
+                type: array
+                x-go-name: InstanceIds
+            password:
+                type: string
+                x-go-name: Password
+            pin:
+                type: string
+                x-go-name: Pin
+            region:
+                type: string
+                x-go-name: Region
+            tenant:
+                type: string
+                x-go-name: Tenant
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    ResetPasswdRequest:
+        properties:
+            az:
+                type: string
+                x-go-name: Az
+            instanceId:
+                type: string
+                x-go-name: InstanceId
+            password:
+                type: string
+                x-go-name: Password
+            pin:
+                type: string
+                x-go-name: Pin
+            region:
+                type: string
+                x-go-name: Region
+            tenant:
+                type: string
+                x-go-name: Tenant
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    SetCustomInfoRequest:
+        properties:
+            pageKey:
+                type: string
+                x-go-name: PageKey
+            pageValue:
+                additionalProperties:
+                    additionalProperties:
+                        type: boolean
+                    type: object
+                type: object
+                x-go-name: PageValue
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    UnPutawayDeviceRequest:
+        description: 【设备管理】【设备下架】支持多sn
+        properties:
+            deviceId:
+                type: string
+                x-go-name: DeviceID
+            sns:
+                type: string
+                x-go-name: Sns
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    UploadDevice:
+        description: 上传设备返回
+        properties:
+            SwitchUser2:
+                type: string
+            adapterId:
+                format: int64
+                type: integer
+                x-go-name: AdapterID
+            brand:
+                type: string
+                x-go-name: Brand
+            cabinet:
+                type: string
+                x-go-name: Cabinet
+            enclosure1:
+                type: string
+                x-go-name: Enclosure1
+            enclosure2:
+                type: string
+                x-go-name: Enclosure2
+            gateway:
+                type: string
+                x-go-name: Gateway
+            iloIp:
+                type: string
+                x-go-name: IloIP
+            iloPassword:
+                type: string
+                x-go-name: IloPassword
+            iloUser:
+                type: string
+                x-go-name: IloUser
+            mac1:
+                type: string
+                x-go-name: Mac1
+            mac2:
+                type: string
+                x-go-name: Mac2
+            mask:
+                description: SwitchIP        string `json:"switchIp"`        // 网口交换机IP
+                type: string
+                x-go-name: Mask
+            maskEth1:
+                type: string
+                x-go-name: MaskEth1
+            model:
+                type: string
+                x-go-name: Model
+            privateEth1Ipv4:
+                type: string
+                x-go-name: PrivateEth1IPv4
+            privateEth1Ipv6:
+                type: string
+                x-go-name: PrivateEth1IPv6
+            privateIpv4:
+                type: string
+                x-go-name: PrivateIPv4
+            privateIpv6:
+                type: string
+                x-go-name: PrivateIPv6
+            slot1:
+                format: int64
+                type: integer
+                x-go-name: Slot1
+            slot2:
+                format: int64
+                type: integer
+                x-go-name: Slot2
+            sn:
+                description: 额外拼接的字段，省去前端工作
+                type: string
+                x-go-name: Sn
+            switchIp1:
+                type: string
+                x-go-name: SwitchIP1
+            switchIp2:
+                type: string
+                x-go-name: SwitchIP2
+            switchPassword1:
+                type: string
+                x-go-name: SwitchPassword1
+            switchPassword2:
+                type: string
+                x-go-name: SwitchPassword2
+            switchPort1:
+                type: string
+                x-go-name: SwitchPort1
+            switchPort2:
+                type: string
+                x-go-name: SwitchPort2
+            switchUser1:
+                type: string
+                x-go-name: SwitchUser1
+            uPosition:
+                type: string
+                x-go-name: UPosition
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    UploadDeviceRequest:
+        properties:
+            deviceFile:
+                $ref: '#/definitions/File'
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    UploadImageRequest:
+        properties:
+            imageFile:
+                $ref: '#/definitions/File'
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    User:
+        properties:
+            DefaultProjectName:
+                type: string
+            createdBy:
+                type: string
+                x-go-name: CreatedBy
+            createdTime:
+                type: string
+                x-go-name: CreatedTime
+            defaultProjectId:
+                type: string
+                x-go-name: DefaultProjectID
+            description:
+                type: string
+                x-go-name: Description
+            email:
+                type: string
+                x-go-name: Email
+            id:
+                format: int64
+                type: integer
+                x-go-name: ID
+            instanceCount:
+                format: int64
+                type: integer
+                x-go-name: InstanceCount
+            language:
+                type: string
+                x-go-name: Language
+            password:
+                type: string
+                x-go-name: Password
+            phoneNumber:
+                type: string
+                x-go-name: PhoneNumber
+            phonePrefix:
+                type: string
+                x-go-name: PhonePrefix
+            projectCount:
+                format: int64
+                type: integer
+                x-go-name: ProjectCount
+            roleId:
+                type: string
+                x-go-name: RoleID
+            roleName:
+                type: string
+                x-go-name: RoleName
+            timezone:
+                format: date-time
+                type: string
+                x-go-name: Timezone
+            updatedBy:
+                type: string
+                x-go-name: UpdatedBy
+            updatedTime:
+                type: string
+                x-go-name: UpdatedTime
+            userId:
+                type: string
+                x-go-name: UserID
+            userName:
+                type: string
+                x-go-name: UserName
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    UserAdd:
+        properties:
+            userId:
+                type: string
+                x-go-name: UserID
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    UserPage:
+        properties:
+            pageNumber:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            pageSize:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            totalCount:
+                format: int64
+                type: integer
+                x-go-name: TotalCount
+            users:
+                items:
+                    $ref: '#/definitions/User'
+                type: array
+                x-go-name: Users
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/response
+    VerifyUserRequest:
+        properties:
+            password:
+                type: string
+                x-go-name: Password
+            username:
+                type: string
+                x-go-name: Username
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-operation-api/types/request
+    WebMessage:
+        description: WebMessage WebMessage message
+        properties:
+            alert_count:
+                description: alert count
+                format: int64
+                type: integer
+                x-go-name: AlertCount
+            alert_time:
+                description: alert time
+                format: int64
+                type: integer
+                x-go-name: AlertTime
+            content:
+                description: content
+                type: string
+                x-go-name: Content
+            detail:
+                description: detail
+                type: string
+                x-go-name: Detail
+            fault_type:
+                description: 以下为带外故障消息专属字段
+                type: string
+                x-go-name: FaultType
+            finish_time:
+                description: finish time
+                format: int64
+                type: integer
+                x-go-name: FinishTime
+            has_read:
+                description: has read
+                format: int8
+                type: integer
+                x-go-name: HasRead
+            instance_id:
+                description: instance ID
+                type: string
+                x-go-name: InstanceID
+            is_del:
+                description: is del
+                format: int8
+                type: integer
+                x-go-name: IsDel
+            license_end_time:
+                description: liense end time
+                format: int64
+                type: integer
+                x-go-name: LienseEndTime
+            license_name:
+                description: 以下为许可证到期消息专属字段
+                type: string
+                x-go-name: LicenseName
+            license_number:
+                description: license number
+                type: string
+                x-go-name: LicenseNumber
+            license_start_time:
+                description: liense start time
+                format: int64
+                type: integer
+                x-go-name: LienseStartTime
+            logid:
+                description: log ID
+                type: string
+                x-go-name: LogID
+            message_id:
+                description: message ID
+                type: string
+                x-go-name: MessageID
+            message_sub_type:
+                description: message sub type
+                type: string
+                x-go-name: MessageSubType
+            message_type:
+                description: message type
+                type: string
+                x-go-name: MessageType
+            resource_type:
+                description: resource type
+                type: string
+                x-go-name: ResourceType
+            result:
+                description: result
+                type: string
+                x-go-name: Result
+            sn:
+                description: s n
+                type: string
+                x-go-name: SN
+            user_id:
+                description: user ID
+                type: string
+                x-go-name: UserID
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/bmp-openapi-sdk/models
+host: bmp-operation-api.local
+info:
+    contact:
+        email: minping@jd.com
+    description: |-
+        the purpose of this application is to provide an application
+        that is using plain go code to define an API
+
+        This should demonstrate all the possible comment annotations
+        that are available to turn go code into a fully compliant swagger 2.0 spec
+    license:
+        name: MIT
+        url: http://opensource.org/licenses/MIT
+    termsOfService: there are no TOS at this moment, use at your own risk we take no responsibility
+    title: bmp-operation-api
+    version: 0.0.1
+paths:
+    /apikey:
+        get:
+            description: GetApikeyList 获取apikey列表
+            operationId: getApikeyList
+            responses:
+                "200":
+                    $ref: '#/responses/getApikeyList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - keypair
+        put:
+            description: CreateAPIkey 创建apikey
+            operationId: createApikey
+            responses:
+                "200":
+                    $ref: '#/responses/createApikey'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - keypair
+    /apikey/{apikey_id}:
+        delete:
+            description: DeleteApikey 删除apikey
+            operationId: deleteApikey
+            responses:
+                "200":
+                    $ref: '#/responses/deleteApikey'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - keypair
+    /custom/getCustomInfo:
+        get:
+            description: GetCustomInfo 获取自定义信息
+            operationId: getCustomInfo
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: query
+                  name: pageKey
+                  type: string
+                  x-go-name: PageKey
+                - in: query
+                  name: reload
+                  type: string
+                  x-go-name: Reload
+            responses:
+                "200":
+                    $ref: '#/responses/getCustomInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - custom
+    /custom/setCustomInfo:
+        post:
+            description: SetCustomInfo 设置自定义信息
+            operationId: setCustomInfo
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/SetCustomInfoRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/setCustomInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - custom
+    /deviceType/getAvailableDeviceTypes:
+        get:
+            description: GetAvailableDeviceTypes 获取该机房内可用机型列表
+            operationId: getAvailableDeviceTypes
+            responses:
+                "200":
+                    $ref: '#/responses/getAvailableDeviceTypes'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+    /deviceTypes:
+        get:
+            description: QueryDeviceTypes【机型管理】【机型列表】
+            operationId: queryDeviceTypes
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - format: int64
+                  in: query
+                  name: pageNumber
+                  type: integer
+                  x-go-name: PageNumber
+                - format: int64
+                  in: query
+                  name: pageSize
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: deviceTypeId
+                  type: string
+                  x-go-name: DeviceTypeID
+                - in: query
+                  name: deviceType
+                  type: string
+                  x-go-name: DeviceType
+                - in: query
+                  name: idcId
+                  type: string
+                  x-go-name: IdcID
+                - in: query
+                  name: name
+                  type: string
+                  x-go-name: Name
+                - in: query
+                  name: deviceSeries
+                  type: string
+                  x-go-name: DeviceSeries
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - description: 非空表示导出
+                  in: query
+                  name: exportType
+                  type: string
+                  x-go-name: ExportType
+            responses:
+                "200":
+                    $ref: '#/responses/queryDeviceTypes'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+        put:
+            description: CreateDeviceType【机型管理】【添加机型】
+            operationId: createDeviceType
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/CreateDeviceTypeRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/createDeviceType'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+    /deviceTypes/{device_type_id}:
+        delete:
+            description: DeleteDeviceType【机型管理】【删除机型】
+            operationId: deleteDeviceType
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: device_type_id
+                  required: true
+                  type: string
+                  x-go-name: DeviceTypeID
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ModifyDeviceTypeRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/deleteDeviceType'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+        put:
+            description: ModifyDeviceType【机型管理】【编辑机型】
+            operationId: modifyDeviceType
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: device_type_id
+                  required: true
+                  type: string
+                  x-go-name: DeviceTypeID
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ModifyDeviceTypeRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/modifyDeviceType'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+    /deviceTypes/associatedImage:
+        post:
+            description: AssociateDeviceTypeImage【机型管理】【机型详情信息】【关联镜像列表】【添加镜像】
+            operationId: associateDeviceTypeImage
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/AssociateDeviceTypeImageRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/associateDeviceTypeImage'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+    /deviceTypes/deviceTypeImage:
+        get:
+            description: QueryDeviceTypeImages【机型管理】【机型详情信息】【关联镜像列表】此接口无分页参数
+            operationId: queryDeviceTypeImages
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - format: int64
+                  in: query
+                  name: pageNumber
+                  type: integer
+                  x-go-name: PageNumber
+                - format: int64
+                  in: query
+                  name: pageSize
+                  type: integer
+                  x-go-name: PageSize
+                - description: 机型id
+                  in: query
+                  name: deviceTypeId
+                  type: string
+                  x-go-name: DeviceTypeID
+                - description: 镜像id
+                  in: query
+                  name: imageId
+                  type: string
+                  x-go-name: ImageID
+                - description: 体系架构
+                  in: query
+                  name: architecture
+                  type: string
+                  x-go-name: Architecture
+                - description: 操作系统平台
+                  in: query
+                  name: osType
+                  type: string
+                  x-go-name: OsType
+                - description: 镜像名称
+                  in: query
+                  name: imageName
+                  type: string
+                  x-go-name: ImageName
+                - description: 版本号
+                  in: query
+                  name: version
+                  type: string
+                  x-go-name: Version
+                - description: 操作系统ID
+                  in: query
+                  name: osId
+                  type: string
+                  x-go-name: OsID
+                - description: 镜像类型，预置，自定义
+                  in: query
+                  name: source
+                  type: string
+                  x-go-name: Source
+                - description: 是否显示全部
+                  in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+            responses:
+                "200":
+                    $ref: '#/responses/queryDeviceTypeImages'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+    /deviceTypes/dissociatedDeviceType:
+        delete:
+            description: DissociatedDeviceType 镜像解绑机型
+            operationId: dissociatedDeviceType
+            responses:
+                "200":
+                    $ref: '#/responses/dissociatedDeviceType'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+    /deviceTypes/dissociatedImage:
+        post:
+            description: DisassociateDeviceTypeImage【机型管理】【机型详情信息】【关联镜像列表】【删除镜像】
+            operationId: disassociateDeviceTypeImage
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/DisassociateDeviceTypeImageRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/disassociateDeviceTypeImage'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+    /deviceTypes/queryDeviceType/{device_type_id}:
+        get:
+            description: QueryDeviceType【机型管理】【机型详情信息】
+            operationId: queryDeviceType
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: device_type_id
+                  required: true
+                  type: string
+                  x-go-name: DeviceTypeID
+            responses:
+                "200":
+                    $ref: '#/responses/queryDeviceType'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - deviceType
+    /devices:
+        post:
+            operationId: createDevices
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/CreateDeviceRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/createDevices'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+    /devices/{device_id}:
+        delete:
+            description: DeleteDevice【设备管理】【删除设备】
+            operationId: deleteDevice
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: device_id
+                  required: true
+                  type: string
+                  x-go-name: DeviceID
+            responses:
+                "200":
+                    $ref: '#/responses/deleteDevice'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+        put:
+            description: Modify【设备管理】【设备修改】支持描述信息修改
+            operationId: modify
+            responses:
+                "200":
+                    $ref: '#/responses/modify'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+    /devices/{device_id}/remove:
+        put:
+            description: RemoveDevice【设备管理】【移除设备】
+            operationId: removeDevice
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: device_id
+                  required: true
+                  type: string
+                  x-go-name: DeviceID
+            responses:
+                "200":
+                    $ref: '#/responses/removeDevice'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+    /devices/putaway:
+        put:
+            description: Putaway【设备管理】【设备上架】支持多sn，英文逗号分隔
+            operationId: putaway
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/PutawayDeviceRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/putaway'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+    /devices/queryDevice/{device_id}:
+        get:
+            description: GetDevice【设备管理】【设备详情】
+            operationId: getDevice
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: device_id
+                  required: true
+                  type: string
+                  x-go-name: DeviceID
+            responses:
+                "200":
+                    $ref: '#/responses/getDevice'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+    /devices/queryDevices:
+        get:
+            description: QueryDevices【设备管理】【设备列表】
+            operationId: queryDevices
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - format: int64
+                  in: query
+                  name: pageNumber
+                  type: integer
+                  x-go-name: PageNumber
+                - format: int64
+                  in: query
+                  name: pageSize
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: sn
+                  type: string
+                  x-go-name: Sn
+                - in: query
+                  name: deviceTypeId
+                  type: string
+                  x-go-name: DeviceTypeID
+                - in: query
+                  name: deviceSeries
+                  type: string
+                  x-go-name: DeviceSeries
+                - in: query
+                  name: manageStatus
+                  type: string
+                  x-go-name: ManageStatus
+                - in: query
+                  name: iloIp
+                  type: string
+                  x-go-name: IloIP
+                - in: query
+                  name: instanceId
+                  type: string
+                  x-go-name: InstanceID
+                - in: query
+                  name: instanceName
+                  type: string
+                  x-go-name: InstanceName
+                - in: query
+                  name: userId
+                  type: string
+                  x-go-name: UserID
+                - in: query
+                  name: userName
+                  type: string
+                  x-go-name: UserName
+                - in: query
+                  name: show
+                  type: string
+                  x-go-name: Show
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - description: ExportType 非空表示要导出
+                  in: query
+                  name: exportType
+                  type: string
+                  x-go-name: ExportType
+            responses:
+                "200":
+                    $ref: '#/responses/queryDevices'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+    /devices/unPutaway:
+        put:
+            description: UnPutaway【设备管理】【设备下架】支持多sn，英文逗号分隔
+            operationId: unPutaway
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/UnPutawayDeviceRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/unPutaway'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+    /filterList:
+        get:
+            description: FilterList 设置自定义信息
+            operationId: filterList
+            responses:
+                "200":
+                    $ref: '#/responses/filterList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - custom
+    /idc:
+        get:
+            description: GetIdcList【机房管理】【机房列表】
+            operationId: getIdcList
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - format: int64
+                  in: query
+                  name: pageNumber
+                  type: integer
+                  x-go-name: PageNumber
+                - format: int64
+                  in: query
+                  name: pageSize
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: name
+                  type: string
+                  x-go-name: Name
+                - in: query
+                  name: level
+                  type: string
+                  x-go-name: Level
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - in: query
+                  name: show
+                  type: string
+                  x-go-name: Show
+                - description: 非空表示导出
+                  in: query
+                  name: exportType
+                  type: string
+                  x-go-name: ExportType
+            responses:
+                "200":
+                    $ref: '#/responses/getIdcList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - idc
+        put:
+            description: CreateIdc【机房管理】【添加机房】
+            operationId: createIdc
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/CreateIdcRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/createIdc'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - idc
+    /idc/{idc_id}:
+        delete:
+            description: DeleteIdc【机房管理】【删除机房】
+            operationId: deleteIdc
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: idc_id
+                  required: true
+                  type: string
+                  x-go-name: IdcID
+            responses:
+                "200":
+                    $ref: '#/responses/deleteIdc'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - idc
+        get:
+            description: GetIdcInfo【机房管理】【机房详情】
+            operationId: getIdcInfo
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: idc_id
+                  required: true
+                  type: string
+                  x-go-name: IdcID
+            responses:
+                "200":
+                    $ref: '#/responses/getIdcInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - idc
+        post:
+            description: ModifyIdcInfo【机房管理】【编辑机房】
+            operationId: modifyIdcInfo
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: idc_id
+                  required: true
+                  type: string
+                  x-go-name: IdcID
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ModifyIdcRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/modifyIdcInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - idc
+    /idc/user/validate:
+        post:
+            description: VerifyUser【机房管理】【验证用户名密码】
+            operationId: verifyUser
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/VerifyUserRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/verifyUser'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - idc
+    /image/queryImagesByDeviceType:
+        get:
+            description: QueryImagesByDeviceType 根据机型获取绑定的镜像列表
+            operationId: queryImagesByDeviceType
+            responses:
+                "200":
+                    $ref: '#/responses/queryImagesByDeviceType'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - image
+    /images:
+        get:
+            operationId: describeImages
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: query
+                  name: imageId
+                  type: string
+                  x-go-name: ImageID
+                - in: query
+                  name: imageName
+                  type: string
+                  x-go-name: ImageName
+                - in: query
+                  name: deviceTypeId
+                  type: string
+                  x-go-name: DeviceTypeID
+                - in: query
+                  name: version
+                  type: string
+                  x-go-name: Version
+                - in: query
+                  name: osId
+                  type: string
+                  x-go-name: OsID
+                - in: query
+                  items:
+                    type: string
+                  name: imageIds
+                  type: array
+                  x-go-name: ImageIDs
+                - in: query
+                  name: source
+                  type: string
+                  x-go-name: Source
+                - format: int64
+                  in: query
+                  name: pageNumber
+                  type: integer
+                  x-go-name: PageNumber
+                - format: int64
+                  in: query
+                  name: pageSize
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - in: query
+                  name: exportType
+                  type: string
+                  x-go-name: ExportType
+                - in: query
+                  name: architecture
+                  type: string
+                  x-go-name: Architecture
+                - in: query
+                  name: osType
+                  type: string
+                  x-go-name: OsType
+            responses:
+                "200":
+                    $ref: '#/responses/describeImages'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - image
+        post:
+            operationId: createImage
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/CreateImageRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/createImage'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - image
+    /images/{image_id}:
+        delete:
+            operationId: deleteImage
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: image_id
+                  required: true
+                  type: string
+                  x-go-name: ImageID
+            responses:
+                "200":
+                    $ref: '#/responses/deleteImage'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - image
+        get:
+            operationId: describeImage
+            responses:
+                "200":
+                    $ref: '#/responses/describeImage'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - image
+        put:
+            operationId: modifyImage
+            responses:
+                "200":
+                    $ref: '#/responses/modifyImage'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - image
+    /images/associatedDeviceType:
+        post:
+            description: AssociatedDeviceType 镜像绑定机型
+            operationId: associatedDeviceType
+            responses:
+                "200":
+                    $ref: '#/responses/associatedDeviceType'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - image
+    /images/imageDeviceTypes:
+        delete:
+            operationId: describeImageDeviceTypes
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - description: 镜像ID
+                  in: query
+                  name: imageId
+                  required: true
+                  type: string
+                  x-go-name: ImageID
+                - description: 体系架构
+                  in: query
+                  name: architecture
+                  type: string
+                  x-go-name: Architecture
+                - format: int64
+                  in: query
+                  name: pageNumber
+                  type: integer
+                  x-go-name: PageNumber
+                - format: int64
+                  in: query
+                  name: pageSize
+                  type: integer
+                  x-go-name: PageSize
+                - description: 镜像是否绑定了机型，0查询该镜像没有绑定的机型列表 1查询该镜像已经绑定了的机型列表
+                  in: query
+                  name: isBind
+                  type: string
+                  x-go-name: IsBind
+                - description: 是否显示全部
+                  in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+            responses:
+                "200":
+                    $ref: '#/responses/describeImageDeviceTypes'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - image
+    /instance/resetPasswd:
+        post:
+            description: resetPasswd 重置密码
+            operationId: resetPasswd
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ResetPasswdRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/resetPasswd'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/{instance_id}:
+        delete:
+            description: DeleteInstance【设备管理】【回收实例】
+            operationId: deleteInstance
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: instance_id
+                  required: true
+                  type: string
+                  x-go-name: InstanceID
+            responses:
+                "200":
+                    $ref: '#/responses/deleteInstance'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+        get:
+            description: GetInstanceInfo 查看实例详情
+            operationId: getInstanceInfo
+            responses:
+                "200":
+                    $ref: '#/responses/getInstanceInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/batchResetPasswd:
+        post:
+            description: resetInstancesPasswd 批量重置密码
+            operationId: resetInstancesPasswd
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ResetInstancesPasswdRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/resetInstancesPasswd'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/lock/{instance_id}:
+        post:
+            description: LockInstance 锁定实例
+            operationId: lockInstance
+            responses:
+                "200":
+                    $ref: '#/responses/lockInstance'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/reinstallInstance:
+        post:
+            description: ReinstallInstance 重装实例
+            operationId: reinstallInstance
+            responses:
+                "200":
+                    $ref: '#/responses/reinstallInstance'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/resetStatus/{instance_id}:
+        post:
+            description: ResetInstanceStatus【设备管理】【重置实例状态】
+            operationId: resetInstanceStatus
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: instance_id
+                  required: true
+                  type: string
+                  x-go-name: InstanceID
+            responses:
+                "200":
+                    $ref: '#/responses/resetInstanceStatus'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/restart/{instance_id}:
+        post:
+            description: RestartInstance【设备管理】【重启】
+            operationId: restartInstance
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: instance_id
+                  required: true
+                  type: string
+                  x-go-name: InstanceID
+            responses:
+                "200":
+                    $ref: '#/responses/restartInstance'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/start/{instance_id}:
+        post:
+            description: StartInstance【设备管理】【开机】
+            operationId: startInstance
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: instance_id
+                  required: true
+                  type: string
+                  x-go-name: InstanceID
+            responses:
+                "200":
+                    $ref: '#/responses/startInstance'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/stop/{instance_id}:
+        post:
+            description: StopInstance【设备管理】【关机】
+            operationId: stopInstance
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: instance_id
+                  required: true
+                  type: string
+                  x-go-name: InstanceID
+            responses:
+                "200":
+                    $ref: '#/responses/stopInstance'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /instances/unlock/{instance_id}:
+        post:
+            description: UnlockInstance 解锁实例
+            operationId: unlockInstance
+            responses:
+                "200":
+                    $ref: '#/responses/unlockInstance'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - instance
+    /keypair:
+        get:
+            description: GetKeypairList 获取keypair列表
+            operationId: getKeypairList
+            responses:
+                "200":
+                    $ref: '#/responses/getKeypairList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - keypair
+    /login:
+        post:
+            description: Login 登录
+            operationId: login
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/LoginRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/login'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+    /logout:
+        post:
+            description: Logout 登出
+            operationId: logout
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+            responses:
+                "200":
+                    $ref: '#/responses/logout'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+    /messages:
+        get:
+            description: GetMessageList 获取message列表(分页)
+            operationId: getMessageList
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - format: int64
+                  in: query
+                  name: pageNumber
+                  type: integer
+                  x-go-name: PageNumber
+                - format: int64
+                  in: query
+                  name: pageSize
+                  type: integer
+                  x-go-name: PageSize
+                - description: 是否显示全部，取值为1时表示全部
+                  in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - description: 0：未读；1：已读；""不传表示全部
+                  in: query
+                  name: hasRead
+                  type: string
+                  x-go-name: HasRead
+                - in: query
+                  name: messageType
+                  type: string
+                  x-go-name: MessageType
+                - in: query
+                  name: messageSubType
+                  type: string
+                  x-go-name: MessageSubType
+            responses:
+                "200":
+                    $ref: '#/responses/getMessageList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - message
+    /messages/doRead:
+        put:
+            description: ReadMessage 将消息设置为已读(可多条)
+            operationId: readMessage
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ReadMessagesRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/readMessage'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - message
+    /messages/getMessageById:
+        get:
+            description: GetMessageById 获取消息详情，包括上一条/下一条的messageid
+            operationId: getMessageById
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/GetMessageByIdRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/getMessageById'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - message
+    /messages/getMessageTypes:
+        get:
+            description: GetMessageTypes 获取消息类型/子类型
+            operationId: getMessageTypes
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+            responses:
+                "200":
+                    $ref: '#/responses/getMessageTypes'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - message
+    /messages/hasUnreadMessage:
+        get:
+            description: HasUnreadMessage 获取有没有未读消息
+            operationId: hasUnreadMessage
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+            responses:
+                "200":
+                    $ref: '#/responses/hasUnreadMessage'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - message
+    /messages/statistic:
+        get:
+            description: GetMessageStatistic 获取message总数和未读数
+            operationId: getMessageStatistic
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+            responses:
+                "200":
+                    $ref: '#/responses/getMessageStatistic'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - message
+    /oss:
+        get:
+            operationId: describeOSs
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: query
+                  name: osName
+                  type: string
+                  x-go-name: OsName
+                - in: query
+                  name: architecture
+                  type: string
+                  x-go-name: Architecture
+                - in: query
+                  name: osType
+                  type: string
+                  x-go-name: OsType
+                - in: query
+                  name: platform
+                  type: string
+                  x-go-name: Platform
+                - in: query
+                  name: osVersion
+                  type: string
+                  x-go-name: OsVersion
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+            responses:
+                "200":
+                    $ref: '#/responses/describeOSs'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - os
+    /partition/queryDefaultSystemPartitions:
+        get:
+            description: QueryDefaultSystemPartitions 根据机型和镜像查系统盘默认分区列表
+            operationId: queryDefaultSystemPartitions
+            responses:
+                "200":
+                    $ref: '#/responses/queryDefaultSystemPartitions'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - keypair
+    /raid/queryRaidsByDeviceTypeIDAndVolumeType:
+        get:
+            description: QueryRaidsByDeviceTypeIDAndVolumeType 根据机型查询系统盘/数据盘可用raid列表
+            operationId: queryRaidsByDeviceTypeIDAndVolumeType
+            responses:
+                "200":
+                    $ref: '#/responses/queryRaidsByDeviceTypeIDAndVolumeType'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - raid
+    /raids:
+        get:
+            operationId: queryRaidsAll
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+            responses:
+                "200":
+                    $ref: '#/responses/queryRaidsAll'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - raid
+    /resources:
+        get:
+            description: DescribeResources 根据某个字段值精确查询对应的资源列表（如根据imageName查询镜像列表，根据idcName查询机房列表）
+            operationId: describeResources
+            responses:
+                "200":
+                    $ref: '#/responses/describeResources'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - resource
+    /roles/roleInfo/current:
+        get:
+            description: CurrentRole 获取当前登录用户的角色
+            operationId: currentRole
+            responses:
+                "200":
+                    $ref: '#/responses/currentRole'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - role
+    /user/local:
+        get:
+            description: GetUserInfo 获取当前用户详情
+            operationId: getLocalUserInfo
+            responses:
+                "200":
+                    $ref: '#/responses/getLocalUserInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+        put:
+            description: UpdateLocalUserInfo 修改个人信息(除密码)
+            operationId: updateLocalUserInfo
+            responses:
+                "200":
+                    $ref: '#/responses/updateLocalUserInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+    /user/local/password:
+        put:
+            description: UpdatePassword 修改当前登录用户密码
+            operationId: updateLocalPassword
+            responses:
+                "200":
+                    $ref: '#/responses/updateLocalPassword'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+    /user/timezones:
+        get:
+            description: GetTimezoneList 获取时区列表
+            operationId: getTimezoneList
+            responses:
+                "200":
+                    $ref: '#/responses/getTimezoneList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+    /users:
+        get:
+            description: GetUserList 获取用户列表
+            operationId: getUserList
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - format: int64
+                  in: query
+                  name: pageNumber
+                  type: integer
+                  x-go-name: PageNumber
+                - format: int64
+                  in: query
+                  name: pageSize
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: roleId
+                  type: string
+                  x-go-name: RoleID
+                - in: query
+                  name: defaultProjectId
+                  type: string
+                  x-go-name: ProjectID
+                - in: query
+                  name: userName
+                  type: string
+                  x-go-name: UserName
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+            responses:
+                "200":
+                    $ref: '#/responses/getUserList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+        put:
+            description: AddUser 【用户管理】【添加用户】
+            operationId: addUser
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/AddUserRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/addUser'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+    /users/{user_id}:
+        delete:
+            description: DeleteUserInfo 【用户管理】【删除用户】
+            operationId: deleteUserInfo
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: user_id
+                  required: true
+                  type: string
+                  x-go-name: UserId
+            responses:
+                "200":
+                    $ref: '#/responses/deleteUserInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+        get:
+            description: GetUserInfo 【用户管理】【用户详情】
+            operationId: getUserInfo
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: user_id
+                  required: true
+                  type: string
+                  x-go-name: UserId
+            responses:
+                "200":
+                    $ref: '#/responses/getUserInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+        post:
+            description: ModifyUserInfo 【用户管理】【编辑用户信息】
+            operationId: modifyUserInfo
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: path
+                  name: user_id
+                  required: true
+                  type: string
+                  x-go-name: UserId
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ModifyUserInfoRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/modifyUserInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+    /users/login/validate:
+        post:
+            description: VerifyLoginUser【验证用户名密码】
+            operationId: verifyLoginUser
+            parameters:
+                - in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: header
+                  name: cookie
+                  type: string
+                  x-go-name: Cookie
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/LoginRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/verifyLoginUser'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - user
+produces:
+    - application/json
+responses:
+    ErrorResponse:
+        description: unit err response for non 200
+        headers:
+            traceId:
+                description: 'in: header'
+                type: string
+        schema:
+            properties:
+                error:
+                    $ref: '#/definitions/ErrorResponse'
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+            type: object
+    addUser:
+        description: AddUserResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/UserAdd'
+            type: object
+    associateDeviceTypeImage:
+        description: AssociateDeviceTypeImageResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    createDeviceType:
+        description: CreateDeviceTypeResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CreateDeviceTypeResult'
+            type: object
+    createDevices:
+        description: ""
+        headers:
+            traceId:
+                description: 'in: header'
+                type: string
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/DeviceIds'
+            type: object
+    createIdc:
+        description: CreateIdcResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CreateIdcResult'
+            type: object
+    createImage:
+        description: CreateImageResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/ImageId'
+            type: object
+    deleteDevice:
+        description: DeleteDeviceResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    deleteDeviceType:
+        description: DeleteDeviceTypeResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    deleteIdc:
+        description: DeleteIdcResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    deleteImage:
+        description: DeleteImageResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    deleteInstance:
+        description: DeleteInstanceResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    deleteUserInfo:
+        description: DeleteUserInfoResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    describeImageDeviceTypes:
+        description: DescribeImageDeviceTypesResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/DeviceTypePage'
+            type: object
+    describeImages:
+        description: DescribeImagesResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/ImageList'
+            type: object
+    describeOSs:
+        description: DescribeOSsResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/OsList'
+            type: object
+    disassociateDeviceTypeImage:
+        description: DisassociateDeviceTypeImageResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    getCustomInfo:
+        description: GetCustomInfoResponse is an response struct
+        headers:
+            traceId:
+                description: 'in: header'
+                type: string
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    getDevice:
+        description: GetDeviceResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/Device'
+            type: object
+    getIdcInfo:
+        description: GetIdcInfoResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/Idc'
+            type: object
+    getIdcList:
+        description: GetIdcListResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/IdcPage'
+            type: object
+    getMessageById:
+        description: ""
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/MessageWithNextPrev'
+            type: object
+    getMessageList:
+        description: ""
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/MessageList'
+            type: object
+    getMessageStatistic:
+        description: ""
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/MessageStatistic'
+            type: object
+    getMessageTypes:
+        description: ""
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    additionalProperties:
+                        items:
+                            type: string
+                        type: array
+                    type: object
+                    x-go-name: Result
+            type: object
+    getUserInfo:
+        description: GetUserInfoResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/User'
+            type: object
+    getUserList:
+        description: GetUserListResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/UserPage'
+            type: object
+    hasUnreadMessage:
+        description: ""
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/HasUnreadMessage'
+            type: object
+    login:
+        description: LoginResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    logout:
+        description: LogoutResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    modifyDeviceType:
+        description: ModifyDeviceTypeResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    modifyIdcInfo:
+        description: ModifyIdcInfoResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    modifyUserInfo:
+        description: ModifyUserInfoResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    putaway:
+        description: PutawayResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    queryDeviceType:
+        description: QueryDeviceTypeResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/DeviceType'
+            type: object
+    queryDeviceTypeImages:
+        description: QueryDeviceTypeImagesResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/DeviceTypeImageList'
+            type: object
+    queryDeviceTypes:
+        description: QueryDeviceTypesResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/DeviceTypePage'
+            type: object
+    queryDevices:
+        description: QueryDevicesResponse is an response struct
+        headers:
+            traceId:
+                description: 'in: header'
+                type: string
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/DevicePage'
+            type: object
+    queryRaidsAll:
+        description: QueryRaidsAllResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/RaidList'
+            type: object
+    readMessage:
+        description: A ReadMessageResult is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    removeDevice:
+        description: RemoveDeviceResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    resetInstanceStatus:
+        description: ResetInstanceStatus is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    resetInstancesPasswd:
+        description: ResetInstancesPasswdResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    resetPasswd:
+        description: ResetPasswdResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    restartInstance:
+        description: RestartInstanceResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    setCustomInfo:
+        description: SetCustomInfoResponse is an response struct
+        headers:
+            traceId:
+                description: 'in: header'
+                type: string
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    startInstance:
+        description: StartInstanceResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    stopInstance:
+        description: StopInstanceResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    unPutaway:
+        description: UnPutawayResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    uploadDevices:
+        description: ""
+        headers:
+            traceId:
+                description: 'in: header'
+                type: string
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/UploadDevice'
+            type: object
+    uploadImage:
+        description: ""
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/ImageUpload'
+            type: object
+    verifyLoginUser:
+        description: VerifyLoginUserResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    verifyUser:
+        description: VerifyUserResponse is an response struct
+        schema:
+            properties:
+                requestId:
+                    type: string
+                    x-go-name: RequestId
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+schemes:
+    - http
+swagger: "2.0"

@@ -1,0 +1,34 @@
+.edit-notes {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 526px;
+            height: 298px;
+        }
+
+        &__footer {
+            width: 481px;
+        }
+    }
+
+    &-count {
+        @extend %display-flex-column;
+        @include display-align(flex-start);
+
+        p {
+            margin: 19.5px 0 8px;
+            font-size: $fontSize;
+        }
+
+        textarea {
+            width: 480px;
+            height: 117px;
+            border-radius: 4px;
+            font-size: $fontSize;
+            @extend %resize-none;
+
+            &::placeholder {
+                font-size: $fontSize;
+            }
+        }
+    }
+}

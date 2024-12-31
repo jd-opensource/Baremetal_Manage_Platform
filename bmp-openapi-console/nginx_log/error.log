@@ -1,0 +1,1 @@
+2022/11/02 13:59:54 [error] 13443#0: *2528109 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: cps-openapi.bmp.local, request: "GET /v1/users HTTP/1.1", upstream: "http://127.0.0.1:9901/v1/users", host: "cps-openapi.bmp.local"

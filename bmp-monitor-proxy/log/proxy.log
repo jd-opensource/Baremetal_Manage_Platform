@@ -1,0 +1,61 @@
+2024/06/20 16:00:00.096  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    680.662µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:00:00.318  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 117.127249ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:01:00.072  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|     971.03µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:01:00.375  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 144.442401ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:02:00.066  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    792.254µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:02:00.368  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|  133.68883ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:03:00.073  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    794.769µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:03:00.358  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 136.499242ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:04:00.043  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    794.849µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:04:00.346  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 129.858838ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:05:00.066  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    752.925µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:05:00.308  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 105.496145ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:06:00.065  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    790.197µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:06:00.361  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 147.793577ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:07:00.087  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    644.465µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:07:00.366  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 145.198916ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:08:00.086  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    900.528µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:08:00.391  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 135.278993ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:09:00.102  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    633.352µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:09:00.360  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 130.482662ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:10:00.063  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    942.357µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:10:00.336  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|  122.29559ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:11:00.066  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    883.133µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:11:00.397  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 145.762995ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:12:00.062  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    839.263µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:12:00.364  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 133.896412ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:13:00.092  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    985.624µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:13:00.363  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 135.704382ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:14:00.078  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    931.062µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:14:00.348  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|  146.46706ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:15:00.087  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|   1.068677ms|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:15:00.328  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 119.641633ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:16:00.093  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|   2.274053ms|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:16:00.341  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 123.333538ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:17:00.082  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    687.933µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:17:00.360  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 142.072902ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:18:00.071  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    569.088µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:18:00.283  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 103.374303ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:19:00.072  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    691.859µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:19:00.349  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 128.700949ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:20:00.082  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    953.949µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:20:00.318  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 111.671284ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:21:00.031  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    481.328µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:21:00.257  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 106.581358ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:22:00.062  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|   1.035984ms|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:22:00.327  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 113.713985ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:23:00.064  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|     735.17µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:23:00.328  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 133.716735ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:24:00.051  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    737.445µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:24:00.298  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 129.311431ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:25:00.096  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|    746.492µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:25:00.336  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 117.199365ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:26:00.076  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m|     709.36µs|   match|[97;46m POST    [0m /api/v1/agent/heartbeat   r:/api/v1/agent/heartbeat
+2024/06/20 16:26:00.334  [D] [router.go:1305]  | 10.226.192.114|[97;42m 200 [0m| 117.645122ms|   match|[97;46m POST    [0m /api/v1/agent/put   r:/api/v1/agent/put
+2024/06/20 16:26:08.196  [I] [main.go:115]  ========BMP-MONITOR-PROXY Exit========
+2024/07/02 16:05:33.215  [I] [main.go:60]  ========BMP-MONITOR-PROXY Start========
+2024/07/02 16:05:36.222  [W] [main.go:73]  Redis Connect Error, Ping result : dial tcp 10.226.192.72:16379: connect: connection timed out
+2024/07/02 16:17:07.348  [I] [main.go:60]  ========BMP-MONITOR-PROXY Start========
+2024/07/02 16:17:10.354  [W] [main.go:73]  Redis Connect Error, Ping result : dial tcp 10.226.192.72:16379: connect: connection timed out
+2024/07/02 16:17:51.160  [I] [main.go:60]  ========BMP-MONITOR-PROXY Start========
+2024/07/02 16:17:54.170  [W] [main.go:73]  Redis Connect Error, Ping result : dial tcp 10.226.192.72:16379: connect: connection timed out

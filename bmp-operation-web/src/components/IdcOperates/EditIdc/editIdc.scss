@@ -1,0 +1,100 @@
+.edit-idc {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 696px;
+            height: 491px;
+        }
+
+        &__body {
+            height: 358px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        &__footer {
+            width: 651px;
+        }
+    }
+
+    &-rule-form {
+        margin-top: 20px;
+
+        .set-empty {
+            margin-bottom: 32px !important;
+
+            .el-form-item__error {
+                margin-top: 6px !important;
+            }
+        }
+
+        .set-en {
+            .el-form-item__label {
+                margin-right: 10px;
+            }
+        }
+    
+        .el-form-item--default {
+            margin-bottom: 20px;
+            @include display-align(center);
+
+            .el-form-item__label {
+                position: relative;
+                @include display-align(flex-start);
+                font-weight: $fontLargeWeight;
+                line-height: 1.5;
+                @include break-wrap(break-all);
+            }
+            
+            .el-form-item__error {
+                margin-top: 1px;
+            }
+        }
+
+        .set-public-style,
+        .set-address {
+            .el-form-item__label {
+                margin-left: 10px;
+            }   
+        }
+
+        .set-address,
+        &-address {
+
+            .el-textarea__inner {
+                padding: 5px 10px;
+            }
+        
+            textarea {
+                min-height: 78px;
+                font-size: $fontSize;
+                @extend %resize-none;
+    
+                &::placeholder {
+                    font-size: $fontSize;
+                }
+            }
+        }
+
+        &-address {
+            .el-form-item__label {
+                width: 105px !important;
+                margin-top: -32px;
+                margin-left: 10px;
+            }
+        }
+
+        .set-width {
+            .el-form-item__label {
+                width: 105px !important;
+                margin-left: 10px;
+            }
+        }
+
+        .el-textarea,
+        input {
+            width: 460px;
+            border-radius: 4px;
+            outline: 0;
+        }
+    }
+}

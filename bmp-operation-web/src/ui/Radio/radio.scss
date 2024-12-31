@@ -1,0 +1,40 @@
+.radio-style1 {
+    .el-radio {
+        .el-radio__input {
+            @include set-width-height(12px);
+            border: 0.62px solid $border2;
+            border-radius: 50%;
+            @include display-align(center);
+            @extend %justify-center;
+
+            .el-radio__inner {
+                display: none;
+            }
+        }
+        .is-checked {
+            .el-radio__inner {
+                @include set-width-height(7px);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: inherit !important;
+                // $color1 - 会有问题
+                --el-color-primary: #108ee9;
+
+                &::after {
+                    display: none;
+                }
+            }
+        }
+
+        .el-radio__label {
+            padding-left: 13px;
+            @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+        }
+
+        .el-radio__input.is-checked+.el-radio__label {
+            @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+        }
+    }
+}

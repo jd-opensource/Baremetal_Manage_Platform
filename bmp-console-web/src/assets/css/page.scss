@@ -1,0 +1,180 @@
+.page-position {
+    background-color: #EFF2F5;
+    height: calc(100vh);  
+    --el-text-color-regular:#333333;
+}
+
+.page-content {
+    position: relative;
+    background-color: white;
+    clear: both;
+    width: 1200px;
+    min-height: calc(100vh - 160px);
+    top: 137px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    margin: 0 auto;        
+    padding-top: 30px;
+    padding-bottom: 50px;
+    box-shadow:0 1px 3px 0 #000000 0.5;
+    border-radius:10px;
+    .el-button--primary {
+        &:hover {
+            background-color: #108EF9;
+            border-color: #108EF9;
+        }
+        &:focus {
+            background-color: #108EF9;
+            border-color: #108EF9;
+        }
+        &:active {
+            background-color: #0F81D4;
+            border-color: #0F81D4;
+        }
+        
+    }
+    .el-button--primary:hover {
+        &.is-disabled {
+            background-color: #91D5FF !important;
+            border-color: #91D5FF !important;
+        }
+    }
+    .el-input {
+        border-color: #979797;
+    }
+    .el-radio-button__inner {
+        border-color: #979797;
+    }
+
+    // 表单验证提示位置修改
+    .el-form-item.is-error {
+        margin-bottom: 42px;
+    }
+    // 表单验证提示位置修改
+    .el-form-item__error {   
+        margin-top: 5px;
+        line-height: normal !important;
+    }
+}
+
+.section-title {
+    height: 20px;
+    font-weight: bold;
+    color: #108EF9;
+    padding: 0 0 0 20px;
+    margin-bottom: 20px;
+    border-left: 2px solid #108EF9;   
+    span {
+        font-weight: 400;
+        font-size: 12px;
+        color: #333;
+        line-height: 20px;
+        vertical-align: bottom;
+    }
+}
+
+.detail-header {
+    position: relative;
+    top: 122px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 1200px;
+}
+
+a {
+    text-decoration:none;
+    color: #108EF9;
+}
+
+a :hover {
+    text-decoration:none !important
+}
+.f14 {
+    font-size: 14px !important;
+}
+.fw400 {
+    font-weight: 400;
+}
+.fw600 {
+    font-weight: 600;
+}
+:root {
+    --el-color-primary: #108EF9;
+    --el-border-color-hover:#108EF9
+}
+
+.el-radio-button {
+    --el-radio-button-checked-border-color:#108EF9;
+}
+
+.el-radio-button :hover {
+    border-color: #108EF9;
+    &.is-disabled {
+        border-color: #666666;
+    }
+}
+
+.el-radio-button__inner :hover {
+    border-left:1px soild #108EF9 ;
+    border-color: #108EF9 !important;   
+}
+
+
+.el-form-item__label {
+    font-size: 12px;
+}
+
+.el-input__inner {
+    font-size: 12px;
+}
+
+.el-select-dropdown__item {
+    font-size: 12px;
+}
+
+.batch-operation-button {
+    vertical-align: middle;
+    font-size: 12px;
+    color: #108EF9;
+    margin-bottom: 4px;   
+}
+
+.operate-export {
+
+}
+
+.no-export {
+    pointer-events: none;
+}
+
+.el-textarea {
+    .el-textarea__inner {
+        resize: none;
+    }
+}
+
+.el-popper.is-pure {
+    .el-checkbox__label {
+        font-size: 12px;
+    }
+
+    .el-table-filter__bottom {
+        display: flex;
+        justify-content: space-around;
+
+        button {
+            font-size: 12px;
+        }
+    }
+
+    .el-menu--popup {
+        min-width: 100px;
+        .el-menu-item {
+            justify-content: center;
+            font-size: 14px;
+        }
+    }
+}

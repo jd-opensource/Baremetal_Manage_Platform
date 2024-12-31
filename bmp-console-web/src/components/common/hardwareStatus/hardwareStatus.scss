@@ -1,0 +1,75 @@
+.hardware-status {
+	display: flex;
+	//justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.gap-content {
+    justify-content: space-between;
+    .hardware-card {
+        margin-right: 0;
+    }
+}
+
+.hardware-card {
+    display: inline-block;
+    width: auto;
+    margin-right: 30px;
+    margin-bottom: 28px;
+    .hardware-card-body {
+        width: auto;
+        background-color: #F7F7F7;
+        border-radius: 7px;
+        padding: 12px 10px;
+        .device-name {
+            font-size: 20px;
+            padding-right: 10px;
+            //border-right: 2px solid #00000026;
+        }
+        
+    }
+}
+
+.status-icon {
+    width: 16px !important;
+    height: 16px !important;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 100%;
+}
+
+.div-content {
+    height: 16px;
+    margin: 0;
+    vertical-align: baseline;
+    border-left: 2px solid #333333
+}
+
+.status-success {
+    display: inline-block;
+    line-height: 26px;
+    height: 26px;
+    color: #43B561 !important;
+    font-size: 18px;
+    .status-icon {
+        background: #43B561 !important;
+    }
+    .status-text {
+        vertical-align: text-bottom;
+    }
+}
+
+.status-error {
+    display: inline-block;
+    line-height: 26px;
+    height: 26px;
+    color: #FF4D4F !important;
+    font-size: 18px;
+    .status-icon {
+        background: #FF4D4F !important;
+    }
+    .status-text {
+        vertical-align: text-bottom;
+    }
+}

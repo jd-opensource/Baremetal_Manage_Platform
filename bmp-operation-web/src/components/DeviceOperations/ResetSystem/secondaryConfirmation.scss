@@ -1,0 +1,70 @@
+@import '@/assets/css/deviceOperate';
+
+.secondary-confirmation {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 716px;
+            // height: 402px;
+            padding-bottom: 60px;
+        }
+
+        &__body {
+            padding: 0;
+        }
+
+        &__footer {
+            width: 671px;
+        }
+    }
+
+    &-content {
+        // height: 290px;
+
+        .warnning-tip {
+            @extend %warnning-tip;
+            // min-width: 380px;
+            // height: 52px;
+            // text-align: center;
+            // border-radius: 2px;
+            // background: rgb(249, 237, 239);
+            // display: flex;
+            // align-items: flex-start;
+            // justify-content: center;
+            // margin-top: 15px;
+            // // margin-bottom: 44.5px;
+            // // padding-bottom: 10px;
+
+            // img {
+            //     width: 32px;
+            //     height: 32px;
+            //     transform: scale(.5);
+            //     margin-left: 10px;
+            //     margin-top: 2px;
+            // }
+
+            .tip-count {
+                font-size: 12px;
+                padding: 10px 0;
+
+                .reset-system-tip {
+                    text-align: left;
+                    line-height: 24px;
+                    padding: 0 10px 0 0;
+                }
+            }
+        }
+
+        .tip-title {
+            padding: 0 25px;
+            font-size: $fontSize2;
+            color: $defaultColor;
+            margin: 15px 0;
+            // @extend %display-flex-align;
+            @include display-align(center);
+            @extend %justify-center;
+            // justify-content: center;
+            text-align: center;
+            height: 160px;
+        }
+    }
+}

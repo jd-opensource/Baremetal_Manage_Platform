@@ -1,0 +1,266 @@
+.default-dia-log {
+    .el-dialog {
+        &--center {
+            // --el-dialog-width: 1046px;
+            // height: 566px;
+            --el-dialog-width: 646px;
+            height: 366px;
+        }
+
+
+        &__footer {
+            // width: 1001px;
+            width: 601px;
+        }
+    }
+}
+
+%step-icon {
+    color: $color3;
+    font-size: $fontSize;
+    font-weight: $fontSmallWeight;
+    border: 0;
+}
+
+%step-title {
+    color: $color6;
+    font-size: $fontSize;
+}
+
+@mixin setSmallWeight {
+    font-weight: $fontSmallWeight;
+}
+
+@mixin setLargeWeight {
+    font-weight: $fontLargeWeight;
+}
+
+.set-dia-log {
+
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 646px;
+            // --el-dialog-width: 1046px;
+            // height: 566px;
+            height: 366px;
+            // background: #fff;
+        }
+
+
+        &__footer {
+            // width: 1001px;
+            width: 601px;
+        }
+    }
+}
+
+.up-down-frame {
+
+    .el-loading-mask {
+        top: 42px;
+    }
+
+    .add-new-model {
+        font-size: $fontSize;
+        color: $color1;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .el-steps--horizontal {
+        margin: 20px;
+        transform: scale(.9);
+    }
+
+    .set-empty {
+        margin-bottom: 30px;
+        
+        .el-form-item__error {
+            padding-top: 8px;
+        }
+    }
+
+    .first-step2 {
+        .el-step__title.is-finish {
+            @extend %step-title;
+            @include setLargeWeight;
+        }
+
+        .el-step__icon.is-text {
+            background: $background1;
+            color: $whiteBackground;
+            border: 0;
+        }
+    }
+  
+    .last-step2 {
+        .el-step__icon.is-text {
+            background: $background9;
+            @extend %step-icon;
+        }
+
+        .el-step__title.is-process {
+            @include setSmallWeight;
+            @extend %step-title;
+        }
+    }
+
+    .el-step__icon.is-text {
+        width: 29px;
+        height: 29px;
+    }
+
+    .last-step1 {
+        .el-step__icon.is-text {
+            background: $background1;
+            @extend %step-icon;
+        }
+
+        .el-step__title.is-success {
+            @include setLargeWeight;
+            @extend %step-title;
+        }
+    }
+
+    .first-step1 {
+
+        .el-step__title.is-success {
+            @include setSmallWeight;
+            @extend %step-title;
+        }
+
+        .el-step__icon.is-text {
+            background: $background14;
+            border: 1px solid $border3;
+
+            .el-icon {
+                color: $color1;
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .el-step__line {
+        left: 60% !important;
+        height: 1px;
+        right: 0;
+        width: 80%;
+
+        &-inner {
+            display: none;
+        }
+    }
+  
+    .el-dialog {
+
+        .el-table__row {
+            background: $background12;
+        }
+
+        .def-select,
+        .multiple-choice {
+            margin: 10px;
+
+            input {
+                width: 360px !important;
+            }
+        }
+
+        .error-tip {
+            input {
+                border-color: $border9;
+
+                &::placeholder {
+                    color: $color13;
+                }
+            }
+        }
+
+        .def-tip {
+            input {
+                border-color: $border15;
+
+                &::placeholder {
+                    color: $color15;
+                }
+            }
+        }
+
+        &__body {
+            padding: 0;
+
+            .el-table__body {
+                padding-bottom: 0 !important;
+
+                .el-table-fixed-column--right,
+                .el-table-fixed-column--left {
+                    background-color: $background15;
+                }
+            }
+         
+            .currency-count {
+                @extend %display-flex-column;
+    
+                .header-title {
+                    font-size: $fontSize;
+                    font-weight: $fontLargeWeight;
+                    color: $defaultColor;
+                    margin: 19.5px 0 20px;
+                }
+    
+                &-title {
+                    width: 580px;
+                    padding-right: 20px;
+                    min-height: 34px;
+                    text-align: center;
+                    border-radius: 2px;
+                    background: $background13;
+                    color: $defaultColor;
+                    font-size: $fontSize;
+                    font-weight: $fontSmallWeight;
+                    line-height: 34px;
+                    margin: 19.5px 0 .5px;
+    
+                    img {
+                        width: 32px;
+                        height: 32px;
+                        transform: scale(.5);
+                        margin-right: -2px
+                    }
+                }
+            }
+
+            // table为空
+            .currency-count-table {
+
+                .el-table__header-wrapper {
+                    margin-bottom: 5px;
+                }
+                .el-table__inner-wrapper tr:first-child th {
+                    &:first-child {
+                        border-left: none;
+                    }
+                
+                    &:last-child {
+                        border-color: $border16;
+                    }
+                }
+
+                .el-table__body-wrapper {
+                    max-height: 240px;
+                    overflow-y: auto;
+                }
+
+                .el-table__row {
+                    background-color: $background3;
+
+                    &:hover {
+                        td {
+                            background-color: $background10 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

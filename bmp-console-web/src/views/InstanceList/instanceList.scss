@@ -1,0 +1,140 @@
+.instance-list {
+    .instance-name-height {
+        margin: 4px 0;
+        height: 50px;
+        .el-button {
+            height: 22px;
+        }
+    }   
+}
+
+.el-checkbox__inner {
+    width: 10px;
+    height: 10px;
+    margin-top: 1px;
+    border-radius: 2px;
+    border: 1px solid #333;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: #108EF9  !important;
+    }
+
+    &::after {
+        height: 5px;
+        left: 2px;
+        top: 0px;
+    }
+}
+
+.long-instance-name {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: center;
+    cursor: pointer;
+	color: #108ef9;
+
+}
+
+.search-result {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.warning-tip {
+    width: 16px;
+    height: 16px;
+    position:absolute;
+    cursor: pointer;
+}
+.change-show-style {
+    cursor: pointer;       
+}
+.one-line-drop {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
+.disabled-currency-style {
+    cursor: no-drop;
+    color: #999999 !important;
+}
+
+.no-click {
+    color: #999999 !important;
+    cursor: no-drop;
+}
+.can-click {
+    color: #333333 !important;
+    cursor: pointer;
+}
+
+
+
+.tag-content {
+    .el-tag__content {
+        display: contents;
+        .is-loading {
+            margin-left: 3px;
+            cursor: auto;
+            font-size: calc(var(--el-icon-size) - 2px) !important;
+            animation: rotating 2s linear infinite;
+        }
+    }
+    
+}
+.no-data-jump {
+    width: 100%;
+    text-align: center;
+}
+
+.el-table__empty-text {
+    width: 100%;
+}
+
+.batch-operate {
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 8px;
+    .el-checkbox {
+        margin-right: 30px;
+        height: 24px;
+        vertical-align: middle;
+    }
+    .el-button {
+        &--primary {
+            min-width: 50px;
+            height: 24px;
+            font-size: 12px;
+            margin-right: 10px;
+            --el-button-bg-color: #108ee9 !important;
+            --el-button-text-color: #fff;
+        
+            &:focus,
+            &:hover {
+                --el-button-hover-bg-color: #108ee9 !important;
+                --el-button-hover-text-color: #fff;
+            }
+
+            &:active {
+                --el-button-active-bg-color: #0f81d4 !important;
+            }
+            --el-button-disabled-bg-color: #91D5FF !important;
+            --el-button-disabled-border-color: #91D5FF !important;
+        }
+    }
+
+    .batch-drop-down {
+        display: inline-block;
+        vertical-align: middle;   
+    }
+}
+
+.page-change {
+    display: inline-block;
+    float: right;
+    margin-right: 50px;
+}

@@ -1,0 +1,6 @@
+[loongarch64]
+name=loongarch64
+baseurl=http://119.3.219.20:82/openEuler:/22.03:/LTS:/LoongArch/standard_loongarch64/
+enabled=1
+gpgcheck=0
+#gpgkey=http://119.3.219.20:82/openEuler:/22.03:/LTS:/LoongArch/standard_loongarch64/repodata/

@@ -1,0 +1,83 @@
+.custom-table-filter-a {
+    z-index: 10;
+    position: absolute;
+    margin: 0;
+    max-height: 265px;
+    width: 160px;
+
+    .custom-table-filter-b {
+        background: $whiteBackground;
+        border-radius: 5px;
+        overflow-y: auto;
+        position: absolute;
+        box-shadow: $boxShadow;
+
+        .filter-scroll-count {
+            overflow-y: auto;
+            max-height: 205px;
+        }
+
+        .custom-filter-count {
+            padding: 2px 10px;
+            cursor: pointer;
+
+            &:hover {
+                background: $background3;
+
+                .text-tip {
+                    color: $color1;
+                }
+            }
+        }
+
+        .el-input {
+            background: $whiteBackground;
+        }
+
+        :deep(.el-input__inner) {
+            border-radius: 0;
+            border-top: 0;
+            border-right: 0;
+            border-left: 0;
+        }
+
+        .custom-footer-btn {
+            position: sticky;
+            bottom: 0;
+            background: $whiteBackground;
+            z-index: 10;
+            border-top: .5px solid #C4C4C4;
+            height: 27px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            span {
+                font-size: 12px;
+
+                &:last-child {
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $color1;
+                    }
+                }
+            }
+
+            .disabled-select {
+                color: #999;
+                opacity: .99;
+                cursor: no-drop;
+            }
+
+            .select-opt {
+                color: #333;
+                cursor: pointer;
+
+                &:hover {
+                    color: #108ee9;
+                }
+            }
+        }
+    }
+}

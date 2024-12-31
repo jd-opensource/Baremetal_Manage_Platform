@@ -1,0 +1,27 @@
+.el-dropdown-menu {
+    padding: 0;
+
+    &__item {
+        padding: 0;
+    
+        &:focus {
+            background: $transparent !important;
+        }
+    }
+}
+
+.el-dropdown {
+    .more-operate {
+        @include display-align(center);
+    
+        span {
+            height: 23px;
+            line-height: 23px;
+            font-size: $fontSize;
+        }
+    
+        .arrow-bottom-img {
+            @include set-width-height(16px);
+        }
+    }
+}

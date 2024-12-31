@@ -1,0 +1,5 @@
+include README.md
+include docs/*.md
+include bmpa/shell/*.sh
+include bmpa/template/fstab/*.tpl
+include bmpa/template/cloudinit/*.tpl

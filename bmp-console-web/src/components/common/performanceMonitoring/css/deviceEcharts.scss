@@ -1,0 +1,128 @@
+@import 'assets/css/list.scss';
+
+.echarts-search-count {
+    .search-radio-count {
+        margin-bottom: 20px;
+        margin-left: 32px;
+        :deep(.el-radio__label) {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            padding-left: 13px;
+        }
+
+        :deep(.el-select) {
+            .el-input__inner {
+                width: 130px;
+                height: 30px;
+                margin-left: 10px;
+            }
+        }
+
+        .common-img {
+            width: 16px;
+            height: 16px;
+            margin-left: 3px;
+        }
+    }
+
+
+    .echarts-count {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -27px;
+
+        :deep(.el-loading-mask) {
+            border-radius: 8px;
+        }
+    }
+
+    :deep(.seach-opt-count) {
+        display: flex;
+        margin: 0 0 20px 0;
+        position: relative;
+
+        .set-alarm-rules {
+            position: absolute;
+            right: 30px;
+            top: 7px;
+            font-size: 12px;
+    
+            span {
+                cursor: pointer;
+                color: #108EF9;
+            }
+        }
+
+        .el-range-input {
+            font-size: 12px;
+        }
+
+        .radio-active {
+            margin-right: 16px;
+            .el-radio-button__inner {
+                height: 30px;
+                font-size: 12px;
+                border-color:#dcdfe6;
+            }
+        }
+
+        .el-range-editor {
+            height: 30px;
+
+            .el-range-separator {
+                font-size: 12px;
+            }
+        }
+
+        .operate-management-content-operate2 {
+            width: auto;
+            margin-bottom: 0 !important;
+            padding: 0 16px 0 30px;
+
+            &-right {
+                margin-top: 0;
+            }
+
+            .list-data-operate0 {
+                margin-right: 0;
+            }
+        }
+
+        .operate-refresh {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            cursor: pointer;
+    
+            .my-update-gray {
+                width: 16px;
+                height: 16px;
+                background-size: 100% auto !important;
+                background-position: center center;
+                background-repeat: no-repeat;
+                margin-right: 5px;
+            }
+    
+            .refresh-title{
+                font-size: 12px;
+            }
+    
+            &:hover {
+                color: #108EF9;
+            }
+        }
+
+        .operate-refresh {
+            .my-update-gray {
+                background-image: url('~@/assets/img/updateGray.png');
+            }
+    
+            &:hover {
+                .my-update-gray {
+                    background-image: url('~@/assets/img/update.png');
+                }
+            }
+        }
+    }
+}

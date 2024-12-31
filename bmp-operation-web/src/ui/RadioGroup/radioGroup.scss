@@ -1,0 +1,30 @@
+.radio-active {
+    .el-radio-group {
+        .el-radio-button--default {
+            .el-radio-button__inner {
+                height: 30px;
+                font-size: $fontSize;
+                margin-right: 0px !important;
+                border-radius: 0;
+                font-weight: $fontSmallWeight;
+                
+                &:hover {
+                    color: $defaultColor;
+                }
+            }
+            &:first-child {
+                .el-radio-button__inner {
+                    border-radius: 4px 0 0 4px !important;
+                }
+            }
+            &:last-child {
+                .el-radio-button__inner {
+                    border-radius: 0 4px 4px 0 !important;
+                }
+            }
+        }
+        .is-active {
+            border-radius: 0 !important;
+        }
+    }
+}

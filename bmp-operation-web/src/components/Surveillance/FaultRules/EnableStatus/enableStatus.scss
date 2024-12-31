@@ -1,0 +1,35 @@
+@import '@/assets/css/communal';
+
+.enable-status {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 526px;
+            height: 302px;
+        }
+
+        &__body {
+            padding: 0;
+        }
+
+        &__footer {
+            width: 481px;
+        }
+    }
+
+    &-content {
+
+        .tip-title {
+            font-size: 14px;
+            color: $defaultColor;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            height: 190px;
+
+            span {
+                color: $color1;
+            }
+        }
+    }
+}

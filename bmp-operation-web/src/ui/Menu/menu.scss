@@ -1,0 +1,46 @@
+/* 侧边栏高度、radius、padding样式 */
+.nav-col {
+    .el-menu {
+        height: 90%;
+        transition: all .3s;
+        overflow-x: hidden;
+        padding-top: 38px;
+        padding-bottom: 60px;
+
+        &--collapse {
+            width: 56px;
+            transition: width .3s;
+        }
+    
+        /* 侧边栏-一级导航每一项的样式 */
+        &-item {
+            // 不要用全局的
+            --el-menu-hover-bg-color: #f7f7f7;
+            margin-bottom: 17px;
+            border-radius: 22px 0 0 22px;
+            --el-menu-item-height: 42px;
+            transition: all .3s;
+        }
+    
+        /* 侧边栏-一级导航每一项的选中样式 */
+        &-item.is-active {
+            // 不要用全局的
+            --el-menu-active-color: #108ee9;
+            background: $color4;
+            // 不要用全局的
+            --el-menu-hover-bg-color: #e8f4fd;
+        }
+        
+    }
+}
+
+/* 侧边栏收起-【多级菜单-子路由】样式 */
+.el-menu--vertical {
+    .el-menu--popup {
+        min-width: 150px;
+
+        .custom-short-nav {
+            @extend %justify-center;
+        }
+    }
+}

@@ -1,0 +1,624 @@
+@import '@/assets/css/communal';
+
+.model-operate {
+    // .el-dialog {
+    //     &--center {
+    //         --el-dialog-width: 690px;
+    //         height: 498px;
+    //     }
+
+    //     &__body {
+    //         height: 358px;
+    //         overflow-y: auto;
+    //         overflow-x: hidden;
+    //     }
+
+    //     &__footer {
+    //         width: 645px;
+    //     }
+    // }
+
+    .volume-manager-table {
+
+        .el-form-item__content {
+            justify-content: center;
+        }
+        // .el-input__inner {
+        //     width: 200px;
+        // //     // min-width: 87px;
+        // }
+
+     
+
+        // .ipt-defaults,
+        .ipt-height {
+            margin-top: 20px;
+            margin-bottom: 45px !important;
+            .el-form-item__content {
+                // height: 90px;
+                // height: 93px;
+                position: relative;
+                margin-bottom: 10px;
+    
+                .el-input {
+                    // margin-bottom: 40px;
+                }
+    
+                .el-form-item__error {
+                    text-align: left;
+                    line-height: 1.2;
+                    top: 100%;
+                    // top: 50%;
+                    padding-top: 7px;
+                }
+            }
+        }
+
+        
+        .ipt-default {
+            // margin-bottom: 40px !important;
+            // margin-bottom: 10px !important;
+            .el-form-item__content {
+                // height: 30px;
+                
+                // height: 30px;
+                // margin-bottom: 10px;
+
+                .el-input-number {
+                    margin-bottom: 0px;
+                    .el-input {
+
+                        margin-bottom: 0;
+                    }
+                }
+
+                .el-input {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+      
+    }
+    .el-table__empty-block {
+        background-color: #fff;
+    }
+    .set-right {
+        .el-form-item__label {
+            margin-right: 30px;
+        }
+    }
+
+    .save-btn {
+        margin-bottom: 36px;
+    }
+
+    .edit-btn {
+        margin-bottom: 0 !important;
+    }
+    .operate-btn {
+        cursor: pointer;
+        color: #108ee9;
+        // margin-bottom: 47px;
+        span {
+            font-size: 12px;
+            &:first-child {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .active-ipt {
+        input {
+            border-color: #f56c6c;
+        }
+    }
+
+    .template-tip {
+        font-size: 12px;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 20px;
+        margin-left: 12px;
+    }
+
+    .error-tip {
+        position: absolute;
+        color: #f56c6c;
+        font-weight: 600;
+        text-align: left;
+        left: 0;
+        padding-top: 35px;
+        top: 0;
+        line-height: 1.4;
+        font-size: 12px;
+        z-index: -1;
+
+        // &:hover {
+        //     background: #f7f7f7;
+        // }
+    }
+    .default-ipt {
+        input {
+            border-color: #dcdfe6;
+        }
+    }
+
+    .default-right {
+        .el-form-item__label {
+            margin-right: 10px;
+        }
+    }
+
+    .boot-mode-count {
+        margin: 20px 0 18px;
+
+        .el-checkbox__label {
+            height: 20px;
+            line-height: 20px;
+        }
+    }
+
+
+    .add-volume-en {
+        font-size: 12px;
+        margin-left: 165px;
+    }
+
+    .add-volume {
+        font-size: 12px;
+        margin-left: 115px;
+    }
+
+    .default-s {
+        color: #999;
+        cursor: no-drop;
+        margin-top: 5px;
+    }
+
+    .active {
+        cursor: pointer;
+        color: #108ee9;
+    }
+
+    .set-top {
+        margin-top: 22px !important;
+    }
+
+    #volumeManager {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0 !important;
+        white-space: nowrap;
+
+        label {
+            line-height: 4;
+
+            &::before {
+                content: "*";
+                color: var(--el-color-danger);
+                margin-right: 4px;
+            }
+        }
+    }
+
+    &-rule-form {
+        // margin-top: 20px;
+
+        .el-input__inner {
+            // width: 507px;
+            // min-width: 87px;
+        }
+
+        .flex-checkbox {
+            display: flex;
+            align-items: center;
+
+            .el-checkbox {
+                width: auto;
+                margin-bottom: 0;
+                align-items: center !important;
+            }
+        }
+
+        #bootMode {
+            .el-form-item__label {
+                &::before {
+                    position: relative;
+                    font-weight: 600;
+                    line-height: 1.5;
+                    display: flex;
+                    align-items: flex-start;
+                    word-wrap: break-word;
+                    word-break: keep-all;
+                    content: "*";
+                    color: var(--el-color-danger);
+                    margin-right: 4px;
+                }
+            }
+        }
+
+        .set-empty {
+            margin-bottom: 32px !important;
+            .el-form-item__error {
+                margin-top: 6px !important;
+            }
+        }
+
+        .set-empty1 {
+            margin-bottom: 28px !important;
+            .el-form-item__error {
+                margin-top: 6px !important;
+            }
+        }
+
+        .set-default {
+            margin-bottom: 12px !important;
+        }
+
+        .is-loading {
+            position: absolute;
+            top: 8px;
+            right: 0;
+            transform: translateY(-50%);
+            animation: loading .7s linear ease-in-out;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(100deg);
+            }
+        }
+
+        .set-name-bottom {
+            margin-bottom: 47px !important;
+
+            .el-form-item__error {
+                margin-top: 5px !important;
+            }
+        }
+
+        .set-label {
+            display: flex;
+            align-items: flex-start !important;
+            
+            .el-form-item__content {
+                .radio-button-text-ellipsis {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+        .device-type-count {
+            position: relative;
+        }
+
+        .el-form-item--default {
+            display: flex;
+            align-items: center;
+
+            .el-form-item__label {
+                position: relative;
+                font-weight: $fontLargeWeight;
+                line-height: 1.5;
+                display: flex;
+                align-items: flex-start;
+                word-wrap: break-word;
+                word-break: keep-all;
+            }
+        }
+
+        .error-device-type {
+            input {
+                border-color: #f56c6c;
+            }
+        }
+
+        .has-error-device-type {
+            position: absolute;
+            top: 22px;
+            font-size: $fontSize;
+            color: #f56c6c;
+        }
+
+        .model-name {
+            .el-input {
+                width: auto;
+            }
+        }
+        .specifications {
+
+            .el-input {
+                width: auto;
+            }
+            .el-form-item__content {
+                position: relative;
+            }
+        }
+
+        .el-input--default,
+        .el-form-item__content {
+            display: flex;
+        }
+
+        .set-desc {
+            .el-form-item__label {
+                display: flex;
+                align-items: flex-start;
+                margin-top: 5px;
+                width: 130px !important;
+                margin-left: 10px;
+                margin-top: -50px;
+            }
+            .el-input__count {
+                font-size: $fontSize;
+                color: $color7;
+                font-weight: $fontSmallWeight;
+            }
+        }
+        .set-english-width {
+            .el-form-item__label {
+                width: 130px !important;
+                margin-left: 10px;
+            }
+        }
+
+        .set-width {
+            .el-form-item__label {
+                width: 100px !important;
+                margin-left: 10px;
+            }
+        }
+
+        .el-table__row {
+            .el-table__cell {
+            //     display: flex;
+            padding: 0;
+
+            //     align-items: flex-start;
+            //     width: 100%;
+
+            //     .cell {
+            //         width: 100%;
+            //     }
+            }
+        }
+
+        .el-select {
+            width: 100%;
+        }
+
+        // .min-size-count {
+        //     // display: flex;
+        //     // align-items: center;
+        //     // justify-content: center;
+
+        //     .unit-select {
+        //         .el-input__inner {
+        //             width: 100px;
+        //         }
+        //     }
+
+        //     .num-ipt {
+        //         .el-input__inner {
+        //             width: 100px;
+        //         }
+        //     }
+         
+
+        //     // .el-form-item__content {
+        //     //     justify-content: flex-end;
+        //     // }
+        // }
+
+        &-desc {
+
+            .el-textarea {
+                width: 507px;
+            }
+            .el-form-item__label {
+                width: 100px !important;
+                margin-left: 10px;
+                margin-top: -50px;
+            }
+            
+            .el-textarea__inner {
+                height: 78px;
+                padding: 5px 8px;
+                margin-top: 7px;
+                resize: none;
+
+                &::placeholder {
+                    font-size: $fontSize;
+                }
+
+                font-size: $fontSize;
+            }
+
+            .el-input__count {
+                font-size: $fontSize;
+                color: $color7;
+                font-weight: $fontSmallWeight;
+                // right: 86px;
+            }
+        }
+
+        .hide-label {
+            .el-form-item__label {
+                opacity: 0;
+            }
+        }
+
+        .set-select-width {
+            .el-form-item__content {
+                input {
+                    width: 260px;
+                }
+            }
+        }
+
+        .multiple-choice {
+            input {
+                width: 100%;
+                // width: 200px;
+            }
+        }
+
+        // .set-type-width {
+        //     .el-form-item__content {
+        //         input {
+        //             width: 275px;
+        //         }
+        //     }
+        // }
+
+        .select-width {
+            .el-form-item__content {
+                .el-select,
+                input {
+                    width: 235px;
+                }
+            }
+        }
+
+        .set-data-sys-style {
+            .el-form-item__content {
+                input {
+                    width: 300px;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+
+                .el-select {
+                    position: absolute;
+                    left: 300px;
+
+                    input {
+                        width: 65px;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                        border-left: 0;
+
+                        // &:active,
+                        // &:focus {
+                        //     // border-color: $border2 !important;
+                        // }
+                    }
+                }
+            }
+        }
+
+        .sys-single-capacity,
+        .data-single-capacity {
+            .el-form-item__content {
+                width: 224px;
+                position: relative;
+
+                input {
+                    // width: 160px;
+                    // border-top-right-radius: 0;
+                    // border-bottom-right-radius: 0;
+                    border-top-right-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                    // border-right: 0 !important;
+                }
+
+                .el-select .el-input.is-focus .el-input__inner {
+                    border-color: #dcdfe6 !important;
+                }
+                
+                .el-select {
+                    width: 67px;
+                    position: absolute;
+                    // left: 150px;
+                    right: 0;
+
+                    input {
+                        width: 65px;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        // border-top-right-radius: 4px;
+                        // border-bottom-right-radius: 4px;
+                        border-top: 0;
+                        height: 28px;
+                        border-bottom: 0;
+                        border-right: 0;
+                        margin-right: 1px;
+                        // border-left: 0;
+
+                        // &:hover,
+                        // &:active,
+                        &:focus {
+                            border-color: #dcdfe6 !important;
+                            // border-color: $border2 !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .el-form-item__label,
+        .el-input__inner {
+            font-size: $fontSize;
+            color: $defaultColor;
+        }
+
+        .el-form-item--default {
+            margin-bottom: 18px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        input {
+            // width: 450px;
+            height: 30px;
+            border-radius: 4px;
+        }
+    }
+
+    .set-bottom {
+        margin-bottom: 24px;
+    }
+
+    .en-table-error-tip {
+        margin-left: 170px;
+        font-size: 12px;
+        margin-bottom: 20px;
+        color: #f56c6c;
+    }
+
+    .table-error-tip {
+        margin-left: 115px;
+        font-size: 12px;
+        margin-bottom: 20px;
+        color: #f56c6c;
+    }
+
+    .set-from-img,
+    .model-from-img {
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        position: absolute;
+    }
+
+    .footer-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+        button {
+            width: 150px;
+            height: 36px;
+        }
+    }
+}

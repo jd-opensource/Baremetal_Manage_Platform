@@ -1,0 +1,39 @@
+.user-center-content {
+    .operate-management-content {
+        margin-top: 0px !important;
+    }
+    
+    /* 个人api密钥 */
+    .api-key {
+        margin-top: 100px;
+
+        .user-centet-table {
+            :deep(.el-table__cell) {
+                padding: 13.5px 0 !important;
+            }
+
+            :deep(.el-table__inner-wrapper tr:first-child th) {
+                &:first-child {
+                    border-left: none;
+                }
+            }
+
+            :deep(.custom-tip-count) {
+                font-size: $fontSize;
+                @include text-align(center);
+                margin-bottom: 30px;
+            }
+
+        }
+
+        .create-key {
+            border-radius: 15px;
+            padding: 0 13px;
+            height: 30px;
+            font-size: $fontSize;
+            margin-bottom: 30px;
+            margin-left: 30px;
+        }
+    }
+
+}

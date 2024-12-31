@@ -1,0 +1,14 @@
+.header-count {
+    @extend %header-info;
+
+    &-img {
+        margin: 0 15px 0 33px;
+        @include set-width-height(16px);
+    }
+
+    &-title {
+        font-size: $fontSize2;
+        color: $defaultColor;
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,80 @@
+.bmp-step {
+    width: 400px;
+    margin: 0 auto 20px auto;
+    // 步骤条
+     .el-step{
+        .el-step__icon {
+            width: 26px;
+            height: 26px;
+            
+        }
+
+        // 填写中
+        .el-step__head.is-process {
+            .el-step__icon.is-text {
+                background-color: #108EF9;
+                border-color: #108EF9 !important;
+                .el-step__icon-inner {
+                    color: #fff;
+                    font-weight: 400 !important;
+                }
+            }    
+        }
+
+        // 未填写
+        .el-step__head.is-wait {
+            .el-step__icon.is-text {
+                background-color: #999999;
+                border-color: #999999 !important;
+                .el-step__icon-inner {
+                    color: #fff;
+                    font-weight: 400 !important;
+                }
+            }    
+        }
+        
+        // 已填写
+        .el-step__head.is-success {
+            .el-step__icon.is-text {
+                background-color: #E8F4FD !important;
+                border-color: #108EF9 !important;
+                border-width: 0.5px;
+                .el-step__icon-inner {
+                    color: #108EF9 !important;
+                    font-weight: 400 !important;
+                }
+            }    
+        }
+
+        // 步骤条目
+        .el-step__main {
+            // 填写中
+            .el-step__title.is-process {
+                color: #666666;
+                font-size: 12px !important;
+            }
+            // 未填写
+            .el-step__title.is-wait {
+                color: #666666;
+                font-size: 12px !important;
+            }
+            // 已填写
+            .el-step__title.is-success {
+                color: #666666;
+                font-size: 12px !important;
+            }
+        }
+        
+    }  
+    
+    .el-step.is-center .el-step__line {
+        height: 1px;
+        left: 60%;
+        right: -40%;
+        background-color: #D4D4D4;
+        border-color: #D4D4D4;
+        .el-step__line-inner {
+            border-width: 0px;
+        }
+    }
+}

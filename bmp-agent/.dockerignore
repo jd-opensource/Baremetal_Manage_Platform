@@ -1,0 +1,26 @@
+# eclipse meta
+.classpath
+.project
+.settings/
+.DS_Store
+bin/
+
+# vscode
+.vscode/
+
+# Log file
+*.log
+
+
+# python
+*.eggs/
+*.egg-info/
+dist/
+build/
+*.pyc
+.stestr
+pylintrc
+.tox
+
+# dev
+dev.sh

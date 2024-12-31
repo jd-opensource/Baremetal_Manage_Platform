@@ -1,0 +1,45 @@
+.lock-instance {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 520px;
+            height: 292px;
+        }
+
+        &__body {
+
+            .currency-count {
+                @extend %display-flex-column;
+
+                .lock-count {
+                    padding: 9px 15px;
+                    border-radius: 2px;
+                    background: $background17;
+                    margin-top: 20px;
+                    @include display-align(flex-start);
+                    @extend %justify-center ;
+                    margin-bottom: -30px;
+    
+                    &-icon {
+                        @include set-width-height(16px);
+                        margin-right: 20px;
+                    }
+    
+                    &-tip {
+                        font-size: $fontSize;
+                    }
+                }
+    
+                &-title {
+                    margin-top: 80px;
+                    padding-bottom: 131px;
+                    @include text-align(center);
+                    @include size-weight-color($fontSize2, $fontSmallWeight, $defaultColor);
+                }
+            }
+        }
+
+        &__footer {
+            width: 475px;
+        }
+    }
+}

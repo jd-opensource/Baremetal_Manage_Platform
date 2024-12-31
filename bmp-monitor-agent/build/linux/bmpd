@@ -1,0 +1,128 @@
+#!/bin/bash
+ 
+### BEGIN INIT INFO
+# Provides:          bmp-agentd
+# RequiRED-Start:    $local_fs
+# RequiRED-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# chkconfig:         2345 95 05
+# Description:       startup script for bmp-agentd
+### END INIT INFO
+
+set -o nounset
+
+unset IFS
+unset LD_PRELOAD
+unset LD_LIBRARY_PATH
+
+readonly RED="\\e[31m"
+readonly GREEN="\\e[32m"
+readonly YELLOW="\\e[33m"
+readonly BLACK="\\e[0m"
+readonly POS="\\e[60G"
+
+readonly bmp_AGENT_DIR=$(cd $(dirname $(readlink -e $0))/.. && pwd)
+readonly bmp_AGENT_SBIN_DIR=$bmp_AGENT_DIR/bin
+readonly bmp_AGENT="$bmp_AGENT_SBIN_DIR/bmp-agent"
+readonly STOP_TIMEOUT=30
+
+function usage()
+{
+    echo "usage: bmp-agentd command"
+    echo "command is show as follows:"
+    echo "  start         start   bmp_agentd"
+    echo "  stop          stop    bmp_agentd"
+    echo "  restart       restart bmp_agentd"
+    echo "  status        check   bmp_agentd status whether it is running"
+    echo "AUTHORS: Zhou Guiqing<zhouguiqing3@jd.com>"
+}
+
+ok_msg(){
+    echo -e "${1}${POS}${BLACK}[${GREEN}  OK  ${BLACK}]"
+}
+ 
+failed_msg(){
+    echo -e "${1}${POS}${BLACK}[${RED}FAILED${BLACK}]"
+    exit -1
+}
+
+function get_pid()
+{
+    echo $(ps -aux | grep "bmp-agent$" | awk '{print $2}')
+}
+
+# grep -P 1 -f 经常获取不到pid，不知道为啥
+# function get_pid()
+# {
+#     local ppid=1
+#     local pid_agent=$(pgrep -P 1 -f "^${bmp_AGENT}$")
+    
+#     echo "$pid_agent"
+# }
+
+function check()
+{
+    local all_pids=$(get_pid)
+    [ -n "${all_pids}" ] && return 0
+    return 1
+}
+
+function start()
+{
+    check && {
+        ok_msg "start"
+        return 0
+    }
+
+    setsid $bmp_AGENT </dev/null >/dev/null 2>&1 &
+    sleep 1
+    check || failed_msg "start"
+    ok_msg "start"
+}
+
+function signal()
+{
+    local SIGNAL=$1
+    local i=0
+    while [ "${i}" -le "${STOP_TIMEOUT}" ]; do
+        local all_pids=$(get_pid)
+        [ -z "${all_pids}" ] && return 0
+        kill $SIGNAL ${all_pids}
+        sleep 1
+        i="`expr "${i}" + 1`"
+    done
+    return 1
+}
+
+function stop()
+{
+    signal -SIGUSR1 || signal -KILL || failed_msg "stop"
+    ok_msg "stop"
+}
+
+function status()
+{
+    check || failed_msg 'not running'
+    ok_msg 'running'
+}
+ 
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    status)
+        status
+        ;;
+    *)
+        usage
+        ;;
+esac
+exit $?

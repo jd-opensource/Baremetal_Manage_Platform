@@ -1,0 +1,56 @@
+@import './index.scss';
+
+.operate-management {
+    width: $percentageWidth;
+
+    &-content {
+        @extend %display-flex-column;
+        position: relative;
+        margin-top: 61px;
+
+        &-operate2 {
+            width: 100%;
+
+            &-right {
+                @extend %displafy-flex-wrap;
+                margin-top: 22px;
+            }
+        }
+
+        .set-flex-end {
+            @extend %no-btn-opt;
+        }
+    
+        &-operate2,
+        &-operate {
+            padding: 0 30px;
+            @include display-align(center);
+            @extend %displafy-flex-wrap;
+            @include display-justify(space-between);
+        
+            &-right {
+                display: flex;
+            }
+
+            @for $i from 0 through 2 {
+                $key: $i;
+                .list-data-operate#{$key} {
+                    @include set-cursor(pointer);
+                    @include operate-count($key);
+
+                    &:hover {
+                        color: $color1;
+                    }
+                }
+            }
+
+            @for $i from 0 through 2 {
+                $key: $i;
+                .disabled-list-data-operate#{$key} {
+                    @extend %pointer-events;
+                    @include operate-count($key);
+                }
+            }
+        }
+    }
+}

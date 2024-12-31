@@ -1,0 +1,292 @@
+.message-list {
+    .message-list-title {
+        height: 30px;
+        margin-bottom: 30px;
+        padding-left: 34px;
+        border-bottom: 1px solid #F0F0F0;
+        .section-title {
+            font-weight: bold;
+            color: #333333;
+            display: inline-block;
+            padding-left: 20px;           
+            border-left: 2px solid #108EF9;
+        }
+    }
+    .instance-name-height {
+        margin: 4px 0;
+        height: 50px;
+        .el-button {
+            height: 22px;
+        }
+    }
+
+    .group-list-choose {
+        display: inline-block;
+        margin-left: 30px;
+        .el-radio-button :hover {
+            border-color: #979797;   
+            color: #333;
+        }
+        .el-radio-button__original-radio:checked + .el-radio-button__inner:hover {
+            border-color: #108EF9; 
+            color: #fff;
+        }
+        .el-radio-button {           
+            .el-radio-button__inner {
+                font-size: 12px;
+            }
+
+        }    
+    }
+
+    .el-table {
+        max-height: calc(100vh - 380px) !important;
+    }
+
+    
+}
+
+.el-checkbox__inner {
+    width: 10px;
+    height: 10px;
+    margin-top: 1px;
+    border-radius: 2px;
+    border: 1px solid #333;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: #108EF9  !important;
+    }
+
+    &::after {
+        height: 5px;
+        left: 2px;
+        top: 0px;
+    }
+}
+
+.unread-message-content {
+    font-size: 12px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: center;
+    cursor: pointer;
+	color: #333333;
+
+    &:hover .text-underline {
+        padding-bottom: 3px;
+        border-bottom: 1px solid #666666;
+    }
+}
+
+.read-message-content {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: center;
+    cursor: pointer;
+	color: #666666;
+
+
+   &:hover .text-underline {
+        padding-bottom: 3px;
+        border-bottom: 1px solid #999999;
+    }
+       
+}
+
+.search-result {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.warning-tip {
+    width: 16px;
+    height: 16px;
+    position:absolute;
+    cursor: pointer;
+}
+.change-show-style {
+    cursor: pointer;       
+}
+.one-line-drop {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
+.disabled-currency-style {
+    cursor: no-drop;
+    color: #999999 !important;
+}
+
+.no-click {
+    color: #999999 !important;
+    cursor: no-drop;
+}
+.can-click {
+    color: #333333 !important;
+    cursor: pointer;
+}
+
+
+
+.tag-content {
+    .el-tag__content {
+        display: contents;
+        .is-loading {
+            margin-left: 3px;
+            cursor: auto;
+            font-size: calc(var(--el-icon-size) - 2px) !important;
+            animation: rotating 2s linear infinite;
+        }
+    }
+    
+}
+.no-data-jump {
+    width: 100%;
+    text-align: center;
+}
+
+.el-table__empty-text {
+    width: 100%;
+}
+
+.batch-operate {
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 8px;
+    .el-checkbox {
+        margin-right: 30px;
+        height: 24px;
+        vertical-align: middle;
+    }
+    .el-button {
+        &--primary {
+            min-width: 50px;
+            height: 24px;
+            font-size: 12px;
+            margin-right: 10px;
+            --el-button-bg-color: #108ee9 !important;
+            --el-button-text-color: #fff;
+        
+            &:focus,
+            &:hover {
+                --el-button-hover-bg-color: #108ee9 !important;
+                --el-button-hover-text-color: #fff;
+            }
+
+            &:active {
+                --el-button-active-bg-color: #0f81d4 !important;
+            }
+            --el-button-disabled-bg-color: #91D5FF !important;
+            --el-button-disabled-border-color: #91D5FF !important;
+        }
+    }
+
+    .batch-drop-down {
+        display: inline-block;
+        vertical-align: middle;   
+    }
+}
+
+.page-change {
+    display: inline-block;
+    float: right;
+    margin-right: 50px;
+}
+
+.column-left {
+    text-align: left !important;
+}
+
+.border-none {
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+
+.dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    background: #108EF9;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+}
+
+.filter-content {
+    position: absolute;   
+    top: 208px;
+    .filter-content-fixed {
+        position: fixed;
+        .filter-message-list-checkbox {
+            max-height: 200px;
+            overflow: auto;
+            margin: 5px 0;  
+            .el-checkbox-group {
+                display: grid;
+            }
+            .el-checkbox {
+                margin-right: 0;
+                padding-left: 10px;
+                height: 28px;
+                &:hover {
+                    background-color: #F7F7F7;
+                }
+            }
+        }
+        
+    }
+    .filter-message-list-input {  
+        .el-input__inner {
+            border-radius: 0;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+    }
+    .input-zh {
+        .el-input {
+            width: 142px ;
+        }
+    }
+    .input-en {
+        .el-input {
+            width: 172px ;
+        }
+    }
+    .filter-message-list-button {
+        display: flex;
+        justify-content:space-between;
+        border-top: .5px solid #c4c4c4;
+        .el-button {
+            width: 50%;
+            font-size: 12px;
+            color: #333333;
+            &:hover {
+                color: #108EF9;
+            }
+            &.is-disabled {
+                color: #999999;
+            }    
+        }
+    }
+}
+
+.right-zh {
+    right: 200px;
+}
+.right-en {
+    right: 230px;
+}
+.change-blue {
+    color: #108EF9;
+}
+
+.el-table-filter__list-item {
+    font-size: 12px;
+}

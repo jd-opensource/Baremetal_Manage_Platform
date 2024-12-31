@@ -1,0 +1,52 @@
+{
+    "name": "bmp-console-web",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "vue-cli-service serve",
+        "build": "vue-cli-service build --report",
+        "build-pre": "vue-cli-service build --mode pre",
+        "build-test": "vue-cli-service build --mode test",
+        "build-prod": "vue-cli-service build --mode prod"
+    },
+    "dependencies": {
+        "@element-plus/icons": "0.0.11",
+        "axios": "0.25.0",
+        "core-js": "^3.6.5",
+        "crypto-js": "^4.1.1",
+        "default-passive-events": "^2.0.0",
+        "echarts": "^5.5.0",
+        "element-plus": "2.0.0",
+        "mitt": "3.0.0",
+        "pinia": "2.0.21",
+        "pinia-plugin-persistedstate": "^3.2.1",
+        "vue": "3.2.25",
+        "vue-clipboard3": "^2.0.0",
+        "vue-cookies": "^1.8.1",
+        "vue-echarts": "^6.7.2",
+        "vue-i18n": "9.1.10",
+        "vue-router": "4.0.3",
+        "vue3-eventbus": "^2.0.0"
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-optional-chaining": "7.18.9",
+        "@types/echarts": "^4.9.22",
+        "@vue/cli-plugin-babel": "~4.5.15",
+        "@vue/cli-plugin-pwa": "~4.5.15",
+        "@vue/cli-plugin-router": "~4.5.15",
+        "@vue/cli-plugin-typescript": "~4.5.0",
+        "@vue/cli-service": "~4.5.15",
+        "@vue/compiler-sfc": "^3.0.0",
+        "babel-eslint": "10.1.0",
+        "sass": "1.26.5",
+        "sass-loader": "^8.0.2",
+        "speed-measure-webpack-plugin": "^1.5.0",
+        "terser-webpack-plugin": "^5.3.6",
+        "typescript": "~4.1.5"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
+}

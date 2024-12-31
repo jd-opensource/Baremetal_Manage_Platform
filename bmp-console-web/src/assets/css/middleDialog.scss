@@ -1,0 +1,96 @@
+.middle-dialog {
+    .my-title {
+        height: 26px;
+        font-size: 14px;
+        color: #108EE9;
+    }
+    .close-button {
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        box-shadow:0 1px 3px 0 #000000 0.5;
+        &:hover {
+            background-color: rgba(255,255,255,0.8);
+            border-color: rgba(255,255,255,0.8);
+            box-shadow:0 1px 3px 0 #000000 0.5;
+        }
+    }
+    .el-overlay {
+        background-color: rgba(217,217,221,0.6);
+    }
+    .error-tip-content {
+        padding: 10px;
+        background-color: #F9ECEE;
+        font-size: 12px;
+    }
+    .el-overlay-dialog {
+        display: flex;
+    }
+    .el-dialog {
+        background-color: rgba(255,255,255,0.8);
+        --el-dialog-width: 640px;
+        min-height: 360px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow:0 1px 3px 0 #000000 0.5;
+        backdrop-filter: blur(13px);
+        .el-dialog__header {          
+            padding: 14px 0 10px 0;
+            margin: 0 20px 10px 20px;
+            text-align: left;
+            border-bottom: 1px solid #F0F0F0;
+        }
+        .el-dialog__body {
+            min-height: 190px;
+            padding: 10px 20px 30px 20px;
+            
+            .el-select {
+                width: 204px;
+            }
+            .el-input {
+                width: 204px;
+            }
+            .el-textarea {
+                width: 483px;
+                font-size: 12px;
+            }
+        }
+        .dialog-body-content {
+            position: relative;         
+        }
+        .el-dialog__footer {
+            padding: 20px;
+            margin: 0 20px;
+            border-top: 1px solid #F0F0F0;
+            .el-button {
+                width: 100px;
+                height: 30px;
+                font-size: 12px;
+                border-radius: 4px;
+            }
+            .el-button+.el-button {
+                margin-left: 20px;
+            }
+
+            .cancel-button {
+                background-color: #EEEEEE;
+                border-color: #EEEEEE;
+                color: #666666;
+                &:active {
+                    background-color: #DFDFDF;
+                    border-color: #DFDFDF;
+                }
+                &:hover {
+                    border-color: #EEEEEE;
+                }
+            }
+        }
+    }
+    .el-form-item__error {
+        text-align: left;
+        line-height: 14px;
+    }
+    
+}

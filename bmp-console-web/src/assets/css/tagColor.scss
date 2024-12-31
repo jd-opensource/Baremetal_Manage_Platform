@@ -1,0 +1,39 @@
+.el-tag--plain.el-tag--success {
+    --el-tag-border-color:#43B561;
+    --el-tag-text-color:#43B561;
+}
+
+.el-tag--plain.el-tag--info {
+    --el-tag-border-color:#999999;
+    --el-tag-text-color:#999999;
+}
+
+.el-tag--plain.el-tag--danger {
+    --el-tag-border-color:#ff4d4f;
+    --el-tag-text-color:#ff4d4f;
+}
+.el-tag--plain {
+    --el-tag-border-color:#9254DE;
+    --el-tag-text-color:#9254DE;
+}
+
+.el-tag--dark.el-tag--success {
+    --el-tag-bg-color: #43B561;
+    --el-tag-border-color: #43B561;
+    --el-tag-text-color: #fff;
+    --el-tag-hover-color: #43B561;
+}
+
+.el-tag--dark.el-tag--warning {
+    --el-tag-bg-color: #999999;
+    --el-tag-border-color: #999999;
+    --el-tag-text-color: #fff;
+    --el-tag-hover-color: #999999;
+}
+
+.el-tag--dark.el-tag--danger {
+    --el-tag-bg-color: #ff4d4f;
+    --el-tag-border-color: #ff4d4f;
+    --el-tag-text-color: #fff;
+    --el-tag-hover-color: #ff4d4f;
+}

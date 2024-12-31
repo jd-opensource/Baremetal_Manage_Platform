@@ -1,0 +1,341 @@
+@import './extractPublic.scss';
+
+.el-table {
+
+    &--border {
+        &::after,
+        &::before {
+            display: none;
+        }
+    }
+
+    &__border-left-patch {
+        display: none;
+    }
+
+    &__header-wrapper {
+        .el-table__header {
+            th,
+            .el-table-fixed-column--left,
+            .el-table-fixed-column--right {
+                background: $background14;
+            }
+        }
+
+        .cell {
+            // @extend %display-flex-align;
+            @include display-align(center);
+            @extend %justify-center;
+            @extend %white-flw-over;
+        }
+    }
+
+    &-column--selection {
+        border-left: 0 !important;
+        border-right: 0 !important;
+    }
+
+    &-fixed-column--left {
+        border-left: 0 !important;
+        border-color: $border8 !important;
+    }
+
+    &-fixed-column--left.is-last-column.el-table__cell {
+        border-color: $border8 !important;
+        border-width: 1px !important;
+    }
+
+    th.lignt-filter {
+        padding: 0 !important;
+
+        .cell {
+            @extend %color-height-background-color;
+
+            .el-table__column-filter-trigger {
+                background-image: tableFilterBtnImg(2) !important;
+                @extend %filter-trigger;
+            }
+        }
+    }
+    
+    @for $i from 0 through 15 {
+        $key: $i;
+        th.def-type-status#{$key} {
+            @include heighlight;
+        }
+    }
+
+    th.common-status {
+        padding: 0 !important;
+        background-color: $background4 !important;
+
+        .cell {
+            @extend %color-height-background-color;
+
+            .el-table__column-filter-trigger {
+                background-image: tableFilterBtnImg(2) !important;
+                @extend %filter-trigger;
+            }
+        }
+    }
+}
+
+.no-top {
+    margin-top: 0px !important;
+}
+
+.no-top,
+.operate-management-count,
+.currency-count-table {
+    .img-show {
+        
+        .el-table__body-wrapper {
+            display: inline-block;
+            opacity: 0;
+    
+            .el-table__empty-block {
+                background: $whiteBackground !important;
+            }
+        }
+    }
+}
+
+.no-top,
+.operate-management-count {
+    padding: 0px 30px;
+
+    /* 修改表格空数据展示 */
+    .img-empty {
+        
+        .el-table__body-wrapper {
+
+            .el-table__empty-block {
+                width: 363px !important;
+                margin: 0px auto 0;
+
+                .el-table__empty-text {
+                    width: auto;
+                    @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+                }
+            }
+
+            .custom-tip-count {
+                .empty-text {
+                    color: $color1;
+                    @include set-cursor(pointer);
+                }
+            }
+        }
+    }
+
+    /* 修改表头下拉icon样式 */
+    .img-empty,
+    .img-show {
+        .el-table__header-wrapper {
+            .cell {
+                @include display-align(center);
+                @extend %justify-center;
+
+                .el-table__column-filter-trigger {
+                    background-image: tableFilterBtnImg(1);
+                    background-repeat: no-repeat;
+                    @extend %filter-trigger;
+                }
+            }
+        }
+    }
+
+    &-short-table {
+        .el-table__header-wrapper {
+            @include display-align(center);
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .el-table__body {
+            padding-bottom: 10px !important;
+        }
+    }
+
+    &-short-table,
+    &-table {
+        transition: max-height .6s;
+
+        .cell {
+            @include text-align($center);
+            
+            .el-table__column-filter-trigger {
+                background-image: tableFilterBtnImg(1);
+                @extend %backgroud-repeat-position;
+                @extend %filter-trigger;
+            }
+        }
+
+        .el-table__empty-block {
+            @extend %def-c-f-style;
+            // background: $background3;
+        }
+
+        .el-table__row {
+            height: $height;
+            @extend %def-c-f-style;
+            background: $whiteBackground;
+            
+            .el-table__cell {
+                border-left-color: $transparent !important;
+                border-right-color: $transparent !important;
+            }
+        }
+
+        .el-table__body tr:hover > td{
+            background-color: $background3 !important;
+        }
+    
+        .el-table__cell {
+            border-color: $border8;
+            border-width: 1px;
+            border-bottom: 0 !important;
+
+            .highlight {
+                --el-color-primary: $color1;
+            }
+
+            .el-table__inner-wrapper {
+                &::after,
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
+        .el-table__inner-wrapper {
+            &::after,
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    .set-header-count-left {
+        .cell {
+            @include text-align(left);
+            @include display-align(flex-start);
+            @extend %justify-start;
+            padding-left: 18px !important;
+        }
+    }
+}
+
+.operate-management-detail,
+.currency {
+    &-count {
+        &-table {
+            .cell {
+                @include text-align($center);
+
+                .el-table__column-filter-trigger {
+                    background-image: tableFilterBtnImg(1);
+                    @extend %backgroud-repeat-position;
+                    @extend %filter-trigger;
+                }
+            }
+
+            .el-table__row {
+                height: $height;
+                @extend %def-c-f-style;
+                background: $whiteBackground;
+            }
+
+            .el-table__cell {
+
+                .cell {
+                    @include display-align(center);
+                    @extend %justify-center;
+                }
+            }
+
+            .el-table__inner-wrapper {
+                &::before {
+                    display: none;
+                }
+            }
+
+            .el-checkbox__inner {
+                @include set-width-height(12px);
+                border: 1px solid $border17;
+                border-radius: 2px;
+
+                &::before {
+                    top: 3px !important;
+                    height: 3px !important;
+                }
+
+                &::after {
+                    box-sizing: content-box;
+                    content: "";
+                    border: 1px solid $border8;
+                    border-left: 0;
+                    border-top: 0;
+                    height: 6px !important;
+                    left: 3px !important;
+                    position: absolute;
+                    top: 0px;
+                    transform: rotate(45deg) scaleY(0);
+                    width: 2px;
+                    transition: transform .15s ease-in 50ms;
+                    transform-origin: center;
+                }
+            }
+
+            .el-table__body tr:hover > td{
+                background-color: $background3 !important;
+            }
+        }
+    }
+}
+
+/** table组件-label&下拉框筛选样式 */
+.el-popper.is-pure {
+    border: 0 !important;
+
+    .el-popper__arrow {
+        &::before {
+            border-color: $border8 !important;
+        }
+    }
+
+    .el-checkbox.el-checkbox--default {
+        padding: 3px;
+
+        .el-checkbox__label {
+            @extend %def-c-f-style;
+        }
+    }
+
+    .is-checked {
+        .el-checkbox__label {
+            color: $color1 !important;
+        }
+    }
+
+    .el-table-filter__bottom {
+        @include display-justify(space-around);
+
+        button.is-disabled {
+            color: $color7 !important;
+        }
+
+        button {
+            color: $defaultColor;
+
+            &:hover {
+                color: $color1;
+            }
+        }
+
+        button.is-disabled,
+        button {
+            font-size: $fontSize;
+        }
+    }
+}

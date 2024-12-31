@@ -1,0 +1,91 @@
+@import 'assets/css/deviceOperate.scss';
+
+.fault-handling-confirm {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 786px;
+            height: 402px;
+
+            .el-table {
+                &__header-wrapper {
+                    margin-bottom: 5px;
+                }
+    
+                &__row {
+                    background-color: $background3;
+
+                    &:hover {
+                        td {
+                            background-color: $background10 !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__body {
+            padding: 0;
+        }
+
+        &__footer {
+            width: 741px;
+        }
+    }
+
+    &-content {
+
+          // table为空
+          .currency-count-table {
+            .img-empty {
+                .el-table__body {
+                    padding-bottom: 0 !important;
+                }
+                .el-table__empty-block {
+                    background: $whiteBackground;
+
+                    .el-table__empty-text {
+                        color: $defaultColor;
+                    }
+                }
+            }
+        }
+
+        .warnning-tip {
+            @extend %warnning-tip;
+            // text-align: center;
+            // border-radius: 2px;
+            // background: rgb(249, 237, 239);
+            // display: flex;
+            // align-items: flex-start;
+            // justify-content: center;
+            // margin-top: 15px;
+
+            // img {
+            //     width: 32px;
+            //     height: 32px;
+            //     transform: scale(.5);
+            //     margin-left: 10px;
+            //     margin-top: 1px;
+            // }
+
+            // span {
+            //     font-size: $fontSize;
+            //     color: $defaultColor;
+            //     padding-right: 30px;
+            //     font-weight: $fontSmallWeight;
+            //     margin-top: 8px;
+            // }
+        }
+
+        .tip-title {
+            @extend %tip-title;
+            // font-size: $fontSize;
+            // color: $defaultColor;
+            // margin: 15px 0;
+
+            // span {
+            //     color: $color1;
+            // }
+        }
+    }
+}

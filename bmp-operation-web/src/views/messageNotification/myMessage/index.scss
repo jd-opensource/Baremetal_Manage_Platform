@@ -1,0 +1,45 @@
+.my-message-count {
+    .search-tip-operate2 {
+        .radio-active {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+    }
+
+    // :deep(.my-pagination) {
+    //     justify-content: flex-end;
+    //     margin-right: 57px;
+    // }
+
+    .no-read {
+        margin: 0 5px;
+    }
+
+    :deep(.radius-id) {
+       @include set-width-height(6px);
+        border-radius: 50%;
+        background: $background1;
+        position: absolute;
+        left: -26px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    :deep(.message-count-no) {
+        font-weight: 600;
+        &:hover {
+            border-bottom: 1px solid $border19;
+        }
+    }
+
+    :deep(.message-count) {
+        font-weight: $fontSmallWeight;
+
+        &:hover {
+            border-bottom: 1px solid $border7;
+            @include set-cursor(cursor);
+        }
+        color: $color6;
+    }
+}

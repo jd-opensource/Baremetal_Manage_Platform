@@ -1,0 +1,127 @@
+.small-dialog {
+    --el-button-hover-bg-color: #108EF9;
+    --el-button-hover-border-color: #108EF9;
+    & .ta-l {
+        .el-dialog {
+            .el-dialog__body {
+                text-align: left !important;
+            }
+        }
+    }
+    .my-title {
+        height: 26px;
+        font-size: 14px;
+        color: #108EF9;
+    }
+    .close-button {
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        box-shadow:0 1px 3px 0 #000000 0.5;
+        &:hover {
+            background-color: rgba(255,255,255,0.8);
+            border-color: rgba(255,255,255,0.8);
+            box-shadow:0 1px 3px 0 #000000 0.5;
+        }
+    }
+    .el-overlay {
+        background-color: rgba(217,217,221,0.6);
+    }
+    .error-tip-content {
+        padding: 10px;
+        background-color: #F9ECEE;
+        font-size: 12px;
+    }
+    .el-overlay-dialog {
+        display: flex;
+    }
+    .el-dialog {
+        background-color: rgba(255,255,255,0.8);
+        --el-dialog-width: 520px;
+        height:292px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow:0 1px 3px 0 #000000 0.5;
+        backdrop-filter: blur(13px);
+        .el-dialog__header {          
+            padding: 14px 0 10px 0;
+            margin: 0 20px 10px 20px;
+            text-align: left;
+            border-bottom: 1px solid #F0F0F0;
+        }
+        .el-dialog__body {
+            height: 122px;
+            padding: 10px 20px 30px 20px;
+            text-align: center;
+            .el-select{
+                width: 204px;
+            }
+            .el-input{
+                width: 204px;
+            }
+        }
+        .dialog-body-content {
+            position: relative;
+            top: 50%;
+            transform: translateY(-70%);
+        }
+        .el-dialog__footer {
+            padding: 20px;
+            margin: 0 20px;
+            border-top: 1px solid #F0F0F0;
+            .el-button {
+                width: 100px;
+                height: 30px;
+                font-size: 12px;
+                border-radius: 4px;
+            }
+            .el-button+.el-button {
+                margin-left: 20px;
+            }
+
+            .cancel-button {
+                background-color: #EEEEEE !important;
+                border-color: #EEEEEE !important;
+                color: #666666;
+                &:active {
+                    background-color: #DFDFDF !important;
+                    border-color: #DFDFDF !important;
+                }
+                &:hover {
+                    background-color: #EEEEEE !important;
+                    border-color: #EEEEEE !important;
+                }
+            }
+
+            .confirm-button {
+                background-color: #108EF9 !important;
+                border-color: #108EF9 !important;
+                color: #EEEEEE;
+                &:active {
+                    background-color: #108EF9 !important;
+                    border-color: #108EF9 !important;
+                }
+                &:hover {
+                    background-color: #108EF9 !important;
+                    border-color: #108EF9 !important;
+                }
+            }
+        }
+    }
+    .el-form-item__error {
+        text-align: left;
+        line-height: 14px;
+    }
+    
+}
+
+.no-center {
+    .el-dialog {
+        .dialog-body-content {
+            top: 0;
+            transform: translateY(0%);
+        }
+    }
+}

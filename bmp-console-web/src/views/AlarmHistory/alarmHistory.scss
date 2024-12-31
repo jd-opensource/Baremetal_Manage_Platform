@@ -1,0 +1,36 @@
+.alarm-history-list {
+    .operation-search {
+        margin-left: 30px;
+        height: 30px;
+        .el-date-editor {
+            width: 260px;
+            .el-range-input {
+                font-size: 12px;
+            }
+        }
+        .alarm-history-search-button {
+            margin-left: 20px;        
+            display: inline-block;
+            vertical-align: bottom;
+            .el-button {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.long-instance-name {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: center;
+    cursor: pointer;
+	color: #108ef9;
+
+}
+
+.search-result {
+    font-size: 12px;
+    margin-bottom: 10px;
+}

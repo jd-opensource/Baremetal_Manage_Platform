@@ -1,0 +1,45 @@
+.reset-instance {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 528px;
+            height: 298px;
+        }
+
+        &__footer {
+            width: 482px;
+        }
+    }
+
+    .tip-count {
+        padding: 10px 8px;
+        // width: 540px;
+        background: rgba(254, 249, 237, 1);
+        color: $defaultColor;
+        display: flex;
+        font-size: $fontSize;
+        // font-weight: $fontLargeWeight;
+        margin: 20px 0 35px;
+
+        .tip-img {
+            // @extend %width-height;
+            @include set-width-height(16px);
+            margin-right: 10px;
+        }
+    }
+
+    &-count {
+        // @extend %display-flex-align;
+        @include display-align(center);
+        @extend %justify-center;
+        font-size: $fontSize2;
+        color: $defaultColor;
+
+        &-info {
+            margin-right: 5px;
+
+            span {
+                font-weight: $fontLargeWeight;
+            }
+        }
+    }
+}

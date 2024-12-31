@@ -1,0 +1,101 @@
+.el-checkbox__inner {
+    // 不要用全局样式
+    --el-checkbox-input-height: 12px;
+    --el-checkbox-input-width: 12px;
+    border-color: $defaultColor;
+
+    &::after {
+        height: 6px !important;
+        left: 3px;
+        top: 0px;
+        width: 3px !important;
+    }
+}
+
+/* 表格里面的复选框 */
+.el-checkbox__input.is-indeterminate .el-checkbox__inner,
+.el-checkbox__input.is-checked .el-checkbox__inner {
+    // 不要用全局样式
+    --el-checkbox-checked-bg-color: #108ee9;
+    --el-checkbox-checked-input-border-color: #108ee9;
+
+    &::before {
+        top: 4px;
+    }
+}
+
+.el-checkbox__input.is-disabled {
+    .el-checkbox__inner {
+        // 不要用全局样式
+        --el-checkbox-input-height: 12px;
+        --el-checkbox-input-width: 12px;
+    }
+}
+
+/* 常规复选框 */
+.checkbox-text-ellipsis {
+    .el-checkbox__label {
+        @extend %white-flw-over;
+    }
+
+    .el-checkbox {
+        width: 80px;
+        height: 17px;
+        margin-right: 18px;
+        margin-bottom: 16px;
+        @include display-align(flex-start);
+        --el-checkbox-font-weight: $fontSmallWeight;
+        --el-checkbox-checked-text-color: $defaultColor;
+        --el-disabled-text-color: $defaultColor;
+        --el-checkbox-font-size: 12px;
+        --el-checkbox-text-color: $defaultColor;
+        --el-checkbox-border-radius: 2px;
+    
+        &__inner {
+            @include set-width-height(12px);
+            border-color: $border17;
+    
+            &::after {
+                height: 6px;
+                left: 3px;
+                top: 1px;
+                --el-checkbox-disabled-checked-icon-color: #fff;
+            }
+        }
+    }
+    
+    .is-checked,
+    .is-foucs {
+        --el-checkbox-checked-input-border-color: #108ee9;
+        --el-checkbox-checked-bg-color: #108ee9;
+    }
+    
+    .is-disabled {
+        cursor: no-drop;
+        --el-checkbox-disabled-checked-input-fill: #999;
+        --el-checkbox-disabled-checked-input-border-color: #999;
+    }
+}
+
+.el-select-dropdown__list {
+    margin: 0 !important;
+}
+.select-checkbox-all {
+    padding: 0px 19px;
+    border-bottom: 1px solid #dcdfe6;
+    height: 33px;
+    line-height: 33px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 9;
+
+    label {
+        padding: 0 !important;
+        width: 100%;
+
+        .el-checkbox__label {
+            font-weight: $fontSmallWeight;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+@import '@/assets/css/communal';
+
+.operate-content {
+    width: $percentageWidth;
+    height: $percentageHeight;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* 禁止用户选择 */
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    overflow-y: auto;
+    position: relative;
+
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 29px 0px 30px 57px;
+    }
+
+    &-img {
+        width: 45px;
+        height: 45px;
+        margin-right: 20px;
+    }
+
+    &-title {
+        font-size: 26px;
+        color: #333;
+        font-weight: 500;
+    }
+    
+    .operate-login {
+        width: 556px;
+        background: #fff;
+        box-shadow: 0 1px 6px 0 rgba(153, 153, 153, 0.50);
+        border-radius: 10px;
+        margin: 10px auto 30px;
+        display: flex;
+        flex-direction: column;
+        min-height: 370px;
+
+        &-button {
+            width: 344px;
+            height: 40px;
+            // background: $background1;
+            border-radius: 4px;
+            margin: 30px auto 0;
+        }
+
+        &-title {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            font-weight: 400;
+            margin-top: 36px;
+        }
+    }
+
+    .error-tooltip {
+        color: #f56c6c;
+        margin: -10px 0;
+    }
+
+    .operate-footer {
+        font-size: 12px;
+        color: #666;
+        text-align: center;
+        font-weight: $fontLargeWeight;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 26px;
+    }
+}

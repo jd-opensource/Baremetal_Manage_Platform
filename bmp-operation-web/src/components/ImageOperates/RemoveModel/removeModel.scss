@@ -1,0 +1,56 @@
+@import '@/assets/css/communal';
+
+.remove-model {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 526px;
+        }
+
+        &__footer {
+            width: 481px;
+        }
+    }
+
+    &-count {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 28.5px;
+        flex-direction: column;
+
+        &-tip {
+            padding: 9px 18px;
+            border-radius: 2px;
+            background: #f9ecee;
+            // margin-top: 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            img {
+                width: 16px;
+                height: 16px;
+                margin-right: 8px;
+            }
+
+            span {
+                font-size: $fontSize;
+                color: $defaultColor;
+            }
+        }
+
+        &-title {
+            width: 420px;
+            font-size: 14px;
+            font-weight: $fontSmallWeight;
+            color: $defaultColor;
+            text-align: center;
+            margin-top: 45px;
+            padding-bottom: 127.5px;
+
+            span {
+                font-weight: $fontLargeWeight;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@import '@/assets/css/communal';
+
+.el-table__header-wrapper {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    table {
+        height: 45px;
+    }
+}

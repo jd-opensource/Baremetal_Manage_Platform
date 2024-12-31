@@ -1,0 +1,127 @@
+.footer-count {
+    margin-top: 20px;
+    position: relative;
+    width: $percentageWidth;
+}
+
+.footer-count {
+
+    .flex-end-right {
+        justify-content: flex-end;
+        margin-right: 57px;
+    }
+
+    .my-pagination {
+        @include display-align(center);
+        @extend %justify-center;
+
+        &-total {
+            @include display-align(center);
+            margin-right: 25px;
+            @include size-weight-color($fontSize, $fontSmallWeight, $color7);
+
+            span {
+                margin: 0 5px;
+            }
+        }
+
+        &-prev {
+            margin-right: 7px;
+        }
+
+        &-disabled {
+            // cursor: not-allowed;
+            @include set-cursor(not-allowed);
+            opacity: .4;
+        }
+
+        &-pointer {
+            @include set-cursor(pointer);
+            opacity: 1;
+        }
+
+        &-next {
+            margin-left: 7px;
+        }
+
+        &-number {
+            display: inline-block;
+            padding: 5px 7px;
+            @include set-cursor(pointer);
+            @include size-weight-color($fontSize, $fontLargeWeight, $defaultColor);
+
+            &:hover {
+                color: $color1 !important;
+            }
+        }
+
+        .active {
+            @extend %pointer-events;
+            @include size-weight-color($fontSize, $fontLargeWeight, $color1);
+        }
+
+        .el-input-number--small {
+            width: 55px;
+
+            input {
+                @include text-align(left);
+                padding-left: 5px !important;
+            }
+        }
+
+        .el-input__inner {
+            font-size: $fontSize;
+            padding: 0 !important;
+        }
+
+        .el-input__suffix {
+            background-image: url('~@/assets/img/uiImg/table-arrow-bottom.png');
+            @include position-repeat(0);
+            background-size: backgoundSize(auto);
+            right: 0px;
+
+            svg {
+                display: none;
+            }
+        }
+
+        &-select,
+        .short-select {
+            @include display-align(center);
+
+            input {
+                padding: 0 20px;
+                width: 70px;
+                border: 0;
+            }
+        }
+
+        .set-width {
+            @include display-align(center);
+
+            input {
+                padding: 0 20px;
+                // width: 100px !important;
+                border: 0;
+            }
+        }
+
+        &-select {
+            margin-right: 25px;
+            margin-top: 1px;
+        }
+
+        &-altogether,
+        .short-altogether {
+            @include size-weight-color($fontSize, $fontSmallWeight, $color7);
+        }
+
+        &-altogether {
+            margin-left: 24px;
+        }
+
+        .short-altogether {
+            margin-left: 5px;
+        }
+    }
+}

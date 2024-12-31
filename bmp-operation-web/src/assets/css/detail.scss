@@ -1,0 +1,258 @@
+$height: 28px;
+
+.operate-management-detail {
+
+    .custom-tip-count {
+        font-size: 12px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+   
+    .operate-management {
+        &-count {
+            border-radius: 10px;
+            margin-bottom: 22px;
+            padding: 0;
+    
+            .info-header {
+                @include display-align(center);
+                margin-bottom: 18px;
+            }
+    
+            .info-line {
+                width: 2px;
+                height: $fontSize2;
+                background: $background1;
+                margin-right: $fontSize;
+            }
+    
+            .info-title {
+                @include size-weight-color($fontSize2, $fontLargeWeight, $color1);
+            }
+    
+            .info-content {
+                @include size-weight-color($fontSize, $fontLargeWeight, $defaultColor);
+                margin-right: 0px !important;
+    
+                .info-name,
+                label {
+                    line-height: 17px;
+                }
+    
+                .set-text-wrap {
+                    @include break-wrap(break-all);
+                }
+            }
+    
+            .default-password {
+                @include set-cursor(auto);
+                color: $defaultColor;
+            }
+    
+            .login-password {
+                color: $border3;
+                @include set-cursor(pointer);
+                @extend %justify-center;
+                @include display-align(center);
+                height: 18px;
+    
+                .set-size-small {
+                    margin-top: 0px;
+                    font-size: $fontSize;
+                }
+    
+                .set-size {
+                    font-size: 15px;
+                    margin-top: 3px;
+                    // margin-left: 20px;
+                }
+        
+                &-img {
+                    margin-left: 10px;
+                    @include set-width-height(16px);
+                }
+            }
+        }
+    }
+
+    &-info {
+        @extend %display-flex-column;
+        padding: 0 29px;
+        margin-bottom: 22px;
+        margin-top: 83px;
+
+        .split-line {
+            width: $percentageWidth;
+            height: 1px;
+            background: $background3;
+            margin-top: 51px;
+        }
+
+        .info-header {
+           @include display-align(center);
+        }
+
+        .idc-administration {
+            margin: 42px 0 13px;
+        }
+
+        .info-line {
+            width: 2px;
+            height: 14px;
+            background: $background1;
+            margin-right: 12px;
+        }
+
+        .info-title {
+            @include size-weight-color($fontSize2, $fontLargeWeight, $defaultColor);
+        }
+
+        .info-content {
+            background: $background3;
+            border-radius: 10px;
+            margin-top: 13px;
+            padding: 26px 0 6px 22px;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+
+            label {
+                @include size-weight-color($fontSize, $fontLargeWeight, $defaultColor);
+                line-height: 17px;
+            }
+
+            .el-form-item--default {
+                margin-bottom: 20px;
+            }
+
+            .info-name {
+                line-height: 17px;
+                @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+            }
+        }
+    }
+
+    .en-model-info,
+    .zh-model-info {
+        margin-top: 78px;
+        padding: 0 32px;
+
+        .el-tabs__active-bar {
+            background: $color1;
+        }
+
+        .el-tabs__item {
+            padding: 0 25px;
+            @include size-weight-color($fontSize2, $fontSmallWeight, $defaultColor);
+
+            &:hover {
+                color: $color1;
+            }
+        }
+
+        .el-tabs__item.is-active {
+            @include size-weight-color($fontSize2, $fontSmallWeight, $color1);
+        }
+
+        .el-tabs__nav-wrap {
+            &::after {
+                height: 1px !important;
+                background: $border;
+            }
+        }
+    }
+
+    &-image-info {
+        padding: 0 32px;
+    
+        button {
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .el-table__body tr:hover > td{
+            background-color: $background3 !important;
+        }
+    }
+}
+
+.no-table-img-url {
+    padding: 5px 0 26px;
+    margin-bottom: 22px;
+    border-radius: 10px;
+    margin-left: 4px;
+
+    .btn {
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+
+    .el-table__empty-block {
+        background: $whiteBackground;
+    }
+
+    .info-header {
+        @include display-align(center);
+        margin-bottom: 18px;
+    }
+
+    .info-line {
+        width: 2px;
+        height: 14px;
+        background: $background1;
+        margin-right: 12px;
+    }
+
+    .info-title {
+        @include size-weight-color($fontSize2, $fontLargeWeight, $color1);
+    }
+}
+
+.model-detail-basic {
+    .operate-management-count {
+        padding: 16px 31px 6px;
+        background: $background3;
+        margin-bottom: 22px;
+    }
+}
+
+.device-detail {
+    .operate-management-count {
+        padding: 10px 31px 6px;
+    }
+}
+
+/* 设备详情 - 机型详情*/
+.model-detail-basic,
+.device-detail {
+
+    &-content {
+        @extend %display-flex-column;
+        padding: 12px 29px 0;
+        background: $whiteBackground;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        min-height: 755px;
+    }
+
+    .info-header {
+        margin-bottom: 22px;
+    }
+
+    .operate-management-count {
+        background: $background3;
+        margin-bottom: 22px;
+    }
+
+    .el-form-item--default {
+        margin-bottom: 22px;
+    }
+
+    .el-form-item__label {
+        @include size-weight-color($fontSize, $fontLargeWeight, $defaultColor);
+    }
+
+    .info-name {
+        @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+        @include display-align(center);
+    }
+}

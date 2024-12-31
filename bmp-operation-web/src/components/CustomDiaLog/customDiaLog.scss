@@ -1,0 +1,70 @@
+.custom-dialog {
+    &-header {
+        height: $percentageHeight;
+        @include display-align(center);
+        @include display-justify(space-between);
+
+        .title {
+            @include display-align(center);
+            @include size-weight-color($fontSize2, $fontLargeWeight, $color1);
+
+            img {
+                margin-right: 10px;
+            }
+        }
+
+        .close-button {
+            // width: 23px;
+            // height: 23px;
+            @include set-width-height(23px);
+            position: absolute;
+            right: -12px;
+            top: -13px;
+            background: $whiteBackground;
+
+            &:hover,
+            &:active,
+            &:focus {
+                background: $whiteBackground;
+                border-color: $border8;
+                color: $color1;
+            }
+
+            .el-icon {
+                margin-left: 1px;
+            }
+        }
+    }
+
+    &-footer {
+        &-cancel-btn {
+            border: 0;
+        }
+
+        &-cancel-btn,
+        &-confirm-btn {
+            width: 100px;
+            height: 30px;
+            border-radius: 4px;
+            font-size: $fontSize;
+            font-weight: $fontSmallWeight;
+        }
+    }
+}
+
+.set-height {
+    .el-overlay-dialog .el-dialog--center {
+        height: 366px !important;
+
+        .el-table__body-wrapper {
+            height: 130px;
+        }
+        .currency-count-table .el-table {
+            margin-bottom: 0;
+
+            .el-loading-mask {
+                height: 160px;
+            }
+        }
+    }
+}

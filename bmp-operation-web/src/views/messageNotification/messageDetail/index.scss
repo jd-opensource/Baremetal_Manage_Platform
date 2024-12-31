@@ -1,0 +1,66 @@
+.message-detail {
+    .operate-management-count {
+        padding: 0 29px !important;
+    }
+
+    .header-left-icon {
+        margin: 0 0 0 14px;
+    }
+    .delete-error {
+        .title {
+            font-size: $fontSize2;
+            color: $color14;
+            font-weight: $fontLargeWeight;
+        }
+
+        .content {
+            @include display-align(center);
+            margin-top: 20px;
+            margin-left: 5px;
+        }
+
+        .count {
+            font-size: 12px;
+            color: $defaultColor;
+
+            span {
+                &:first-child {
+                    color: $color14;
+                }
+            }
+        }
+
+        .renew-immediately {
+            @include active-style($fontSize);
+        }
+
+        .desc {
+            margin: 20px 0 12px;
+            @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+        }
+
+        .el-table__empty-block {
+            background: $whiteBackground;
+        }
+
+        .opt-count-detail {
+            margin: 32px 0 12px;
+            @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+        }
+    }
+
+    .footer-opt {
+        @include display-align(center);
+        @extend %justify-center;
+        margin-top: 70px;
+
+        .btn {
+            width: 98px;
+            height: 36px;
+
+            &:nth-child(2) {
+                margin-left: 32px;
+            }
+        }
+    }
+}

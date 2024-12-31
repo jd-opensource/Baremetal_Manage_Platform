@@ -1,0 +1,44 @@
+@import '@/assets/css/communal';
+
+.delete-api-key {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 520px;
+            height: 292px;
+        }
+
+        &__body {
+            padding: 0;
+
+            .delete-keycontent {
+                margin: 80.5px auto;
+                width: 420px;
+                text-align: center;
+        
+                .delete-keyscope {
+                    font-size: $fontSize2;
+                    color: $defaultColor;
+                }
+        
+                .el-radio {
+                    height: 16px;
+                    margin-bottom: 16px;
+        
+                    &:last-child {
+                        margin-right: 30px;
+                    }
+        
+                    &-group {
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 19.5px;
+                    }
+                }
+            }
+        }
+
+        &__footer {
+            width: 475px;
+        }
+    }
+}

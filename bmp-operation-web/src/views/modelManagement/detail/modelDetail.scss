@@ -1,0 +1,36 @@
+@import '@/assets/css/detail.scss';
+
+.model-detail {
+    .en-model-info {
+        .el-tabs__nav {
+            margin-left: -4px;
+        }
+    }
+
+    .zh-model-info {
+        .el-tabs__nav {
+            margin-left: 6px;
+        }
+    }
+
+    &-basic-content {
+        padding:  0 !important;
+    }
+
+    .info-content {
+        padding: 0 !important;
+    }
+
+    .operate-management-detail-info {
+        margin-top: 16px;
+    }
+
+    .add-image-btn {
+        // background: $background1;
+        border-radius: 15px;
+        font-size: $fontSize;
+        // color: $color3;
+        font-weight: 500;
+        margin-bottom: 21px;
+    }
+}

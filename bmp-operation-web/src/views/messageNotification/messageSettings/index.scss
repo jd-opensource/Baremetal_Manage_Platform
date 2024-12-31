@@ -1,0 +1,111 @@
+.message-settings {
+    margin-top: 100px;
+   
+    .email-push {
+        margin-left: 48px;
+        font-size: 12px;
+        margin-bottom: 18px;
+    }
+
+    .tooltip-img {
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
+        margin-right: 60px;
+    }
+
+    .footer-opt {
+        display: flex;
+        align-items: center;
+        // position: relative;
+        padding-top: 35px;
+
+        .is-pass {
+            font-family: PingFangSC-Regular;
+            font-size: 12px;
+            margin-left: 16px;
+            color: #43b561;
+        }
+
+        // .set-loading {
+        //     position: absolute;
+        //     left: 210px;
+        // }
+
+        .info {
+            font-size: 12px;
+            color: #108ee9;
+            cursor: pointer;
+        }
+
+        .default-info {
+            font-size: 12px;
+            color: #999;
+            cursor: no-drop;
+        }
+
+        .tooltip-img {
+            margin-top: -10px;
+        }
+    }
+
+    .en-test-email {
+        .tooltip-img {
+            position: absolute;
+            left: -46px;
+            top: 0;
+        }
+    }
+    .test-email {
+        .tooltip-img {
+            position: absolute;
+            left: -82px;
+            top: 0;
+        }
+    }
+
+    .form {
+        padding: 0 12px 31px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    :deep(.el-form-item__label) {
+        margin-left: 48px;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    .user-save {
+        width: 130px;
+        height: 36px;
+        border-radius: 5px;
+        // position: absolute;
+        margin-left: 60px;
+        font-size: $fontSize;
+        // margin-top: 35px;
+    }
+
+    .set-empty {
+        margin-bottom: 40px !important;
+    }
+
+    :deep(.el-input__inner) {
+        width: 400px;
+        height: 36px;
+        border-radius: 5px;
+    }
+
+    :deep(.el-form-item__error) {
+        margin-top: 6px;
+    }
+
+    .error-color-tip {
+        color: #f56c6c;
+    }
+
+    .password-tip {
+        color: $color7;
+    }
+}

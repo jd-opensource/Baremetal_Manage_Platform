@@ -1,0 +1,11 @@
+[Unit]
+Description=BMP Agent
+After=network.target
+
+[Service]
+Environment="PYTHON_EGG_CACHE=/tmp/.cache"
+ExecStart=/usr/local/bin/bmp-agent
+
+[Install]
+WantedBy=multi-user.target
+Alias=bmpa.service

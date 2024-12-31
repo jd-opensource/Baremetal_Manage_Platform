@@ -1,0 +1,42 @@
+.el-overlay {
+    background: $background11;
+
+    &-dialog {
+        display: flex;
+    
+        .el-dialog--center {
+            margin: auto;
+            --el-border-radius-small: 10px;
+            padding: 0 22.5px;
+            // 不要用全局样式
+            --el-dialog-bg-color: rgba(255, 255, 255, .8);
+            backdrop-filter: $backdropFilter;
+    
+            .el-dialog__header {
+                height: 41px;
+                border-bottom: 1px solid $border;
+                --el-dialog-padding-primary: 0;
+                padding-bottom: 0;
+            }
+
+            .el-dialog__body {
+                padding: 0 !important;
+            }
+    
+            .el-dialog__footer {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                border-top: 1px solid $border;
+                padding-top: 18px;
+                --el-dialog-padding-primary: 20px;
+                transform: translateX(-50%);
+                z-index: 99;
+    
+                .el-button+.el-button {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@import '@/assets/css/communal';
+
+.custom-list {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 446px;
+        }
+
+        &__footer {
+            width: 401px;
+        }
+    }
+
+    &-count {
+        padding-bottom: 89px;
+
+        &-title {
+            font-size: $fontSize;
+            color: $defaultColor;
+            font-weight: $fontLargeWeight;
+            margin: 19.5px 0 16px;
+        }
+    }
+
+    .unify-checkbox {
+        display: flex;
+        flex-wrap: wrap;
+        // width: $percentageWidth;
+    }
+}

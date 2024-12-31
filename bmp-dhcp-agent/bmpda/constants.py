@@ -1,0 +1,2 @@
+PROTOCAL_RABBITMQ = 'rabbitmq'
+PROTOCAL_HTTP = 'http'

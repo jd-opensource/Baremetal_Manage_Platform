@@ -1,0 +1,60 @@
+{
+    "name": "bmp-operation-web",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "vue-cli-service serve",
+        "start": "npm run dev",
+        "build": "vue-cli-service build --report",
+        "build-pre": "vue-cli-service build --mode pre",
+        "build-test": "vue-cli-service build --mode test",
+        "build-prod": "vue-cli-service build --mode prod",
+        "test": "vue-cli-service test:unit"
+    },
+    "dependencies": {
+        "@element-plus/icons": "0.0.11",
+        "axios": "^0.25.0",
+        "browserslist": "^4.23.2",
+        "caniuse-lite": "^1.0.30001643",
+        "core-js": "3.6.5",
+        "crypto-js": "^4.1.1",
+        "default-passive-events": "^2.0.0",
+        "element-plus": "2.0.0",
+        "mitt": "3.0.0",
+        "mockjs": "^1.1.0",
+        "pinia": "2.0.21",
+        "pinia-plugin-persist": "1.0.0",
+        "pinyin-pro": "^3.19.6",
+        "polyfill-object.fromentries": "1.0.1",
+        "vue": "3.2.25",
+        "vue-cookies": "1.8.1",
+        "vue-i18n": "9.1.10",
+        "vue-router": "4.0.3"
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-optional-chaining": "7.18.9",
+        "@types/jest": "^24.0.19",
+        "@vue/cli-plugin-babel": "~4.5.15",
+        "@vue/cli-plugin-pwa": "~4.5.15",
+        "@vue/cli-plugin-router": "~4.5.15",
+        "@vue/cli-plugin-typescript": "~4.5.15",
+        "@vue/cli-plugin-unit-jest": "~4.5.15",
+        "@vue/cli-service": "~4.5.15",
+        "@vue/test-utils": "^2.0.0-0",
+        "babel-eslint": "10.1.0",
+        "echarts": "^5.5.0",
+        "sass": "1.26.5",
+        "sass-loader": "^8.0.2",
+        "speed-measure-webpack-plugin": "^1.5.0",
+        "terser-webpack-plugin": "^5.3.6",
+        "typescript": "4.4.4",
+        "unplugin-auto-import": "^0.16.7",
+        "unplugin-vue-components": "^0.23.0",
+        "vue-jest": "^5.0.0-0"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
+}

@@ -1,0 +1,100 @@
+#!/bin/bash
+set -uex
+
+CURRENT_DIR=$(pwd)
+DEPLOY_DIR=/home/bmp/bmp-deploy
+SCRITP_DIR=$(dirname $(realpath $0))
+[ -f $SCRITP_DIR/app.properties ] && . $SCRITP_DIR/app.properties
+[ -n "$APP_NAME" ] || exit 1
+[ -e /etc/profile.d/bmp.sh ] && . /etc/profile.d/bmp.sh
+TAG=""
+[ -n "$TAG" ] || TAG=$BMP_VERSION
+[ -n "$TAG" ] || {
+    echo "TAG must be set"
+    exit 1
+}
+ARCH=$(uname -i)
+DOCKER_FILE=$DEPLOY_DIR/dockerfile/${APP_NAME}.Dockerfile
+[ -e $DEPLOY_DIR/dockerfile/${APP_NAME}_${ARCH}.Dockerfile ] && DOCKER_FILE=$DEPLOY_DIR/dockerfile/${APP_NAME}_${ARCH}.Dockerfile
+DOCKER_IMAGE=jdcloudbmp/$APP_NAME:$TAG
+#COMPOSE_FILE=$DEPLOY_DIR/bmp-deploy/docker-compose.yml
+DEPLOY_BIN=$DEPLOY_DIR/bmp-deploy.sh
+[ -v APP_CODE_DIR ] || APP_CODE_DIR=$CURRENT_DIR/src
+DOCKER_IMAGE_OLD_ID=""
+DOCKER_IMAGE_NEW_ID=""
+
+help(){
+    echo "${0} <start|stop|restart|status>"
+    exit 1
+}
+
+
+checkhealth(){
+    $DEPLOY_BIN status $APP_NAME
+    if [[ $? -eq 0 ]];then
+        echo "$APP_NAME is running"
+        return 0
+    fi
+    echo "$APP_NAME is not running"
+    return 1
+    
+}
+
+build(){
+    if [ -e $DOCKER_FILE ]; then
+        if [ -e "$APP_CODE_DIR" ]; then
+            docker build -t $DOCKER_IMAGE -f $DOCKER_FILE $APP_CODE_DIR
+        else
+            docker build -t $DOCKER_IMAGE -f $DOCKER_FILE .
+        fi
+    fi
+}
+
+clean(){
+    if [ -n "$DOCKER_IMAGE_OLD_ID" ] && [ "$DOCKER_IMAGE_OLD_ID" != "$DOCKER_IMAGE_NEW_ID" ]; then
+        docker rmi $DOCKER_IMAGE_OLD_ID
+    fi
+}
+
+start(){
+    checkhealth && return 0
+    # [ -e $DEPLOY_DIR ] && rm -rf $DEPLOY_DIR
+    # cp -r $CURRENT_DIR/bmp-deploy $DEPLOY_DIR
+    cd $DEPLOY_DIR && git pull
+    build
+    DOCKER_IMAGE_OLD_ID=$($DEPLOY_BIN images $APP_NAME | awk 'NR==2{print $4}')
+    $DEPLOY_BIN start $APP_NAME
+    DOCKER_IMAGE_NEW_ID=$($DEPLOY_BIN images $APP_NAME | awk 'NR==2{print $4}')
+    clean
+}
+
+stop(){
+    checkhealth || return 0
+    $DEPLOY_BIN stop $APP_NAME
+    sleep 2
+    checkhealth || return 0
+    return 1
+}
+
+
+[ -e $DEPLOY_BIN ] && chmod +x $DEPLOY_BIN
+case "${1}" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status|health|checkhealth)
+        checkhealth
+        ;;
+    restart)
+        stop && start
+        ;;
+    build)
+        build
+        ;;
+    *)
+        help
+        ;;
+esac

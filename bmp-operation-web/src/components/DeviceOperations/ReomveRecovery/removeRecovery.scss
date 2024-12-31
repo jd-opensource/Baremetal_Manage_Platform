@@ -1,0 +1,102 @@
+.remove-recovery{
+    &-checkbox {
+        @include display-align(center);
+        margin-top: 10px;
+    }
+
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 646px;
+            height: 500px;
+        }
+
+        &__body {
+            padding: 0;
+
+            .el-table__row {
+                background: $background12;
+            }
+
+            .currency-count {
+                @extend %display-flex-column;
+    
+                .el-checkbox__inner {
+                    @include set-width-height(12px);
+
+                    &::after {
+                        left: 3px;
+                        height: 5px;
+                    }
+                }
+                .header-title {
+                    margin: 19.5px 0 20px;
+                    @include size-weight-color($fontSize, $fontLargeWeight, $defaultColor);
+                }
+    
+                &-title {
+                    width: 580px;
+                    padding-right: 20px;
+                    @include text-align(center);
+                    border-radius: 2px;
+                    background: $background13;
+                    margin: 19.5px 0 .5px;
+                    @include display-align(flex-start);
+                    @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+    
+                    .icon {
+                        @include text-align(left);
+                        margin-top: 6px;
+                        color: $color16;
+                        font-size: 19px;
+                        margin-left: 5px;
+                    }
+
+                    .text-count {
+                        color: $color16;
+                        @include text-align(left);
+                        padding: 10px 8px;
+                    }
+    
+                    img {
+                        @include set-width-height(32px);
+                        transform: scale(.5);
+                        margin-right: -2px
+                    }
+                }
+
+                .text-tip {
+                    color: $defaultColor;
+                }
+    
+                &-table {
+                    .el-table__header-wrapper {
+                        margin-bottom: 5px;
+                    }
+
+                    .el-table__inner-wrapper tr:first-child th {
+                        &:first-child {
+                            border-left: none;
+                        }
+                    
+                        &:last-child {
+                            border-color: $border16;
+                        }
+                    }
+    
+                    .el-table__row {
+                        background-color: $background3;
+                        &:hover {
+                            td {
+                                background-color: $background10 !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__footer {
+            width: 601px;
+        }
+    }
+}

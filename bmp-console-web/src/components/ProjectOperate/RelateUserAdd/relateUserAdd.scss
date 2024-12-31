@@ -1,0 +1,51 @@
+.dialog-pading-change {
+    .share-tip-position {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .dialog-width952 {
+        .el-dialog {
+            width: 952px;
+            height: 550px;
+            .el-dialog__body {
+                height: 420px;
+                padding: 10px 40px 0 40px !important;
+                .el-input {
+                    width: 304px !important;
+                }
+                .el-select {
+                    width: 304px !important;
+                }
+                
+            }
+        }  
+        
+        .el-table {
+            border-bottom: 1px solid #EAEAEA;
+            .el-table__header {
+                border-right: 2px solid #E8F4FD;
+            }
+            .el-scrollbar{
+                border-left: 1px solid #EAEAEA;
+                border-right: 1px solid #EAEAEA;
+            }
+        }
+    }
+
+    .dialog-body-content {
+        .el-form-item.is-error {
+            margin-bottom: 32px;
+        }
+    }
+
+    .warning-location {
+        margin-top: 1px;
+        display: inline;
+        vertical-align: middle;
+    } 
+
+    .warning-tips {
+        white-space: nowrap;
+        color: #FF4D4F;
+    }
+}

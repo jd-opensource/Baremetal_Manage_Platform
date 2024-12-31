@@ -1,0 +1,21 @@
+.login-out {
+    .el-dialog {
+        &--center {
+            width: 526px;
+            height: 298px;
+        }
+
+        &__footer {
+            width: 481px;
+        }
+    }
+    .currency-count {
+        @extend %display-flex-column;
+
+        .header-title {
+            @include size-weight-color($fontSize2, $fontLargeWeight, $defaultColor);
+            margin-top: 80.5px;
+            @include text-align(center);
+        }
+    }
+}

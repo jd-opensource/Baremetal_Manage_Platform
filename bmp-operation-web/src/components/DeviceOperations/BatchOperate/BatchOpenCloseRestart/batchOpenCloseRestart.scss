@@ -1,0 +1,48 @@
+@import 'assets/css/deviceOperate.scss';
+
+.open-close-restart {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 676px;
+            height: 355px;
+
+            .el-table {
+                &__header-wrapper {
+                    margin-bottom: 5px;
+                }
+    
+                &__row {
+                    background-color: $background3;
+
+                    &:hover {
+                        td {
+                            background-color: $background10 !important;
+                        }
+                    }
+                }
+            }
+
+            // table为空
+            .el-table__inner-wrapper tr:first-child th {
+                &:first-child {
+                    border-left: none;
+                }
+            
+                &:last-child {
+                    border-color: $border16;
+                }
+            }
+        }
+
+        &__footer {
+            width: 631px;
+        }
+    }
+
+    &-content {
+
+        .tip-title {
+            @extend %tip-title;
+        }
+    }
+}

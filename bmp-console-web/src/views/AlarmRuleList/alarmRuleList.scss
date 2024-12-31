@@ -1,0 +1,42 @@
+.alarm-rule-list {
+    .one-line-drop {
+        margin-left: 5px;
+        margin-right: 5px;
+        display: inline-block;
+    }
+}
+
+.long-instance-name {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: center;
+    cursor: pointer;
+	color: #108ef9;
+
+}
+.triggering-condition-row {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.success {
+    color: #43B561 !important;
+}
+.info {
+    color: #999999 !important;
+}
+.intermediate {
+    color:#9254DE !important
+}
+.danger {
+    color:#ff4d4f !important
+}
+
+.search-result {
+    font-size: 12px;
+    margin-bottom: 10px;
+}

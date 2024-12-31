@@ -1,0 +1,67 @@
+
+
+@import '@/assets/css/communal';
+
+.delete-user {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 646px;
+            height: 366px;;
+        }
+
+        &__body {
+            padding: 0;
+
+            .currency-count {
+                display: flex;
+                flex-direction: column;
+    
+                &-title {
+                    font-size: $fontSize;
+                    font-weight: $fontLargeWeight;
+                    color: $defaultColor;
+                    margin: 19.5px 0 20px;
+                }
+
+                &-table {
+
+                    .el-table__body-wrapper {
+                        .el-table__body {
+                            width: 100% !important;
+                        }
+                        .el-table__body tr:hover > td{
+                            background-color: $background10 !important;
+                        }
+    
+                        table {
+                            .el-table__row {
+                                background: $background3;
+                            }
+                        }
+                    }
+    
+                    .el-table__header-wrapper {
+                        margin-bottom: 5px;
+
+                        table {
+                            width: 100% !important;
+                        }
+                    }
+    
+                    .el-table__cell {
+                        border-left: 0 !important;
+                        // border: 0 !important;
+
+                        &:last-child {
+                            border-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__footer {
+            width: 601px;
+        }
+    }
+}

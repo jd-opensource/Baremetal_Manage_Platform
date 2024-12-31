@@ -1,0 +1,118 @@
+.batch-table-content {
+    margin: 20px 29px;
+    .el-table {
+        overflow: auto;
+        max-height: 160px !important;
+        font-size: 12px;
+        color: #333333;
+        border-radius: 5px;
+        //--el-table-border-color: white;   
+        //--el-table-border: 1px solid white;   
+        &--border {
+            &::after,
+            &::before {
+                display: none;
+            }
+        }
+
+        &__border-left-patch {
+            display: none;
+        }
+
+        &-column--selection {
+            border-left: 0 !important;
+            border-right: 0 !important;
+        }
+        &-fixed-column--left {
+            border-left: 0 !important;
+            border-color: #fff !important;
+            // border-right: 0 !important;
+        }
+    
+    }
+
+    .el-table__inner-wrapper {
+
+        &::after,
+        &::before {
+            display: none;
+        }
+    }
+
+    .el-table__inner-wrapper tr:first-child td:first-child{
+        border-left: 0 !important;
+            border-color: #fff !important;
+    }
+    
+    .cell {
+        padding: 0 16px;
+    }
+
+    .el-table__body-wrapper {
+        border-top: 2px solid white;       
+    }
+
+    .el-table__header-wrapper {
+        .cell {
+            color: #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .el-table__column-filter-trigger {
+                width: 16px;
+                height: 16px;
+                background: url('~@/assets/img/arrowDown.png') center center no-repeat;
+                background-size: 100% auto;
+                margin-left: 5px;
+                margin-bottom: -3px;
+
+                i {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .el-scrollbar__bar.is-horizontal {
+        display: none;
+    }
+
+    .el-table th {
+        background-color: #E8F4FD !important;
+    }
+
+    .el-table td {
+        border: none;
+    }
+
+    .el-table tr {
+        height: 50px;
+    }
+
+    .el-table__row {
+        height: 50px;
+    } 
+
+    .el-table td.el-table__cell, .el-table th.el-table__cell.is-leaf{
+        text-align: center;
+        border-color: #fff;
+    }
+}
+
+.el-tag {
+    padding: 14px;
+    border-radius: 19px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+.no-table-scroll {
+    .el-scrollbar__bar.is-vertical {
+        display: none;
+    }
+    .el-scrollbar__bar.is-horizontal {
+        display: none;
+    }
+}

@@ -1,0 +1,234 @@
+/*CentOS*/
+.CentOS {
+    background: url('~@/assets/img/centos@2x.png') no-repeat;
+    background-size: 35px;
+}
+
+/*Ubuntu*/
+.Ubuntu {
+    background: url('~@/assets/img/ubuntu@2x.png') no-repeat;
+    background-size: 35px;
+}
+
+/*Window*/
+.Windows {
+    background: url('~@/assets/img/windows@2x.png') no-repeat ;
+    background-size: 35px;
+}
+
+/*Debian*/
+.Debian {
+    background: url('~@/assets/img/debian@2x.png') no-repeat;
+    background-size: 35px;
+}
+
+/*OpenEuler*/
+.OpenEuler {
+    background: url('~@/assets/img/openeuler@2x.png') no-repeat ;
+    background-size: 35px;
+}
+
+/*Other*/
+.Other {
+    background: url('~@/assets/img/other-image.png') no-repeat ;
+    background-size: 35px;
+}
+
+
+/*tick*/
+.tick {
+    background: url('~@/assets/img/tick.png') no-repeat ;
+    background-size: 16px;
+}
+
+/*已售罄标志*/
+.soldout-zh-i {
+    background: url('~@/assets/img/soldout-zh-i.png') no-repeat ;
+    background-size: 40px;
+}
+.soldout-zh {
+    background: url('~@/assets/img/soldout-zh.png') no-repeat ;
+    background-size: 40px;
+}
+.soldout-en-i {
+    background: url('~@/assets/img/soldout-en-i.png') no-repeat ;
+    background-size: 40px;
+}
+.soldout-en {
+    background: url('~@/assets/img/soldout-en.png') no-repeat ;
+    background-size: 40px;
+}
+
+/*computer*/
+.computer {
+    background: url('~@/assets/img/compute@2x.png') no-repeat ;
+    vertical-align: middle;
+    background-size: 14px;
+}
+
+/*GPU*/
+.gpu {
+    background: url('~@/assets/img/gpu.png') no-repeat ;
+    vertical-align: middle;
+    background-size: 15px;
+}
+/*存储型*/
+.storage {
+    background: url('~@/assets/img/memory.png') no-repeat ;
+    vertical-align: middle;
+    background-size: 15px;
+}
+/*其它*/
+.other {
+    background: url('~@/assets/img/other.png') no-repeat ;
+    vertical-align: middle;
+    background-size: 15px;
+}
+
+.apiKey {
+    background: url('~@/assets/img/apiKey.png') no-repeat ;
+    background-size: 16px;
+}
+
+.apiKeyGrey {
+    background: url('~@/assets/img/apiKeyGrey.png') no-repeat ;
+    background-size: 16px;
+}
+
+.sshKey {
+    background: url('~@/assets/img/sshKey.png') no-repeat ;
+    background-size: 16px;
+}
+
+.sshKeyGrey {
+    background: url('~@/assets/img/sshKeyGrey.png') no-repeat ;
+    background-size: 16px;
+}
+
+.security {
+    background: url('~@/assets/img/security.png') no-repeat ;
+    background-size: 16px;
+}
+
+.securityGrey {
+    background: url('~@/assets/img/securityGrey.png') no-repeat ;
+    background-size: 16px;
+}
+
+.user {
+    background: url('~@/assets/img/user.png') no-repeat ;
+    background-size: 16px;
+}
+
+.userGrey {
+    background: url('~@/assets/img/userGrey.png') no-repeat ;
+    background-size: 16px;
+}
+
+.license {
+    background: url('~@/assets/img/license.png') no-repeat ;
+    background-size: 16px;
+}
+
+.licenseGrey {
+    background: url('~@/assets/img/licenseGrey.png') no-repeat ;
+    background-size: 16px;
+}
+
+.error {
+    background: url('~@/assets/img/error.png') no-repeat ;
+    background-size: 13px;
+}
+.success-icon {
+    background: url('~@/assets/img/success.png') no-repeat ;
+    background-size: 16px;
+}
+
+.fail-icon {
+    background: url('~@/assets/img/fail.png') no-repeat ;
+    background-size: 16px;
+}
+
+.doing {
+    background: url('~@/assets/img/doing.png') no-repeat ;
+    background-size: 16px;
+}
+
+.list {
+    background: url('~@/assets/img/list.png') no-repeat ;
+    background-size: 16px;
+}
+
+.desc {
+    background: url('~@/assets/img/describe.png') no-repeat ;
+    background-size: 16px;
+}
+
+.folder {
+    background: url('~@/assets/img/folder.png') no-repeat ;
+    background-size: 16px;
+}
+
+.settings {
+    background: url('~@/assets/img/setting.png') no-repeat;
+    background-size: 16px;
+}
+
+.logout {
+    background: url('~@/assets/img/logout.png') no-repeat ;
+    background-size: 16px;
+}
+
+.noData {
+    // background: url('~@/assets/img/noData.png') no-repeat;
+    width: 400px;
+    height: 200px;
+    margin:0 auto;
+    margin-top: 100px;
+    display: none;
+}   
+
+.no-data-list {
+    display: none;
+} 
+
+.monitor {
+    background: url('~@/assets/img/monitor.png') no-repeat ;
+    background-size: 16px;
+    &:hover {
+        background: url('~@/assets/img/monitorHover.png') no-repeat ;
+        background-size: 16px;
+    }
+}
+
+.dialog-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: sub;
+}
+
+.error-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.list-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: sub;
+}
+
+.instance-list-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: sub;
+    cursor: pointer;
+}

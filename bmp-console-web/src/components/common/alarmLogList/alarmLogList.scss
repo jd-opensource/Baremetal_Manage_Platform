@@ -1,0 +1,18 @@
+.alarm-log-list {
+    .status-processed {
+        color: #43B561;
+    }
+    .status-notprocessed {
+        color: #FF4D4F;
+    }
+
+    .operate-refresh,
+    .operate-set-up,
+    .no-export,
+    .operate-export {
+        margin-top: 0 !important;
+    }
+}
+
+
+

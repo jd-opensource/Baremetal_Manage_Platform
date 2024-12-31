@@ -1,0 +1,49 @@
+.el-button {
+    // 不要用全局样式
+    --el-button-bg-color: #eee;
+    --el-button-text-color: #666;
+    height: auto;
+    --el-font-size-base: 12px;
+    --el-button-hover-border-color: transparent !important;
+
+    &:active {
+        // 不要用全局样式
+        --el-button-active-bg-color: #dfdfdf;
+    }
+
+    &:focus,
+    &:hover {
+        // 不要用全局样式
+        --el-button-hover-bg-color: #eee;
+        --el-button-hover-text-color: #666;
+    }
+
+    &--primary {
+        // 不要用全局样式
+        --el-button-bg-color: #108ee9 !important;
+        --el-button-text-color: #fff;
+        --el-button-border-color: transparent !important;
+    
+        &:focus,
+        &:hover {
+            // 不要用全局样式
+            --el-button-hover-bg-color: #108ee9 !important;
+            --el-button-hover-text-color: #fff;
+        }
+
+        &:active {
+            --el-button-active-bg-color: #0f81d4 !important;
+            --el-button-active-border-color: transparent !important;
+        }
+    }
+}
+
+.el-button.is-disabled {
+    --el-button-disabled-bg-color: #91d5ff !important;
+    --el-button-disabled-border-color: #91d5ff !important;
+    &:hover,
+    &:focus {
+        --el-button-disabled-bg-color: #91d5ff !important;
+        --el-button-disabled-border-color: #91d5ff !important;
+    }
+}

@@ -1,0 +1,21 @@
+.operate-login-ruleForm {
+    margin: 46px auto 0px;
+
+    input {
+        width: $percentageWidth;
+        border: 0;
+    }
+
+    .el-form-item__error {
+        padding-top: 13px;
+        top: 100%;
+    }
+    
+}
+
+.el-form-item__label,
+.el-input__inner {
+    // 不要用全局的
+    --el-form-label-font-size: 12px;
+    --el-text-color-regular: #333;
+}

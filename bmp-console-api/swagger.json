@@ -1,0 +1,3811 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "the purpose of this application is to provide an application\nthat is using plain go code to define an API\n\nThis should demonstrate all the possible comment annotations\nthat are available to turn go code into a fully compliant swagger 2.0 spec",
+    "title": "bmp-console-api",
+    "termsOfService": "there are no TOS at this moment, use at your own risk we take no responsibility",
+    "contact": {
+      "email": "minping@jd.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    },
+    "version": "0.0.1"
+  },
+  "host": "bmp-console-api.local",
+  "basePath": "/",
+  "paths": {
+    "/apikey": {
+      "get": {
+        "description": "GetApikeyList 获取apikey列表",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "getApikeyList",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageNumber",
+            "name": "pageNumber",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageSize",
+            "name": "pageSize",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getApikeyList"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "put": {
+        "description": "CreateAPIkey 创建apikey",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "createApikey",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateApikeyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/createApikey"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/apikey/{apikey_id}": {
+      "delete": {
+        "description": "DeleteApikey 删除apikey",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "deleteApikey",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ApikeyID",
+            "name": "apikey_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/deleteApikey"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/custom/getCustomInfo": {
+      "get": {
+        "description": "GetCustomInfo 获取自定义表头",
+        "tags": [
+          "custom"
+        ],
+        "operationId": "getCustomInfo",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "PageKey",
+            "name": "pageKey",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "Reload",
+            "name": "reload",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getCustomInfo"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/custom/setCustomInfo": {
+      "post": {
+        "description": "SetCustomInfo 设置自定义表头",
+        "tags": [
+          "custom"
+        ],
+        "operationId": "setCustomInfo",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/SetCustomInfoRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/setCustomInfo"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/device/isDeviceStockEnough": {
+      "get": {
+        "description": "IsDeviceStockEnough 查询设备库存是否足够",
+        "tags": [
+          "device"
+        ],
+        "operationId": "isDeviceStockEnough",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "IdcID",
+            "name": "idc_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "DeviceTypeId",
+            "name": "deviceTypeId",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "Count",
+            "name": "count",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/isDeviceStockEnough"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/deviceType/getAvailableDeviceTypes": {
+      "get": {
+        "description": "GetAvailableDeviceTypes 获取该机房内可用机型列表",
+        "tags": [
+          "deviceType"
+        ],
+        "operationId": "getAvailableDeviceTypes",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "IdcID",
+            "name": "idc_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getAvailableDeviceTypes"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/idc": {
+      "get": {
+        "description": "GetIdcList 获取idc列表",
+        "tags": [
+          "idc"
+        ],
+        "operationId": "getIdcList",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ExportType",
+            "name": "exportType",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getIdcList"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/image/queryImagesByDeviceType": {
+      "get": {
+        "description": "QueryImagesByDeviceType 根据机型获取绑定的镜像列表",
+        "tags": [
+          "image"
+        ],
+        "operationId": "queryImagesByDeviceType",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "IdcID",
+            "description": "Pin        string `json:\"pin\"`",
+            "name": "idc_id",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "DeviceTypeID",
+            "name": "deviceTypeId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/queryImagesByDeviceType"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/instance": {
+      "get": {
+        "description": "GetInstanceList 实例列表",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "getInstanceList",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageNumber",
+            "name": "pageNumber",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageSize",
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ProjectID",
+            "name": "projectId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "IdcID",
+            "name": "idcId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "Status",
+            "name": "status",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "Name",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "DeviceType",
+            "name": "deviceType",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "InstanceIds",
+            "name": "instanceIds",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "PrivateIp",
+            "name": "privateIp",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "KeypairId",
+            "name": "keypairId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "Sn",
+            "name": "sn",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "PrivateIps",
+            "name": "privateIps",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "IloIps",
+            "name": "iloIps",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "DeviceTypeList",
+            "name": "deviceTypeList",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ExportType",
+            "name": "exportType",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getInstanceList"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "put": {
+        "description": "CreateInstance 创建实例",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "createInstance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/createInstance"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/instance/lockInstance": {
+      "post": {
+        "description": "LockInstance 锁定实例",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "lockInstance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/LockInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/lockInstance"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/instance/restartInstance": {
+      "post": {
+        "description": "RestartInstance 重启实例",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "restartInstance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/RestartInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/restartInstance"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/instance/startInstance": {
+      "post": {
+        "description": "StartInstance 开机",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "startInstance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/StartInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/startInstance"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/instance/stopInstance": {
+      "post": {
+        "description": "StopInstance 关机",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "stopInstance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/StopInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/stopInstance"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/instance/unlockInstance": {
+      "post": {
+        "description": "UnlockInstance 解锁实例",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "unlockInstance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UnLockInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/unlockInstance"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/instance/{instance_id}": {
+      "get": {
+        "description": "GetInstanceInfo 查看实例详情",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "getInstanceInfo",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "InstanceID",
+            "name": "instance_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getInstanceInfo"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "delete": {
+        "description": "DeleteInstance 删除实例",
+        "tags": [
+          "instance"
+        ],
+        "operationId": "deleteInstance",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "InstanceID",
+            "name": "instance_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/deleteInstance"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/keypair": {
+      "get": {
+        "description": "GetKeypairList 获取keypair列表",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "getKeypairList",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageNumber",
+            "name": "pageNumber",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageSize",
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "Name",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-go-name": "KeypairIds",
+            "name": "keypairId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getKeypairList"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "put": {
+        "description": "CreateKeypair 创建keypair",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "createKeypair",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateKeypairRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/createKeypair"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/keypair/checkKeypairName": {
+      "get": {
+        "description": "CheckKeypairName 查询keypair名称是否已存在",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "checkKeypairName",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageNumber",
+            "name": "pageNumber",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageSize",
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "Name",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "x-go-name": "KeypairIds",
+            "name": "keypairId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/checkKeypairName"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/keypair/{keypair_id}": {
+      "get": {
+        "description": "GetKeypairInfo 获取keypair详情",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "getKeypairInfo",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "KeypairID",
+            "name": "keypair_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getKeypairInfo"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "put": {
+        "description": "ModifyKeypair 修改keypair信息",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "modifyKeypair",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "KeypairID",
+            "name": "keypair_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ModifyKeypairRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/modifyKeypair"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "delete": {
+        "description": "DeleteKeypair 删除keypair",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "deleteKeypair",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "KeypairID",
+            "name": "keypair_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/deleteKeypair"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "description": "Login 登录",
+        "tags": [
+          "user"
+        ],
+        "operationId": "login",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/LoginRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/login"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "description": "Logout 登出",
+        "tags": [
+          "user"
+        ],
+        "operationId": "logout",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/logout"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/partition/queryDefaultSystemPartitions": {
+      "get": {
+        "description": "QueryDefaultSystemPartitions 根据机型和镜像查系统盘默认分区列表",
+        "tags": [
+          "keypair"
+        ],
+        "operationId": "queryDefaultSystemPartitions",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ImageID",
+            "name": "imageId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "DeviceTypeID",
+            "name": "deviceTypeId",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/queryDefaultSystemPartitions"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/project": {
+      "get": {
+        "description": "GetProjectList 获取项目列表",
+        "tags": [
+          "project"
+        ],
+        "operationId": "getProjectList",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageNumber",
+            "name": "pageNumber",
+            "in": "query"
+          },
+          {
+            "type": "integer",
+            "format": "int64",
+            "x-go-name": "PageSize",
+            "name": "pageSize",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ProjectName",
+            "name": "projectName",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ExportType",
+            "name": "exportType",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getProjectList"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "put": {
+        "description": "CreateProject 创建项目",
+        "tags": [
+          "project"
+        ],
+        "operationId": "createProject",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateProjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/createProject"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/project/{project_id}": {
+      "get": {
+        "description": "GetProject 获取项目详情",
+        "tags": [
+          "project"
+        ],
+        "operationId": "getProject",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ProjectID",
+            "name": "project_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getProject"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "description": "ModifyProject 修改项目",
+        "tags": [
+          "project"
+        ],
+        "operationId": "modifyProject",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ProjectID",
+            "name": "project_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ModifyProjectRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/modifyProject"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "delete": {
+        "description": "DeleteProject 删除项目",
+        "tags": [
+          "project"
+        ],
+        "operationId": "deleteProject",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "ProjectID",
+            "name": "project_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/deleteProject"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/raid/queryRaidsByDeviceTypeIDAndVolumeType": {
+      "get": {
+        "description": "QueryRaidsByDeviceTypeIDAndVolumeType 根据机型查询系统盘/数据盘可用raid列表",
+        "tags": [
+          "raid"
+        ],
+        "operationId": "queryRaidsByDeviceTypeIDAndVolumeType",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "x-go-name": "DeviceTypeID",
+            "name": "deviceTypeId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "x-go-name": "VolumeType",
+            "name": "volumeType",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/queryRaidsByDeviceTypeIDAndVolumeType"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "description": "GetUserInfo 获取用户详情",
+        "tags": [
+          "user"
+        ],
+        "operationId": "getUserInfo",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getUserInfo"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      },
+      "put": {
+        "description": "UpdateUserInfo 修改个人信息(除密码)",
+        "tags": [
+          "user"
+        ],
+        "operationId": "updateUserInfo",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ModifyUserInfoRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/updateUserInfo"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/user/password": {
+      "put": {
+        "description": "UpdatePassword 修改密码",
+        "tags": [
+          "user"
+        ],
+        "operationId": "updatePassword",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdatePasswordRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/updatePassword"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    },
+    "/user/timezones": {
+      "get": {
+        "description": "GetTimezoneList 获取时区列表",
+        "tags": [
+          "user"
+        ],
+        "operationId": "getTimezoneList",
+        "parameters": [
+          {
+            "type": "string",
+            "x-go-name": "TraceID",
+            "name": "traceId",
+            "in": "header",
+            "required": true
+          },
+          {
+            "type": "string",
+            "x-go-name": "Cookie",
+            "name": "cookie",
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/getTimezoneList"
+          },
+          "default": {
+            "$ref": "#/responses/ErrorResponse"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Apikey": {
+      "description": "Apikey apikey",
+      "type": "object",
+      "properties": {
+        "apiKeyId": {
+          "description": "apikey ID",
+          "type": "string",
+          "x-go-name": "ApikeyID"
+        },
+        "createdBy": {
+          "description": "created by",
+          "type": "string",
+          "x-go-name": "CreatedBy"
+        },
+        "createdTime": {
+          "description": "created time",
+          "type": "string",
+          "x-go-name": "CreatedTime"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "name": {
+          "description": "name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "readOnly": {
+          "description": "read only",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "ReadOnly"
+        },
+        "token": {
+          "description": "token",
+          "type": "string",
+          "x-go-name": "Token"
+        },
+        "type": {
+          "description": "type",
+          "type": "string",
+          "x-go-name": "Type"
+        },
+        "updatedBy": {
+          "description": "updated by",
+          "type": "string",
+          "x-go-name": "UpdatedBy"
+        },
+        "updatedTime": {
+          "description": "updated time",
+          "type": "string",
+          "x-go-name": "UpdatedTime"
+        },
+        "userId": {
+          "description": "user ID",
+          "type": "string",
+          "x-go-name": "UserID"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "ApikeyId": {
+      "type": "object",
+      "properties": {
+        "apikeyId": {
+          "type": "string",
+          "x-go-name": "ApikeyId"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "ApikeyList": {
+      "description": "ApikeyList apikey list",
+      "type": "object",
+      "properties": {
+        "apikeys": {
+          "description": "apikeys",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Apikey"
+          },
+          "x-go-name": "Apikeys"
+        },
+        "pageNumber": {
+          "description": "page number",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageNumber"
+        },
+        "pageSize": {
+          "description": "page size",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageSize"
+        },
+        "totalCount": {
+          "description": "total count",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "TotalCount"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "CommonResponse": {
+      "description": "新增加或者删除返给前端的true或者false",
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "x-go-name": "Success"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "CreateApikeyRequest": {
+      "description": "CreateApikeyRequest create apikey request",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "readOnly": {
+          "description": "read only",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "ReadOnly"
+        },
+        "type": {
+          "description": "type",
+          "type": "string",
+          "x-go-name": "Type"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "CreateInstanceRequest": {
+      "description": "CreateInstanceRequest create instance request",
+      "type": "object",
+      "properties": {
+        "count": {
+          "description": "count",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Count"
+        },
+        "description": {
+          "description": "description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "deviceTypeId": {
+          "description": "device type ID",
+          "type": "string",
+          "x-go-name": "DeviceTypeID"
+        },
+        "hostname": {
+          "description": "host name",
+          "type": "string",
+          "x-go-name": "HostName"
+        },
+        "idcId": {
+          "description": "idc ID",
+          "type": "string",
+          "x-go-name": "IdcID"
+        },
+        "imageId": {
+          "description": "image ID",
+          "type": "string",
+          "x-go-name": "ImageID"
+        },
+        "instanceName": {
+          "description": "instance name",
+          "type": "string",
+          "x-go-name": "InstanceName"
+        },
+        "password": {
+          "description": "password",
+          "type": "string",
+          "x-go-name": "Password"
+        },
+        "projectId": {
+          "description": "project ID",
+          "type": "string",
+          "x-go-name": "ProjectID"
+        },
+        "sshKeyId": {
+          "description": "Ssh key ID",
+          "type": "string",
+          "x-go-name": "SSHKeyID"
+        },
+        "systemPartition": {
+          "description": "system partition",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Partition"
+          },
+          "x-go-name": "SystemPartition"
+        },
+        "systemVolumeRaidId": {
+          "description": "system volume raid ID",
+          "type": "string",
+          "x-go-name": "SystemVolumeRaidID"
+        },
+        "username": {
+          "description": "user name",
+          "type": "string",
+          "x-go-name": "UserName"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "CreateInstanceResponse": {
+      "type": "object",
+      "properties": {
+        "instanceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-go-name": "InstanceIDs"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "CreateKeypairRequest": {
+      "type": "object",
+      "properties": {
+        "clientToken": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ClientToken"
+        },
+        "key": {
+          "type": "string",
+          "x-go-name": "Key"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "CreateProjectRequest": {
+      "description": "CreateProjectRequest create project request",
+      "type": "object",
+      "properties": {
+        "isDefault": {
+          "description": "is default",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "IsDefault"
+        },
+        "isSystem": {
+          "description": "is system",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "IsSystem"
+        },
+        "projectName": {
+          "description": "ProjectName 1~64字符，只支持数字、大小写字母、英文下划线“_”及中划线“-”",
+          "type": "string",
+          "x-go-name": "ProjectName"
+        },
+        "userId": {
+          "description": "user ID",
+          "type": "string",
+          "x-go-name": "UserID"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "DeviceType": {
+      "type": "object",
+      "properties": {
+        "availableStock": {
+          "description": "IsStockAvailable 是否有库存",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "AvailableStock"
+        },
+        "cpu": {
+          "type": "string",
+          "x-go-name": "Cpu"
+        },
+        "data": {
+          "type": "string",
+          "x-go-name": "Data"
+        },
+        "deviceSeries": {
+          "type": "string",
+          "x-go-name": "DeviceSeries"
+        },
+        "deviceSeriesName": {
+          "type": "string",
+          "x-go-name": "DeviceSeriesName"
+        },
+        "deviceTypeId": {
+          "type": "string",
+          "x-go-name": "DeviceTypeId"
+        },
+        "gpu": {
+          "type": "string",
+          "x-go-name": "Gpu"
+        },
+        "mem": {
+          "type": "string",
+          "x-go-name": "Mem"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "nic": {
+          "type": "string",
+          "x-go-name": "Nic"
+        },
+        "system": {
+          "type": "string",
+          "x-go-name": "System"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Code"
+        },
+        "message": {
+          "type": "string",
+          "x-go-name": "Message"
+        },
+        "status": {
+          "type": "string",
+          "x-go-name": "Status"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/controllers"
+    },
+    "GetTimezoneListResponse": {
+      "type": "object",
+      "properties": {
+        "timezones": {
+          "$ref": "#/definitions/OrderedJsonDict"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "Idc": {
+      "description": "Idc idc",
+      "type": "object",
+      "properties": {
+        "address": {
+          "description": "address",
+          "type": "string",
+          "x-go-name": "Address"
+        },
+        "cabinetNum": {
+          "description": "cabinet num",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "CabinetNum"
+        },
+        "createTime": {
+          "description": "create time",
+          "type": "string",
+          "x-go-name": "CreateTime"
+        },
+        "createdBy": {
+          "description": "created by",
+          "type": "string",
+          "x-go-name": "CreatedBy"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "idcId": {
+          "description": "i dc ID",
+          "type": "string",
+          "x-go-name": "IDcID"
+        },
+        "iloPassword": {
+          "description": "ilo password",
+          "type": "string",
+          "x-go-name": "IloPassword"
+        },
+        "iloUser": {
+          "description": "ilo user",
+          "type": "string",
+          "x-go-name": "IloUser"
+        },
+        "level": {
+          "description": "level",
+          "type": "string",
+          "x-go-name": "Level"
+        },
+        "name": {
+          "description": "name",
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "nameEn": {
+          "description": "name en",
+          "type": "string",
+          "x-go-name": "NameEn"
+        },
+        "shortname": {
+          "description": "shortname",
+          "type": "string",
+          "x-go-name": "Shortname"
+        },
+        "switchPassword1": {
+          "description": "switch password1",
+          "type": "string",
+          "x-go-name": "SwitchPassword1"
+        },
+        "switchPassword2": {
+          "description": "switch password2",
+          "type": "string",
+          "x-go-name": "SwitchPassword2"
+        },
+        "switchUser1": {
+          "description": "switch user1",
+          "type": "string",
+          "x-go-name": "SwitchUser1"
+        },
+        "switchUser2": {
+          "description": "switch user2",
+          "type": "string",
+          "x-go-name": "SwitchUser2"
+        },
+        "updateTime": {
+          "description": "update time",
+          "type": "string",
+          "x-go-name": "UpdateTime"
+        },
+        "updatedBy": {
+          "description": "updated by",
+          "type": "string",
+          "x-go-name": "UpdatedBy"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "IdcList": {
+      "description": "IdcList idc list",
+      "type": "object",
+      "properties": {
+        "idcs": {
+          "description": "idcs",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Idc"
+          },
+          "x-go-name": "Idcs"
+        },
+        "pageNumber": {
+          "description": "page number",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageNumber"
+        },
+        "pageSize": {
+          "description": "page size",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageSize"
+        },
+        "totalCount": {
+          "description": "total count",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "TotalCount"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "Image": {
+      "description": "Image image",
+      "type": "object",
+      "properties": {
+        "architecture": {
+          "description": "architecture",
+          "type": "string",
+          "x-go-name": "Architecture"
+        },
+        "createdBy": {
+          "description": "created by",
+          "type": "string",
+          "x-go-name": "CreatedBy"
+        },
+        "createdTime": {
+          "description": "created time",
+          "type": "string",
+          "x-go-name": "CreatedTime"
+        },
+        "dataPartition": {
+          "description": "data partition",
+          "type": "string",
+          "x-go-name": "DataPartition"
+        },
+        "description": {
+          "description": "description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "deviceTypeNum": {
+          "description": "device type num",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "DeviceTypeNum"
+        },
+        "filename": {
+          "description": "filename",
+          "type": "string",
+          "x-go-name": "Filename"
+        },
+        "format": {
+          "description": "format",
+          "type": "string",
+          "x-go-name": "Format"
+        },
+        "hash": {
+          "description": "hash",
+          "type": "string",
+          "x-go-name": "Hash"
+        },
+        "id": {
+          "description": "ID",
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ID"
+        },
+        "imageId": {
+          "description": "image ID",
+          "type": "string",
+          "x-go-name": "ImageID"
+        },
+        "imageName": {
+          "description": "image name",
+          "type": "string",
+          "x-go-name": "ImageName"
+        },
+        "isBind": {
+          "description": "is bind",
+          "type": "boolean",
+          "x-go-name": "IsBind"
+        },
+        "osId": {
+          "description": "os ID",
+          "type": "string",
+          "x-go-name": "OsID"
+        },
+        "osName": {
+          "description": "os name",
+          "type": "string",
+          "x-go-name": "OsName"
+        },
+        "osType": {
+          "description": "os type",
+          "type": "string",
+          "x-go-name": "OsType"
+        },
+        "osVersion": {
+          "description": "os version",
+          "type": "string",
+          "x-go-name": "OsVersion"
+        },
+        "source": {
+          "description": "source",
+          "type": "string",
+          "x-go-name": "Source"
+        },
+        "sourceName": {
+          "description": "source name",
+          "type": "string",
+          "x-go-name": "SourceName"
+        },
+        "systemPartition": {
+          "description": "system partition",
+          "type": "string",
+          "x-go-name": "SystemPartition"
+        },
+        "updatedBy": {
+          "description": "updated by",
+          "type": "string",
+          "x-go-name": "UpdatedBy"
+        },
+        "updatedTime": {
+          "description": "updated time",
+          "type": "string",
+          "x-go-name": "UpdatedTime"
+        },
+        "url": {
+          "description": "URL",
+          "type": "string",
+          "x-go-name": "URL"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "Instance": {
+      "description": "列表",
+      "type": "object",
+      "properties": {
+        "DataVolumeRaidName": {
+          "description": "data volume raid name",
+          "type": "string"
+        },
+        "StatusName": {
+          "description": "status name",
+          "type": "string"
+        },
+        "cpuAmount": {
+          "description": "CPU amount",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "CPUAmount"
+        },
+        "cpuCores": {
+          "description": "CPU cores",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "CPUCores"
+        },
+        "cpuFrequency": {
+          "description": "CPU frequency",
+          "type": "string",
+          "x-go-name": "CPUFrequency"
+        },
+        "cpuInfo": {
+          "type": "string",
+          "x-go-name": "CpuInfo"
+        },
+        "cpuManufacturer": {
+          "description": "CPU manufacturer",
+          "type": "string",
+          "x-go-name": "CPUManufacturer"
+        },
+        "cpuModel": {
+          "description": "CPU model",
+          "type": "string",
+          "x-go-name": "CPUModel"
+        },
+        "createdBy": {
+          "description": "created by",
+          "type": "string",
+          "x-go-name": "CreatedBy"
+        },
+        "createdTime": {
+          "description": "created time",
+          "type": "string",
+          "x-go-name": "CreatedTime"
+        },
+        "dataInfo": {
+          "type": "string",
+          "x-go-name": "DataInfo"
+        },
+        "dataVolumeAmount": {
+          "description": "data volume amount",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "DataVolumeAmount"
+        },
+        "dataVolumeInterfaceType": {
+          "description": "data volume interface type",
+          "type": "string",
+          "x-go-name": "DataVolumeInterfaceType"
+        },
+        "dataVolumeRaidId": {
+          "description": "data volume raid ID",
+          "type": "string",
+          "x-go-name": "DataVolumeRaidID"
+        },
+        "dataVolumeSize": {
+          "description": "data volume size",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "DataVolumeSize"
+        },
+        "dataVolumeType": {
+          "description": "data volume type",
+          "type": "string",
+          "x-go-name": "DataVolumeType"
+        },
+        "description": {
+          "description": "description",
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "deviceId": {
+          "description": "device ID",
+          "type": "string",
+          "x-go-name": "DeviceID"
+        },
+        "deviceSeries": {
+          "description": "device series",
+          "type": "string",
+          "x-go-name": "DeviceSeries"
+        },
+        "deviceSeriesName": {
+          "description": "device series name",
+          "type": "string",
+          "x-go-name": "DeviceSeriesName"
+        },
+        "deviceType": {
+          "description": "device type",
+          "type": "string",
+          "x-go-name": "DeviceType"
+        },
+        "deviceTypeId": {
+          "description": "device type ID",
+          "type": "string",
+          "x-go-name": "DeviceTypeID"
+        },
+        "deviceTypeName": {
+          "description": "device type name",
+          "type": "string",
+          "x-go-name": "DeviceTypeName"
+        },
+        "gpuAmount": {
+          "description": "gpu amount",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "GpuAmount"
+        },
+        "gpuInfo": {
+          "type": "string",
+          "x-go-name": "GpuInfo"
+        },
+        "gpuManufacturer": {
+          "description": "gpu manufacturer",
+          "type": "string",
+          "x-go-name": "GpuManufacturer"
+        },
+        "gpuModel": {
+          "description": "gpu model",
+          "type": "string",
+          "x-go-name": "GpuModel"
+        },
+        "hostname": {
+          "description": "hostname",
+          "type": "string",
+          "x-go-name": "Hostname"
+        },
+        "idcId": {
+          "description": "i dc ID",
+          "type": "string",
+          "x-go-name": "IDcID"
+        },
+        "idcName": {
+          "description": "idc name",
+          "type": "string",
+          "x-go-name": "IdcName"
+        },
+        "iloIp": {
+          "description": "ilo IP",
+          "type": "string",
+          "x-go-name": "IloIP"
+        },
+        "imageId": {
+          "description": "image ID",
+          "type": "string",
+          "x-go-name": "ImageID"
+        },
+        "imageName": {
+          "description": "image name",
+          "type": "string",
+          "x-go-name": "ImageName"
+        },
+        "instanceId": {
+          "description": "instance ID",
+          "type": "string",
+          "x-go-name": "InstanceID"
+        },
+        "instanceName": {
+          "description": "instance name",
+          "type": "string",
+          "x-go-name": "InstanceName"
+        },
+        "interfaceMode": {
+          "description": "interface mode",
+          "type": "string",
+          "x-go-name": "InterfaceMode"
+        },
+        "locked": {
+          "description": "locked",
+          "type": "string",
+          "x-go-name": "Locked"
+        },
+        "lockedName": {
+          "description": "locked name",
+          "type": "string",
+          "x-go-name": "LockedName"
+        },
+        "memAmount": {
+          "description": "mem amount",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "MemAmount"
+        },
+        "memFrequency": {
+          "description": "mem frequency",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "MemFrequency"
+        },
+        "memInfo": {
+          "type": "string",
+          "x-go-name": "MemInfo"
+        },
+        "memSize": {
+          "description": "mem size",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "MemSize"
+        },
+        "memType": {
+          "description": "mem type",
+          "type": "string",
+          "x-go-name": "MemType"
+        },
+        "nicAmount": {
+          "description": "nic amount",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "NicAmount"
+        },
+        "nicInfo": {
+          "type": "string",
+          "x-go-name": "NicInfo"
+        },
+        "nicRate": {
+          "description": "nic rate",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "NicRate"
+        },
+        "privateIpv4": {
+          "description": "private IPv4",
+          "type": "string",
+          "x-go-name": "PrivateIPV4"
+        },
+        "privateIpv6": {
+          "description": "private IPv6",
+          "type": "string",
+          "x-go-name": "PrivateIPV6"
+        },
+        "projectId": {
+          "description": "project ID",
+          "type": "string",
+          "x-go-name": "ProjectID"
+        },
+        "reason": {
+          "description": "reason",
+          "type": "string",
+          "x-go-name": "Reason"
+        },
+        "sn": {
+          "description": "sn",
+          "type": "string",
+          "x-go-name": "Sn"
+        },
+        "status": {
+          "description": "status",
+          "type": "string",
+          "x-go-name": "Status"
+        },
+        "systemInfo": {
+          "type": "string",
+          "x-go-name": "SystemInfo"
+        },
+        "systemVolumeAmount": {
+          "description": "system volume amount",
+          "type": "integer",
+          "format": "int8",
+          "x-go-name": "SystemVolumeAmount"
+        },
+        "systemVolumeInterfaceType": {
+          "description": "system volume interface type",
+          "type": "string",
+          "x-go-name": "SystemVolumeInterfaceType"
+        },
+        "systemVolumeRaidId": {
+          "description": "system volume raid ID",
+          "type": "string",
+          "x-go-name": "SystemVolumeRaidID"
+        },
+        "systemVolumeRaidName": {
+          "description": "system volume raid name",
+          "type": "string",
+          "x-go-name": "SystemVolumeRaidName"
+        },
+        "systemVolumeSize": {
+          "description": "system volume size",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "SystemVolumeSize"
+        },
+        "systemVolumeType": {
+          "description": "system volume type",
+          "type": "string",
+          "x-go-name": "SystemVolumeType"
+        },
+        "updatedBy": {
+          "description": "updated by",
+          "type": "string",
+          "x-go-name": "UpdatedBy"
+        },
+        "updatedTime": {
+          "description": "updated time",
+          "type": "string",
+          "x-go-name": "UpdatedTime"
+        },
+        "userId": {
+          "description": "user ID",
+          "type": "string",
+          "x-go-name": "UserID"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "InstanceInfo": {
+      "description": "详情使用",
+      "type": "object",
+      "properties": {
+        "instance": {
+          "$ref": "#/definitions/Instance"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "InstancesResponse": {
+      "type": "object",
+      "properties": {
+        "instances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Instance"
+          },
+          "x-go-name": "Instances"
+        },
+        "pageNumber": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageNumber"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageSize"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "TotalCount"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "KeyPair": {
+      "description": "给列表用的",
+      "type": "object",
+      "properties": {
+        "createdTime": {
+          "type": "string",
+          "x-go-name": "CreatedTime"
+        },
+        "fingerPrint": {
+          "type": "string",
+          "x-go-name": "FingerPrint"
+        },
+        "isCheckDelete": {
+          "type": "string",
+          "x-go-name": "IsCheckDelete"
+        },
+        "keypairId": {
+          "type": "string",
+          "x-go-name": "KeypairId"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "privateKey": {
+          "type": "string",
+          "x-go-name": "PrivateKey"
+        },
+        "publicKey": {
+          "type": "string",
+          "x-go-name": "PublicKey"
+        },
+        "updatedTime": {
+          "type": "string",
+          "x-go-name": "UpdatedTime"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "KeyPairInfo": {
+      "description": "给详情用的",
+      "type": "object",
+      "properties": {
+        "keypair": {
+          "type": "object",
+          "properties": {
+            "createdTime": {
+              "type": "string",
+              "x-go-name": "CreatedTime"
+            },
+            "fingerPrint": {
+              "type": "string",
+              "x-go-name": "FingerPrint"
+            },
+            "isCheckDelete": {
+              "type": "string",
+              "x-go-name": "IsCheckDelete"
+            },
+            "keypairId": {
+              "type": "string",
+              "x-go-name": "KeypairId"
+            },
+            "name": {
+              "type": "string",
+              "x-go-name": "Name"
+            },
+            "privateKey": {
+              "type": "string",
+              "x-go-name": "PrivateKey"
+            },
+            "publicKey": {
+              "type": "string",
+              "x-go-name": "PublicKey"
+            },
+            "updatedTime": {
+              "type": "string",
+              "x-go-name": "UpdatedTime"
+            }
+          },
+          "x-go-name": "Keypair"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "KeyPairsResponse": {
+      "type": "object",
+      "properties": {
+        "keypairs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyPair"
+          },
+          "x-go-name": "Keypairs"
+        },
+        "pageNumber": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageNumber"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageSize"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "TotalCount"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "LockInstanceRequest": {
+      "type": "object",
+      "properties": {
+        "idc_id": {
+          "type": "string",
+          "x-go-name": "IdcID"
+        },
+        "instanceId": {
+          "type": "string",
+          "x-go-name": "InstanceId"
+        },
+        "token": {
+          "type": "string",
+          "x-go-name": "Token"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "LoginRequest": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string",
+          "x-go-name": "Password"
+        },
+        "username": {
+          "type": "string",
+          "x-go-name": "Username"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "ModifyKeypairRequest": {
+      "type": "object",
+      "properties": {
+        "clientToken": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ClientToken"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "ModifyProjectRequest": {
+      "description": "ModifyProjectRequest modify project request",
+      "type": "object",
+      "properties": {
+        "projectName": {
+          "description": "ProjectName 1~64字符，只支持数字、大小写字母、英文下划线“_”及中划线“-”",
+          "type": "string",
+          "x-go-name": "ProjectName"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "ModifyUserInfoRequest": {
+      "description": "【用户管理】【编辑用户信息】",
+      "type": "object",
+      "properties": {
+        "defaultProjectId": {
+          "type": "string",
+          "x-go-name": "DefaultProjectID"
+        },
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "email": {
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "language": {
+          "type": "string",
+          "x-go-name": "Language"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "x-go-name": "PhoneNumber"
+        },
+        "phonePrefix": {
+          "type": "string",
+          "x-go-name": "PhonePrefix"
+        },
+        "timezone": {
+          "type": "string",
+          "x-go-name": "Timezone"
+        },
+        "userName": {
+          "type": "string",
+          "x-go-name": "UserName"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "OrderedJsonDict": {
+      "type": "object",
+      "properties": {
+        "Keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "M": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "Partition": {
+      "description": "Partition 镜像默认分区\n[{\"format\":\"swap\",\"point\":\"swap\",\"size\":10240},{\"format\":\"xfs\",\"point\":\"/\",\"size\":51200}]",
+      "type": "object",
+      "properties": {
+        "format": {
+          "description": "fs type",
+          "type": "string",
+          "x-go-name": "FsType"
+        },
+        "point": {
+          "description": "mount point",
+          "type": "string",
+          "x-go-name": "MountPoint"
+        },
+        "size": {
+          "description": "size",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "Size"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "Project": {
+      "type": "object",
+      "properties": {
+        "createdBy": {
+          "type": "string",
+          "x-go-name": "CreatedBy"
+        },
+        "createdTime": {
+          "type": "string",
+          "x-go-name": "CreatedTime"
+        },
+        "instanceCount": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "InstanceCount"
+        },
+        "projectId": {
+          "type": "string",
+          "x-go-name": "ProjectID"
+        },
+        "projectName": {
+          "type": "string",
+          "x-go-name": "ProjectName"
+        },
+        "updatedBy": {
+          "type": "string",
+          "x-go-name": "UpdatedBy"
+        },
+        "updatedTime": {
+          "type": "string",
+          "x-go-name": "UpdatedTime"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "ProjectId": {
+      "type": "object",
+      "properties": {
+        "projectId": {
+          "type": "string",
+          "x-go-name": "ProjectId"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "ProjectList": {
+      "description": "ProjectList project list",
+      "type": "object",
+      "properties": {
+        "pageNumber": {
+          "description": "page number",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageNumber"
+        },
+        "pageSize": {
+          "description": "page size",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "PageSize"
+        },
+        "projects": {
+          "description": "projects",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Project"
+          },
+          "x-go-name": "Projects"
+        },
+        "totalCount": {
+          "description": "total count",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "TotalCount"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "QueryDeviceStockResponse": {
+      "type": "object",
+      "properties": {
+        "avaliableCount": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "AvaliableCount"
+        },
+        "success": {
+          "type": "boolean",
+          "x-go-name": "Success"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    },
+    "RDeviceTypeRaid": {
+      "description": "RDeviceTypeRaid r device type raid",
+      "type": "object",
+      "properties": {
+        "DiskInterfaceType": {
+          "description": "disk interface type",
+          "type": "string"
+        },
+        "availableValue": {
+          "description": "available value",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "AvailableValue"
+        },
+        "createdBy": {
+          "description": "created by",
+          "type": "string",
+          "x-go-name": "CreatedBy"
+        },
+        "createdTime": {
+          "description": "created time",
+          "type": "string",
+          "x-go-name": "CreatedTime"
+        },
+        "deviceTypeId": {
+          "description": "device type ID",
+          "type": "string",
+          "x-go-name": "DeviceTypeID"
+        },
+        "diskType": {
+          "description": "disk type",
+          "type": "string",
+          "x-go-name": "DiskType"
+        },
+        "raidId": {
+          "description": "raid ID",
+          "type": "string",
+          "x-go-name": "RaidID"
+        },
+        "systemPartitionCount": {
+          "description": "system partition count",
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "SystemPartitionCount"
+        },
+        "updatedBy": {
+          "description": "updated by",
+          "type": "string",
+          "x-go-name": "UpdatedBy"
+        },
+        "updatedTime": {
+          "description": "updated time",
+          "type": "string",
+          "x-go-name": "UpdatedTime"
+        },
+        "volumeDetail": {
+          "description": "volume detail",
+          "type": "string",
+          "x-go-name": "VolumeDetail"
+        },
+        "volumeType": {
+          "description": "volume type",
+          "type": "string",
+          "x-go-name": "VolumeType"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-openapi-console-sdk/models"
+    },
+    "RestartInstanceRequest": {
+      "type": "object",
+      "properties": {
+        "clientToken": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ClientToken"
+        },
+        "idc_id": {
+          "type": "string",
+          "x-go-name": "IdcID"
+        },
+        "instanceId": {
+          "type": "string",
+          "x-go-name": "InstanceId"
+        },
+        "token": {
+          "type": "string",
+          "x-go-name": "Token"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "SetCustomInfoRequest": {
+      "type": "object",
+      "properties": {
+        "pageKey": {
+          "type": "string",
+          "x-go-name": "PageKey"
+        },
+        "pageValue": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "boolean"
+            }
+          },
+          "x-go-name": "PageValue"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "StartInstanceRequest": {
+      "type": "object",
+      "properties": {
+        "clientToken": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ClientToken"
+        },
+        "idc_id": {
+          "type": "string",
+          "x-go-name": "IdcID"
+        },
+        "instanceId": {
+          "type": "string",
+          "x-go-name": "InstanceId"
+        },
+        "token": {
+          "type": "string",
+          "x-go-name": "Token"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "StopInstanceRequest": {
+      "type": "object",
+      "properties": {
+        "clientToken": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ClientToken"
+        },
+        "idc_id": {
+          "type": "string",
+          "x-go-name": "IdcID"
+        },
+        "instanceId": {
+          "type": "string",
+          "x-go-name": "InstanceId"
+        },
+        "token": {
+          "type": "string",
+          "x-go-name": "Token"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "UnLockInstanceRequest": {
+      "type": "object",
+      "properties": {
+        "idc_id": {
+          "type": "string",
+          "x-go-name": "IdcID"
+        },
+        "instanceId": {
+          "type": "string",
+          "x-go-name": "InstanceId"
+        },
+        "token": {
+          "type": "string",
+          "x-go-name": "Token"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "UpdatePasswordRequest": {
+      "type": "object",
+      "properties": {
+        "oldPassword": {
+          "type": "string",
+          "x-go-name": "OldPassword"
+        },
+        "password": {
+          "type": "string",
+          "x-go-name": "Password"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/request"
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "DefaultProjectName": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string",
+          "x-go-name": "CreatedBy"
+        },
+        "createdTime": {
+          "type": "string",
+          "x-go-name": "CreatedTime"
+        },
+        "defaultProjectId": {
+          "type": "string",
+          "x-go-name": "DefaultProjectID"
+        },
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "email": {
+          "type": "string",
+          "x-go-name": "Email"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "ID"
+        },
+        "language": {
+          "type": "string",
+          "x-go-name": "Language"
+        },
+        "password": {
+          "type": "string",
+          "x-go-name": "Password"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "x-go-name": "PhoneNumber"
+        },
+        "phonePrefix": {
+          "type": "string",
+          "x-go-name": "PhonePrefix"
+        },
+        "roleId": {
+          "type": "string",
+          "x-go-name": "RoleID"
+        },
+        "roleName": {
+          "type": "string",
+          "x-go-name": "RoleName"
+        },
+        "timezone": {
+          "type": "string",
+          "x-go-name": "Timezone"
+        },
+        "updatedBy": {
+          "type": "string",
+          "x-go-name": "UpdatedBy"
+        },
+        "updatedTime": {
+          "type": "string",
+          "x-go-name": "UpdatedTime"
+        },
+        "userId": {
+          "type": "string",
+          "x-go-name": "UserID"
+        },
+        "userName": {
+          "type": "string",
+          "x-go-name": "UserName"
+        }
+      },
+      "x-go-package": "coding.jd.com/aidc-bmp/bmp-console-api/types/response"
+    }
+  },
+  "responses": {
+    "ErrorResponse": {
+      "description": "unit err response for non 200",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/definitions/ErrorResponse"
+          },
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          }
+        }
+      }
+    },
+    "checkKeypairName": {
+      "description": "CheckKeypairNameResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "createApikey": {
+      "description": "CreateApikeyResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/ApikeyId"
+          }
+        }
+      }
+    },
+    "createInstance": {
+      "description": "CreateInstanceResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CreateInstanceResponse"
+          }
+        }
+      }
+    },
+    "createKeypair": {
+      "description": "CreateKeypairResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/KeyPair"
+          }
+        }
+      }
+    },
+    "createProject": {
+      "description": "CreateProjectResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/ProjectId"
+          }
+        }
+      }
+    },
+    "deleteApikey": {
+      "description": "DeleteApikeyResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "deleteInstance": {
+      "description": "DeleteInstanceResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "deleteKeypair": {
+      "description": "DeleteKeypairResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "deleteProject": {
+      "description": "DeleteProjectResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "getApikeyList": {
+      "description": "GetApikeyListResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/ApikeyList"
+          }
+        }
+      }
+    },
+    "getAvailableDeviceTypes": {
+      "description": "GetAvailableDeviceTypesResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DeviceType"
+              }
+            },
+            "x-go-name": "Result"
+          }
+        }
+      }
+    },
+    "getCustomInfo": {
+      "description": "GetCustomInfoResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "getIdcList": {
+      "description": "GetIdcListResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/IdcList"
+          }
+        }
+      }
+    },
+    "getInstanceInfo": {
+      "description": "GetInstanceInfoResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/InstanceInfo"
+          }
+        }
+      }
+    },
+    "getInstanceList": {
+      "description": "GetInstanceListResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/InstancesResponse"
+          }
+        }
+      }
+    },
+    "getKeypairInfo": {
+      "description": "GetKeypairInfoResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/KeyPairInfo"
+          }
+        }
+      }
+    },
+    "getKeypairList": {
+      "description": "GetKeypairListResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/KeyPairsResponse"
+          }
+        }
+      }
+    },
+    "getProject": {
+      "description": "GetProjectResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/Project"
+          }
+        }
+      }
+    },
+    "getProjectList": {
+      "description": "GetProjectListResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/ProjectList"
+          }
+        }
+      }
+    },
+    "getTimezoneList": {
+      "description": "GetTimezoneListResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/GetTimezoneListResponse"
+          }
+        }
+      }
+    },
+    "getUserInfo": {
+      "description": "GetUserInfoResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      }
+    },
+    "isDeviceStockEnough": {
+      "description": "IsDeviceStockEnoughResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/QueryDeviceStockResponse"
+          }
+        }
+      }
+    },
+    "lockInstance": {
+      "description": "LockInstanceResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "login": {
+      "description": "LoginResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "logout": {
+      "description": "LogoutResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "modifyKeypair": {
+      "description": "ModifyKeypairResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "modifyProject": {
+      "description": "ModifyProjectResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "queryDefaultSystemPartitions": {
+      "description": "QueryDefaultSystemPartitionsResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Partition"
+            },
+            "x-go-name": "Result"
+          }
+        }
+      }
+    },
+    "queryImagesByDeviceType": {
+      "description": "QueryImagesByDeviceTypeResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Image"
+              }
+            },
+            "x-go-name": "Result"
+          }
+        }
+      }
+    },
+    "queryRaidsByDeviceTypeIDAndVolumeType": {
+      "description": "QueryRaidsByDeviceTypeIDAndVolumeTypeResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/RDeviceTypeRaid"
+            },
+            "x-go-name": "Result"
+          }
+        }
+      }
+    },
+    "restartInstance": {
+      "description": "RestartInstanceResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "setCustomInfo": {
+      "description": "SetCustomInfoResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "startInstance": {
+      "description": "StartInstanceResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "stopInstance": {
+      "description": "StopInstanceResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "unlockInstance": {
+      "description": "UnlockInstanceResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "updatePassword": {
+      "description": "UpdatePasswordResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    },
+    "updateUserInfo": {
+      "description": "UpdateUserInfoResponse is an response struct",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "x-go-name": "RequestId"
+          },
+          "result": {
+            "$ref": "#/definitions/CommonResponse"
+          }
+        }
+      }
+    }
+  }
+}

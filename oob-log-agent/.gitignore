@@ -1,0 +1,6 @@
+*.log
+*.temp
+*.code-workspace
+*.exe
+oob-log-agent
+oob-log-alert

@@ -1,0 +1,46 @@
+$center: center;
+$height: 45px;
+
+%backgroud-repeat-position {
+    @include position-repeat(0);
+}
+
+%filter-trigger {
+    // @extend %width-height;
+    @include set-width-height(16px);
+    background-size: backgoundSize(auto) !important;
+    margin-left: 5px;
+    flex-shrink: 0;
+
+    i {
+        display: none;
+    }
+}
+
+%color-height-background-color {
+    color: $color1 !important;
+    height: 45px;
+    background-color: $background4 !important;
+}
+
+@function tableFilterBtnImg($status) {
+    @if $status == 1 {
+        @return url(' ~@/assets/img/uiImg/table-arrow-bottom.png');
+    }
+    @else {
+        @return url('~@/assets/img/listImg/arrow-bottom.png');
+    }
+}
+
+@mixin heighlight {
+    padding: 0 !important;
+
+    .cell.highlight {
+        @extend %color-height-background-color;
+
+        .el-table__column-filter-trigger {
+            @extend %filter-trigger;
+            background-image: tableFilterBtnImg(2);
+        }
+    }
+}

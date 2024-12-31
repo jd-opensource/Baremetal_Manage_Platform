@@ -1,0 +1,168 @@
+$height: 28px;
+.operate-management-detail {
+    overflow-x: auto;
+    overflow-y: auto;
+
+    &-header {
+        @extend %header-info;
+
+        &-count {
+            @include display-align(center);
+            @include display-justify(space-between);
+            width: $percentageWidth;
+        }
+
+        &-left {
+            // @extend %display-flex-align;
+            @include display-align(center);
+
+            .detail-arrow-left {
+                // @extend %display-flex-align;
+                @include display-align(center);
+                height: 40px;
+                @include set-cursor(pointer);
+
+                &:hover .header-arrow-left,
+                .header-arrow-left {
+                    margin: 0 15px 0 29px;
+                    // @extend %width-height;
+                    @include set-width-height(16px);
+                    background-size: 100% auto !important;
+                }
+
+                &:hover {
+                    .header-arrow-left {
+                        background: url('~@/assets/img/uiImg/hover-arrow-left.png') no-repeat center center;
+                    }
+                }
+            
+                .header-arrow-left {
+                    background: url('~@/assets/img/uiImg/arrow-left.png') no-repeat center center;
+                }
+            }
+    
+            .header-list-title {
+                font-size: $fontSize2;
+                color: $defaultColor;
+                line-height: 20px;
+                font-weight: $fontLargeWeight;
+            }
+    
+            .header-left-icon {
+                margin: 0 17px 0 $fontSize2;
+            }
+    
+            .header-title {
+                font-size: $fontSize2;
+                color: $defaultColor;
+                font-weight: $fontLargeWeight;
+            }
+    
+            .header-status {
+                margin-left: 42px;
+                font-size: $fontSize2;
+            }
+        }
+
+        .hover-select {
+            border-color: $color1 !important;
+        }
+
+        .hover-select,
+        .header-select {
+            margin-right: 30px;
+            padding: 0 1px;
+            height: 26px;
+            border: 1px solid $color6;
+            border-radius: $borderRadius;        
+
+            .input-select-count {
+                width: $percentageWidth;
+                height: $percentageHeight;
+                @include display-align(center);
+                
+                .select-trigger {
+                    height: $height;
+                    display: flex;
+                }
+
+                input {
+                    border: 0;
+                    width: $percentageWidth;
+                    height: $percentageHeight;
+                    font-size: $fontSize;
+                    border-radius: $borderRadius;
+                    font-weight: $fontSmallWeight;
+                    color: $color1;
+                    padding-right: 0;
+                    padding-left: 17px;
+                }
+
+                .el-input__icon {
+                    color: $color5;
+                    font-size: $fontSize;
+                }
+            }
+            .el-dropdown--default {
+                .drop-down-operate {
+                    @include set-cursor(pointer);
+                    position: relative;
+                    font-size: $fontSize;
+                    @include display-align(center);
+
+                    &-count {
+                        @include display-align(center);
+                        @extend %justify-center;
+                        height: 26px;
+
+                        span {
+                            padding: 8px 1px 8px 14px;
+                            margin-right: 5px;
+                            @extend %white-flw-over;
+                        }
+
+                        .arrow-bottom-img {
+                            @include set-width-height(16px);
+                            background: url('~@/assets/img/uiImg/arrow-bottom.png') no-repeat center center;
+                            background-size: backgoundSize(auto);
+                            // 100% auto;
+                            margin-right: 7px;
+                        }
+
+                        .arrow-img {
+                            // @extend %width-height;
+                            @include set-width-height(16px);
+                            background: url('~@/assets/img/uiImg/bottom.png') no-repeat center center;
+                            background-size: backgoundSize(auto);
+                            // 100% auto;
+                            margin-right: 7px;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                border-color: $color1;
+                .el-dropdown--default {
+                    .drop-down-operate {
+                        &-count {
+            
+                            span {
+                                color: $color1 !important;
+                            }
+
+                            .arrow-bottom-img {
+                                // @extend %width-height;
+                                @include set-width-height(16px);
+                                background: url('~@/assets/img/uiImg/bottom.png') no-repeat center center;
+                                background-size: backgoundSize(auto);
+                                // 100% auto;
+                                margin-right: 7px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

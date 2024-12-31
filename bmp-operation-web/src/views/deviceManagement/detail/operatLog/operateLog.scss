@@ -1,0 +1,49 @@
+@import 'assets/css/listSearch.scss';
+
+.opt-logs-count {
+   
+    .operate-log-count {
+        padding: 0 30px;
+        margin-top: 5px;
+    
+        .operate-management-content {
+            margin-top: 0;
+        }
+    
+        .operate-management-content-operate {
+            padding: 0;
+        }
+    
+    
+        .no-table-img-url {
+            padding: 5px 0 0;
+            margin-bottom: 0;
+        }
+    
+        .operate-log-list {
+            padding: 0;
+            background: $whiteBackground;
+        }
+    
+        .search-filter-tip {
+            margin-left: 0 !important;
+        }
+    
+        :deep(.el-range-editor.el-input__inner) {
+            width: 260px;
+            height: 30px;
+        }
+    
+        :deep(.operate-feedback) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+    
+            img {
+                margin: 0 10px;
+            }
+        }
+    }
+    
+}

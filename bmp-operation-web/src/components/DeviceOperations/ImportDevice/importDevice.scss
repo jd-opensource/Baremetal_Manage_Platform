@@ -1,0 +1,227 @@
+.import-device {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 707px;
+            height: 491px;
+        }
+
+        &__body {
+            padding: 0;
+
+        }
+
+        &__footer {
+            width: 662px;
+        }
+    }
+
+    &-ruleForm {
+        margin-top: 13px;
+
+        .set-empty {
+            margin-bottom: 32px !important;
+
+            .el-form-item__error {
+                margin-top: 6px !important;
+            }
+        }
+
+        .el-form-item__error {
+            margin-top: 1px !important;
+        }
+
+        .set-computer-room,
+        .set-model-name {
+            input {
+                width: 230px;
+            }
+        }
+
+        .set-model-name,
+        .set-computer-room,
+        &-computer-room,
+        &-model-name {
+            .el-form-item__label {
+                margin-right: 30px;
+            }
+
+        }
+
+        .set-device-info {
+            .el-form-item__content {
+                a.el-upload-list__item-name {
+                    width: 455px;
+                }
+            }
+        }
+
+        .add-new-model {
+            margin-top: -12px;
+            margin-bottom: 20px;
+        }
+
+        .error-add-new-model {
+            margin-bottom: 20px;
+            margin-top: -6px;
+        }
+
+        .add-new-model,
+        .error-add-new-model {
+            font-size: $fontSize;
+            font-weight: $fontSmallWeight;
+
+            span {
+                &:first-child {
+                    @include set-cursor(text);
+                    color: $color6;
+                }
+
+                &:last-child {
+                    @include set-cursor(pointer);
+                    color: $color12;
+                }
+            }
+        }
+
+        .operate-refresh {
+            @include display-align(center);
+            margin-left: 20px;
+            @include set-cursor(pointer);
+    
+            .refresh-rotate,
+            .refresh-img {
+                @include set-width-height(16px);
+                font-size: $fontSize;
+                background-image: url('~@/assets/img/listImg/refresh.png');
+                @include position-repeat(0);
+                background-size: backgoundSize(auto);
+                margin-right: 5px;
+            }
+
+            .refresh-rotate {
+                animation: rotation .8s linear infinite;
+                @include set-cursor(no-drop);
+            }
+
+            @keyframes rotation {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }                
+       
+            &:hover {
+                color: $color1;
+            }
+        }
+
+        &-device-info {
+            .el-form-item__content {
+                a.el-upload-list__item-name {
+                    width: 465px;
+                }
+            }
+        }
+
+        .set-device-info,
+        &-device-info {
+            .el-form-item__content {
+                margin-left: 30px;
+                @include display-align(flex-start);
+                @extend %display-flex-column;
+
+                a.el-upload-list__item-name {
+                    border-radius: 4px;
+                    height: 30px;
+                    @include display-align(center);
+                    border: .63px solid $border2;
+                    margin-right: 0;
+                    text-decoration: none;
+                    @include set-cursor(pointer);
+                    @include size-weight-color($fontSize, $fontLargeWeight, $defaultColor);
+
+                    &:hover {
+                        background: $whiteBackground;
+                    }
+                }
+
+                .el-upload-list__item-status-label {
+                    top: 5px;
+                }
+
+                .el-upload-list__item .el-icon--close {
+                    top: 9px !important;
+                }
+            }
+
+            .error-tip {
+                margin-bottom: -15px;
+                @include size-weight-color($fontSize, $fontSmallWeight, $color13);
+            }
+
+            .template-down-load {
+                margin-left: 20px;
+                position: absolute;
+                left: 100px;
+                @include set-cursor(pointer);
+                @include size-weight-color($fontSize, $fontSmallWeight, $color12);
+            }
+        }
+
+        .upload-tip {
+            @extend %display-flex-column;
+            margin-top: 22px;
+            @include size-weight-color($fontSize, $fontSmallWeight, $color6);
+
+            p {
+                @include display-align(center);
+                margin-bottom: 10px;
+                line-height: 1.5;
+
+                &:last-child {
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+
+        .el-form-item__label {
+            position: relative;
+            font-weight: $fontLargeWeight;
+        }
+
+        .el-form-item__error {
+            margin-top: 5px;
+        }
+
+        .el-input--default,
+        .el-form-item__content {
+            @include display-align(flex-start);
+        }
+
+        .el-form-item__label,
+        .el-input__inner {
+            @include display-align(flex-start);
+        }
+
+        .el-form-item--default {
+            margin-bottom: 20px;
+
+            &:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        input {
+            width: 213px;
+            height: 30px;
+            border-radius: 4px;
+
+            &:focus {
+                border-color: $border3;
+            }
+        }
+    }
+}

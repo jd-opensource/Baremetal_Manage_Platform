@@ -1,0 +1,328 @@
+/*自定义类，下拉菜单是否可选*/
+.bmp-item-disabled {
+	color: #999 !important;
+	cursor: not-allowed !important;
+	pointer-events: all !important;
+}
+
+a{
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;	
+	}
+}
+
+.mouse-point {
+    cursor: pointer;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+.mt6 {
+    margin-top: 6px;
+}
+.mt-40 {
+    margin-top: -40px !important;
+}
+.ml5 {
+    margin-left: 5px;
+}
+.ml10 {
+    margin-left: 10px !important;
+}
+.ml15 {
+    margin-left: 15px;
+}
+.ml20 {
+    margin-left: 20px;
+}
+.ml22 {
+    margin-left: 22px;
+}
+.ml24 {
+    margin-left: 24px;
+}
+.ml32 {
+    margin-left: 32px;
+}
+.ml38 {
+    margin-left: 38px;
+}
+.ml40 {
+    margin-left: 40px;
+}
+.ml60 {
+    margin-left: 60px;
+}
+.ml100 {
+    margin-left: 100px;
+}
+.mr10 {
+    margin-right: 10px;
+}
+.mr5 {
+    margin-right: 5px;
+}
+.mt3 {
+    margin-top: 3px !important;
+}
+.mt4 {
+    margin-top: 4px !important;
+}
+.mt12 {
+    margin-top: 12px;
+}
+.mt16 {
+    margin-top: 16px !important;
+}
+.mt30 {
+    margin-top: 30px !important;
+}
+.mt45 {
+    margin-top: 45px;
+}
+.mt60 {
+    margin-top: 60px !important;
+}
+.mt2 {
+    margin-top: 2px;
+}
+.pt7 {
+    padding-top: 7px !important;
+}
+.mb12 {
+    margin-bottom: 12px;
+}
+.mb18 {
+    margin-bottom: 18px;
+}
+.mb20 {
+    margin-bottom: 20px !important;
+}
+.mb50 {
+    margin-bottom: 50px !important;
+}
+.mb42 {
+    margin-bottom: 42px !important;
+}
+.mb57 {
+    margin-bottom: 57px !important;
+}
+.m0 {
+    margin: 0 !important;
+}
+.f12 {
+    font-size: 12px !important;
+}
+.c999 {
+    color: #999999 !important;
+}
+.c333 {
+    color: #333333 !important;
+}
+.default-color {
+    color: #108ef9 !important;
+}
+.none-display {
+    display: none;
+}
+.block-display {
+    display: block;
+}
+.change-line {
+    word-wrap:break-word;
+    padding-right: -7px;
+}
+.can-scroll {
+    overflow: auto !important;
+}
+.display-flex {
+    display: flex !important;
+}
+.pos-fixed {
+    //position: fixed !important;
+}
+.t110 {
+    top: 110px !important;
+}
+
+.t2 {
+    top:2px;
+    position: relative;
+}
+
+.t120 {
+    top: 120px !important;
+}
+
+.b2 {
+    bottom:2px;
+    position: relative;
+}
+
+.c333 {
+    color: #333333;
+}
+
+.mt52 {
+    margin-top: 52px;
+}
+.mt32 {
+    margin-top: 32px;
+}
+.mt22 {
+    margin-top: 22px;
+}
+.pb5 {
+    padding-bottom: 5px !important;
+}
+.mb0 {
+    margin-bottom: 0 !important;
+}
+.mb28 {
+    margin-bottom: 28px !important;
+}
+.mb30 {
+    margin-bottom: 30px !important;
+}
+.mb32 {
+    margin-bottom: 32px !important;
+}
+.mb6 {
+    margin-bottom: 6px !important;
+}
+.mb10 {
+    margin-bottom: 10px !important;
+}
+.mt-10 {
+    margin-top: -10px;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.mt20 {
+    margin-top: 20px;
+}
+.mt25 {
+    margin-top: 25px !important;
+}
+
+.mt50 {
+    margin-top: 50px;
+}
+.ml30 {
+    margin-left: 30px;
+}
+.ml36{
+    margin-left: 36px !important;
+}
+.ml55 {
+    margin-left: 55px;
+}
+.ml22 {
+    margin-left: 22px;
+}
+.ml0 {
+    margin-left: 0 !important;
+}
+.mr0 {
+    margin-right: 0 !important;
+}
+.ml-5 {
+    margin-left: -5px;
+}
+.m21 {
+    margin:0 21px;
+}
+.pt37 {
+    padding-top: 37px;
+}
+.pt40 {
+    padding-top: 40px;
+}
+.pt24 {
+    padding-top: 24px !important;
+}
+.pt43 {
+    padding-top: 43px;
+}
+.pt45 {
+    padding-top: 45px;
+}
+.pr7 {
+    padding-right: 7px;
+}
+
+.mw78 {
+    min-width: 78px;
+}
+
+.mw114 {
+    min-width: 114px;
+}
+
+.w350 {
+    width: 350px;
+}
+
+.w390 {
+    width: 390px;
+}
+
+.h50 {
+    height: 50px !important;
+}
+
+.lh12{
+    line-height: 12px !important;
+}
+
+.lh22{
+    line-height: 22px !important;
+}
+.lh24{
+    line-height: 24px !important;
+}
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 10px;
+    background:#dcdfe6;
+    &:hover {
+        background:#c0c4cc;
+        
+    }
+}
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    opacity: 0;
+}
+.long-row {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: center;
+
+}
+
+.fl {
+    float: left;
+}
+
+.ta-l {
+    text-align: left;
+}
+
+:root {
+    --el-text-color-regular: #333333 !important;
+}
+.red {
+    color: #FF4D4F;
+}
+.h-max {
+    max-height: 100% !important;
+}

@@ -1,0 +1,243 @@
+
+@import '@/assets/css/communal';
+
+.import-image {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 646px;
+            height: 630px;;
+        }
+
+        &__body {
+            height: 515px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        &__footer {
+            width: 601px;
+        }
+    }
+
+    &-ruleForm {
+        margin-top: 11px;
+
+        .multiple-choice {
+            input {
+                width: 470px !important;
+            }
+
+
+    .el-select__tags {
+        .el-tag.el-tag--info.is-hit {
+
+            .el-tag__content {
+                font-size: $fontSize;
+
+                .el-select__tags-text {
+                    width: auto !important;
+                    justify-content: flex-start;
+                    // max-width: px !important;
+                }
+            }
+        }
+    }
+            
+        }
+
+        .import-image-name {
+            .is-loading {
+                position: absolute;
+                right: 10px;
+                top: 7px;
+                z-index: 9;
+                animation: loading .7s linear ease-in-out;
+            }
+        
+            @keyframes loading {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(100deg);
+                }
+            }
+        }
+        .set-empty {
+            margin-bottom: 32px !important;
+            .el-form-item__error {
+                margin-top: 6px !important;
+            }
+        }
+
+        .set-default {
+            // margin-bottom: 16px !important;
+        }
+
+        .set-empty-chooseimage {
+            margin-bottom: 52px !important;
+        }
+
+        .el-form-item__label {
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-weight: $fontLargeWeight;
+        }
+
+        .el-form-item__error {
+            margin-top: 1.5px !important;
+        }
+
+        &-desc {
+            .el-form-item__label {
+                align-items: flex-start;
+                margin-top: 8px;
+                width: 100px !important;
+                margin-left: 10px;
+            }
+        }
+
+        .sys-partition {
+            .el-form-item__label {
+                width: 122px !important;
+                display: flex;
+                align-items: flex-start;
+                margin-right: -15px;
+            }
+
+            .el-form-item__content {
+                height: 20px;
+                line-height: 20px;
+                margin-left: 4px;
+            }
+        }
+
+        &-choose-image {
+            .el-form-item__content {
+                display: flex;
+                justify-content: flex-start !important;
+
+                .upload-demo {
+                    .el-upload-list {
+                        position: absolute !important;
+                    }
+                }
+
+                a.el-upload-list__item-name {
+                    border-radius: 4px;
+                    width: 465px;
+                    border: .63px solid #979797;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    font-size: $fontSize;
+                    font-weight: $fontLargeWeight;
+                    margin-bottom: 20px;
+                    margin-right: 0;
+                    color: $defaultColor;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: $whiteBackground;
+                    }
+                }
+
+                .el-upload-list__item-status-label {
+                    top: 5px;
+                }
+
+                .el-upload-list__item .el-icon--close {
+                    top: 9px !important;
+                }
+            }
+
+            .error-tip {
+                color: $color13;
+                font-size: $fontSize;
+                // margin-bottom: 20px;
+                position: absolute;
+            }
+        }
+
+        .el-form-item__label,
+        .el-input__inner {
+            font-size: $fontSize;
+            color: $defaultColor;
+        }
+
+        .el-form-item--default {
+            margin-bottom: 20px;
+        }
+        
+        input {
+            width: 470px;
+            height: 30px;
+            border-radius: 4px;
+        }
+
+        textarea {
+            width: 470px;
+            height: 78px;
+            padding: 5px 8px;
+            margin-top: 7px;
+            font-size: $fontSize;
+            resize: none;
+            // margin-left: 10px;
+
+            &::placeholder {
+                font-size: $fontSize;
+            }
+        }
+
+        .el-textarea .el-input__count {
+            right: 30px !important;
+        }
+
+        .input-select-count {
+            float: left;
+
+            .el-form-item__content {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            .input-select {
+                margin-left: 33px;
+                
+                .el-input__inner {
+                    width: 130px;
+                    height: 30px;
+                    border-radius: 4px;
+                    color: $defaultColor;
+                    font-weight: $fontLargeWeight;
+                }
+            }
+        }
+        
+
+        .input-phone-count {
+            display: flex;
+
+            .el-form-item__content {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            .el-input--default,
+            .el-input__inner {
+                width: 162px;
+                height: 30px;
+            }
+        }
+        
+        input {
+            &:focus {
+                border-color: $border3;
+            }
+        }
+    }
+}
+

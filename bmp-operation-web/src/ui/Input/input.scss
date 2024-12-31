@@ -1,0 +1,261 @@
+$height: 28px;
+
+.el-input {
+    &__inner {
+        font-size: $fontSize;
+    }
+}
+
+.is-disabled {
+    input {
+        background: $background3 !important;
+    }
+}
+
+.set-instance {
+    input {
+        width: 420px;
+        padding-right: 156px;
+    }
+
+    .input-select {
+        &-count {
+            .el-input__inner {
+                width: 115px;
+                padding: 0;
+            }
+        }
+    }
+
+    .input-search-clear {
+        right: 143px;
+    }
+}
+
+.set-input {
+    input {
+        width: 497px;
+        padding-right: 215px;
+    }
+
+    .el-input__inner {
+        margin-right: 8px !important;
+    }
+
+    .input-select {
+        &-count {
+            .el-input__inner {
+                width: 185px;
+                padding-right: 20px;
+                padding-left: 8px;
+            }
+        }
+    }
+
+    .input-search-clear {
+        // right: 200px;
+        right: 207px
+    }
+
+    .el-input__suffix {
+        right: 16px !important;
+    }
+}
+
+.en-select {
+    .input-select {
+        &-count {
+            .el-input__inner {
+                margin-right: 18px !important;
+            }
+        }
+    }
+}
+
+.small-input {
+    input {
+        width: 420px;
+        padding-right: 155px;
+    }
+
+    .input-select {
+        &-count {
+            .el-input__inner {
+                width: 118px;
+                padding: 0;
+            }
+        }
+    }
+
+    .input-search-clear {
+        right: 137px;
+    }
+
+    .input-select-division-line {
+        left: -3px !important;
+    }
+}
+
+.operate-management-input {
+    input {
+        width: 375px;
+        padding-right: 130px;
+    }
+
+    .input-select {
+        &-count {
+            .el-input__inner {
+                width: 75px;
+                padding: 0;
+            }
+        }
+    }
+
+    .input-search-clear {
+        right: 103px;
+    }
+}
+
+.en-select,
+.set-input,
+.small-input,
+.set-instance,
+.operate-management-input {
+    @include display-align(center);
+    position: relative;
+
+    input {
+        height: $height;
+        border: 1.05px solid $color7;
+        border-radius: $borderRadius !important;
+        overflow-x: auto;
+        font-size: $fontSize;
+        padding-left: 36px;
+
+        &::placeholder {
+            @include size-weight-color($fontSize, $fontSmallWeight, $color7);
+        }
+
+        &:hover {
+            border-color: $border2;
+        }
+
+        &:focus,
+        &:active {
+            border-color: $border3;
+        }
+    }
+
+    .el-input-group__append {
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0;
+        background: $transparent;
+    
+        .search-icon {
+            @include set-width-height(15px);
+            margin-left: -7px;
+            margin-top: 2px;
+            @include set-cursor(pointer);
+        }
+    }
+
+    .input-select {
+        @include display-align(center);
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        input {
+            border: 0;
+            outline: 0;
+        }
+        
+        span {
+            @include size-weight-color($fontSize, $fontSmallWeight, $color6);
+        }
+
+        &-division-line {
+            width: 1px;
+            height: 11.5px;
+            background: $color7;
+            position: absolute;
+            left: -3px;
+        }
+
+        &-count {
+            height: $height;
+
+            .el-input__inner {
+                background: transparent;
+                font-size: $fontSize !important;
+                @include text-align(center);
+                margin-right: 14px;
+            }
+
+            .el-input__suffix {
+                right: 8px;
+                top: -1px;
+            }
+        }
+    }
+
+    .input-search-clear {
+        @include set-width-height(16px);
+        position: absolute;
+    }
+}
+
+.operate-content {
+
+    &-ipt {
+        width: 344px;
+        height: 40px;
+        @include display-align(center);
+        margin-bottom: 7px;
+
+        input {
+            padding-left: 57px;
+            height: 40px;
+            border: 1px solid $border2;
+            border-radius: 4px;
+            padding-right: 32px;
+
+            &:hover {
+                border-color: $border2;
+            }
+
+            &:focus,
+            &:active {
+                border-color: $border3;
+            }
+        }
+
+        &-open-eye,
+        &-close-eye {
+            cursor: pointer;
+            @include set-cursor(pointer);
+        }
+
+        &-user-img,
+        &-open-eye,
+        &-close-eye {
+            @include set-width-height(32px);
+            transform: scale(.5);
+            position: absolute;
+            left: 15px;
+            z-index: 9;
+        }
+
+        &-clear {
+            @include set-width-height(32px);
+            transform: scale(.5);
+            position: absolute;
+            right: 5px;
+            @include set-cursor(pointer);
+        }
+    }
+}

@@ -1,0 +1,10 @@
+package common
+
+const (
+	// 分隔符
+	DELIMITER_VERTICAL = "|"
+	DELIMITER_COMMA = ","
+
+	CHARACTER_LEFT_PARENTHESIS = "("
+	CHARACTER_RIGTH_PARENTHESIS = ")"
+)

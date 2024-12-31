@@ -1,0 +1,43 @@
+.collect-info-confirm{
+
+    &-checkbox {
+        // @extend %display-flex-align;
+        @include display-align(center);
+        margin-top: 10px;
+
+        .el-checkbox__inner {
+            border-radius: 0;
+        }
+    }
+
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 646px;
+            padding-bottom: 50px;
+            height: 300px;
+        }
+
+        &__body {
+            padding: 0;
+
+            .currency-count {
+                margin-top: 20px;
+            }
+
+            .el-table__row {
+                background: $background12;
+            }
+
+            .text-count {
+                color: $color16;
+                text-align: left;
+                padding: 10px 10px 10px 0;
+                font-size: $fontSize;
+            }
+        }
+
+        &__footer {
+            width: 601px;
+        }
+    }
+}

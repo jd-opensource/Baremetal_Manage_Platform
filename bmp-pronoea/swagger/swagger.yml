@@ -1,0 +1,241 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /api
+paths:
+  /alert/receiver:
+    post:
+      tags:
+      - alert
+      description: receive alert info
+      parameters:
+      - in: body
+        name: body
+        description: The alert info
+        required: true
+        schema:
+          $ref: '#/definitions/request.AlertReceiverRequest'
+      responses:
+        "200":
+          description: '{string}    success'
+        "400":
+          description: invalid request {message}
+        "500":
+          description: internal error
+  /query/:
+    post:
+      tags:
+      - query
+      description: write yaml rule
+      parameters:
+      - in: body
+        name: body
+        description: The query info
+        required: true
+        schema:
+          $ref: '#/definitions/request.MetricRangeQueryRequest'
+      responses:
+        "200":
+          description: '{string}    success'
+        "400":
+          description: invalid request {message}
+        "500":
+          description: internal error
+  /rules/delete:
+    post:
+      tags:
+      - rules
+      description: delete yaml rule
+      parameters:
+      - in: body
+        name: body
+        description: The rule id info
+        required: true
+        schema:
+          $ref: '#/definitions/request.RulesDeleteRequest'
+      responses:
+        "200":
+          description: '{string}    success'
+        "400":
+          description: invalid request {message}
+        "500":
+          description: internal error
+  /rules/list:
+    get:
+      tags:
+      - rules
+      description: delete yaml rule
+      parameters:
+      - in: query
+        name: source
+        description: The rule source
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string}    success'
+        "400":
+          description: invalid request {message}
+        "500":
+          description: internal error
+  /rules/write:
+    post:
+      tags:
+      - rules
+      description: write yaml rule
+      parameters:
+      - in: body
+        name: body
+        description: The rule info
+        required: true
+        schema:
+          $ref: '#/definitions/request.RulesRequest'
+      responses:
+        "200":
+          description: '{string}    success'
+        "400":
+          description: invalid request {message}
+        "500":
+          description: internal error
+definitions:
+  request.AlertInfo:
+    title: AlertInfo
+    type: object
+    properties:
+      annotations:
+        additionalProperties:
+          type: string
+      endsAt:
+        type: string
+      labels:
+        additionalProperties:
+          type: string
+      startsAt:
+        type: string
+      status:
+        type: string
+  request.AlertReceiverRequest:
+    title: AlertReceiverRequest
+    type: object
+    properties:
+      alerts:
+        type: array
+        items:
+          $ref: '#/definitions/request.AlertInfo'
+      receiver:
+        type: string
+      status:
+        type: string
+  request.BaseRequest:
+    title: BaseRequest
+    type: object
+  request.MetricRangeQueryRequest:
+    title: MetricRangeQueryRequest
+    type: object
+    properties:
+      endTime:
+        type: integer
+        format: int64
+      func:
+        additionalProperties:
+          type: integer
+          format: int64
+      labels:
+        additionalProperties:
+          type: string
+      sampleMethod:
+        type: string
+      startTime:
+        type: integer
+        format: int64
+      step:
+        type: integer
+        format: int64
+      tableName:
+        type: string
+  request.RuleNotice:
+    title: RuleNotice
+    type: object
+    properties:
+      noticePeriod:
+        type: integer
+        format: int64
+  request.RuleTrigger:
+    title: RuleTrigger
+    type: object
+    properties:
+      calculation:
+        type: string
+      calculationUnit:
+        type: string
+      metric:
+        type: string
+      noticeLevel:
+        type: integer
+        format: int64
+      operation:
+        type: string
+      period:
+        type: integer
+        format: int64
+      tableName:
+        type: string
+      threshold:
+        type: number
+        format: double
+      times:
+        type: integer
+        format: int64
+  request.RulesDeleteRequest:
+    title: RulesDeleteRequest
+    type: object
+    properties:
+      ruleIds:
+        type: string
+      source:
+        type: string
+  request.RulesDetail:
+    title: RulesDetail
+    type: object
+    properties:
+      deviceTag:
+        type: string
+      dimension:
+        type: string
+      dimensionName:
+        type: string
+      instanceIds:
+        type: array
+        items:
+          type: string
+      noticeOption:
+        $ref: '#/definitions/request.RuleNotice'
+      resource:
+        type: string
+      resourceName:
+        type: string
+      ruleId:
+        type: string
+      ruleName:
+        type: string
+      triggerOption:
+        type: array
+        items:
+          $ref: '#/definitions/request.RuleTrigger'
+  request.RulesRequest:
+    title: RulesRequest
+    type: object
+    properties:
+      rules:
+        type: array
+        items:
+          $ref: '#/definitions/request.RulesDetail'
+      source:
+        type: string

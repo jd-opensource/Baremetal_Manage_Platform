@@ -1,0 +1,204 @@
+.content,
+#app {
+    height: 100%;
+
+    .common-img {
+       @include set-width-height(16px);
+    }
+
+    .copy-img {
+        cursor: pointer;
+    }
+
+    .single-line-omission {
+        @extend %white-flw-over;
+        max-width: 260px;
+    }
+
+    .default-style {
+        color: $defaultColor;
+    }
+
+    .currency-style {
+        @include set-cursor(pointer);
+        color: $color1;
+    }
+
+    .currency-style-right {
+        margin-right: 10px;
+    }
+
+    .disabled-currency-style {
+        @include set-cursor(no-drop);
+        color: $color7;
+    }
+
+    .default-unify {
+        border-radius: 15px;
+        height: 30px;
+        @include display-align(center);
+        @extend %justify-center;
+        position: relative;
+    }
+
+    .set-status-create-en,
+    .set-status-create {
+        color: $color9;
+        border: 1px solid $border14;
+    }
+
+    .en-def-status {
+        padding: 0 15px;
+        min-width: 125px;
+    }
+
+    .def-management-status {
+        width: 100px;
+    }
+
+    .def-status {
+        padding: 0 12px;
+        min-width: 75px;
+    }
+
+    .set-status-default-en,
+    .set-status-default {
+        color: $color7;
+        border: 1px solid $border7;
+    }
+
+    .set-empty {
+        color: $defaultColor;
+    }
+
+    .set-status-warehousing-en,
+    .set-status-warehousing {
+        color: $color11;
+        border: 1px solid $border11;
+    }
+
+    .set-status-on-down-en,
+    .set-status-on-down {
+        color: $color10;
+        border: 1px solid $border12;
+    }
+ 
+    .set-status-error-en,
+    .set-status-error {
+        color: $color14;
+        border: 1px solid $border13;
+    }
+
+    .more-text-ellipsis {
+        @extend %more-two-ellipsis;
+    }
+
+    .radio-button-text-ellipsis {
+        .el-radio-button__inner {
+            max-width: 150px;
+            @extend %white-flw-over;
+        }
+    }
+
+    .search-filter-tip {
+        @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+        padding-right: 30px;
+        margin-bottom: 10px;
+
+        .go-back-list {
+            @include size-weight-color($fontSize, $fontSmallWeight, $color12);
+            @include set-cursor(pointer);
+        }
+    }
+}
+
+.set-tooltip-width {
+    width: auto !important;
+    max-width: 360px !important;
+}
+
+.warning-tip {
+    @include set-width-height(16px);
+    @include set-cursor(pointer);
+    position: absolute;
+    right: -26px;
+}
+
+.warning-tips {
+    @include set-width-height(16px);
+    @include set-cursor(pointer);
+    margin-left: 10px;
+}
+
+.set-wrap {
+    @include break-wrap(break-all);
+}
+
+.set-word {
+    @include break-wrap(keep-all);
+}
+
+.el-table-filter {
+    inset: 14px -20px auto auto !important;
+
+    &__list {
+        &-item {
+            font-size: $fontSize !important;
+
+            &:hover {
+                background: $background3 !important;
+                color: $color1 !important;
+            }
+        }
+
+        &-item.is-active {
+            background: $background1 !important;
+
+            &:hover {
+                color: $color3 !important;
+            }
+        }
+    }
+}
+
+.edit-icon {
+    @include set-width-height(16px);
+    @include set-cursor(pointer);
+    margin-left: 10px;
+}
+
+.drop-down-operate-content {
+    padding: 5px 25px;
+    width: 100%;
+    font-size: $fontSize;
+    @include text-align(center);
+
+    &:hover,
+    &:active {
+        background: $background3;
+        color: $color1;
+    }
+}
+
+.drop-down-disabled {
+    padding: 5px 25px;
+    width: 100%;
+    @include text-align(center);
+    @include size-weight-color($fontSize, $fontSmallWeight, $color7);
+
+    &:hover {
+        background: $whiteBackground;
+        @include set-cursor(no-drop);
+        color: $color7;
+    }
+}
+
+.no-drop-disabled {
+    @include set-cursor(no-drop);
+    @include size-weight-color($fontSize, $fontSmallWeight, $color7);
+
+    &:hover {
+        @include set-cursor(no-drop);
+        color: $color7;
+    }
+}

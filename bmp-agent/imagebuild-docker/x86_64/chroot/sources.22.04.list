@@ -1,0 +1,5 @@
+deb http://mirrors.aliyun.com/ubuntu/ jammy main multiverse restricted universe
+deb http://mirrors.aliyun.com/ubuntu/ jammy-backports main multiverse restricted universe
+deb http://mirrors.aliyun.com/ubuntu/ jammy-proposed main multiverse restricted universe
+deb http://mirrors.aliyun.com/ubuntu/ jammy-security main multiverse restricted universe
+deb http://mirrors.aliyun.com/ubuntu/ jammy-updates main multiverse restricted universe

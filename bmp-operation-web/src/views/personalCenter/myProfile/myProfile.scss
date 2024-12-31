@@ -1,0 +1,255 @@
+@import '@/assets/css//communal.scss';
+
+.user-center-content {
+    // overflow-x: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    .header-count-img {
+        margin: 0 15px 0 27px;
+    }
+
+    .en-info {
+        padding: 0 7px;
+    }
+
+    .default-info {
+        padding: 0 34px;
+    }
+
+    .en-info,
+    .default-info {
+        margin-top: 78px;
+
+        .el-tabs__active-bar {
+            background: $color1;
+        }
+
+        .el-tabs__item {
+            font-size: $fontSize2;
+            color: $defaultColor;
+            font-weight: $fontSmallWeight;
+            // height: 37px;
+            // padding: 0 25px;
+            text-align: center;
+
+            &:hover {
+                color: $color1;
+            }
+        }
+
+        .el-tabs__item.is-active {
+            color: $color1;
+            font-weight: $fontSmallWeight;
+        }
+
+        .el-tabs__nav-wrap {
+            &::after {
+                height: 1px !important;
+                background: $border;
+            }
+        }
+    }
+
+    .my-info {
+        height: 100%;
+        overflow-y: auto;
+        margin-top: 80px;
+        overflow-x: hidden;
+        position: relative;
+
+        .line {
+            height: 1px;
+            background: #f0f0f0;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            margin-top: 17px;
+        }
+
+    
+        .line2 {
+            height: 1px;
+            background: #f0f0f0;
+            position: absolute;
+            width: 100%;
+            left: -30px;
+            margin-top: 15px;
+        }
+
+        .basinfo-count {
+            display: flex;
+            flex-direction: column;
+
+            .m-l {
+                margin-left: 60px;
+            }
+
+            .header-title {
+                display: flex;
+                align-items: center;
+                margin-bottom: 2px;
+
+                .line-left {
+                    width: 2px;
+                    height: 14px;
+                    background: #108ee9;
+                    margin-right: 15px;
+                }
+
+                .title {
+                    font-size: $fontSize2;
+                    font-weight: $fontLargeWeight;
+                    color: $defaultColor;
+                }
+            }
+
+            .header-title2 {
+                display: flex;
+                align-items: center;
+                font-size: $fontSize;
+
+                span:nth-child(1) {
+                    margin-right: 43px;
+                }
+            }
+
+            .user-center-ruleForm {
+                margin-top: 11px;
+        
+                .preference-count {
+                    position: absolute;
+                    margin-top: 48px;
+                    width: 100%;
+                    padding-left: 60px;
+                }
+
+                .language {
+                    input {
+                        width: 137px;
+                        height: 36px;
+                        border-radius: 5px;
+                    }
+                }
+        
+                .time-one {
+                    input {
+                        width: 400px;
+                        height: 36px;
+                        border-radius: 5px;
+                    }
+                }
+        
+                .set-empty {
+                    margin-bottom: 32px !important;
+                }
+        
+                .el-form-item__label {
+                    position: relative;
+                    margin-left: 16px;
+        
+                    &::before {
+                        display: none;
+                    }
+                }
+                
+                .el-form-item__error {
+                    margin-top: 6px;
+                }
+        
+                .user-universal {
+                    font-size: $fontSize;
+                    color: $defaultColor;
+                    font-weight: $fontSmallWeight;
+                    width: 400px;
+        
+                    input {
+                        cursor: text !important;
+                        color: #333;
+                    }
+                }
+        
+                .el-form-item--default {
+                    margin-bottom: 16px;
+        
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+                
+                input {
+                    // width: 515px;
+                    height: 36px;
+                    border-radius: 5px;
+                }
+        
+                .set-select-count {
+                    .input-select {
+                        .el-input__inner {
+                            width: 165px;
+                        }
+                    }
+                }
+        
+                .input-select-count {
+                    .input-select {
+                        .el-input__inner {
+                            width: 137px;
+                        }
+                    }
+                }
+        
+                .set-select-count,
+                .input-select-count {
+                    float: left;
+        
+                    .input-select {
+                        .el-input__inner {
+                            height: 36px;
+                            border-radius: 5px;
+                            color: $defaultColor;
+                            font-weight: 500;
+        
+                            // border-right: 0;
+                            border-top-right-radius: 0;
+                            border-bottom-right-radius: 0;
+                        }
+                    }
+                }
+        
+                .input-phone-count {
+                    .el-input--default,
+                    .el-input__inner {
+                        width: 263px;
+                    }
+                }
+        
+                .input-phone-count {
+                    display: flex;
+                    .el-form-item__content  {
+                        margin-left: 0px !important;
+                    }
+        
+                    .el-input--default,
+                    .el-input__inner {
+                        height: 36px;
+                        // border-left: 0;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                    }
+                }
+            }
+
+            .user-save {
+                width: 130px;
+                height: 36px;
+                border-radius: 5px;
+                font-size: $fontSize;
+                // position: absolute;
+                margin: 50px 17px 30px;
+            }
+        }
+    }
+}

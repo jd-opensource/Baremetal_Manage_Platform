@@ -1,0 +1,370 @@
+@import '@/assets/css/communal';
+
+.add-user {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 646px;
+            height: 545px;
+        }
+
+        &__footer {
+            width: 601px;
+        }
+    }
+
+    &-ruleForm {
+        margin-top: 11px;
+
+        .el-radio__label {
+            font-size: 12px;
+        }
+
+        .el-form-item__error {
+            margin-top: 2px;
+        }
+        
+        .el-form-item__label {
+            margin-right: 5px;
+            position: relative;
+            font-weight: $fontLargeWeight;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+        }
+
+        &-role {
+
+            .el-form-item__label {
+                width: 70px !important;
+                margin-left: 10px;
+            }
+
+            &-img {
+                width: 32px;
+                height: 32px;
+                transform: scale(.5);
+                margin-left: 6px;
+                margin-top: -15px;
+                cursor: pointer;
+            }
+
+            .el-form-item__content {
+                font-size: 121px;
+                color: $defaultColor;
+                font-weight: $fontLargeWeight;
+
+                .el-radio {
+                    margin-right: 24px;
+                }
+
+                .is-checked {
+                    .el-radio__inner {
+                        width: 7px;
+                        height: 7px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        display: inherit !important;
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+
+                .el-radio__input {
+                    width: 12px;
+                    height: 12px;
+                    border: 0.62px solid $border2;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .el-radio__inner {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &-desc {
+            .el-form-item__label {
+                width: 70px !important;
+                margin-left: 10px;
+                display: flex;
+                align-items: flex-start;
+                margin-top: 5px;
+            }
+        }
+
+        .el-input--default,
+        .el-form-item__content {
+            display: flex;
+        }
+
+        .user-count {
+            position: absolute;
+
+            .user-mailbox {
+                font-size: 12px;
+                color: $defaultColor;
+                font-weight: $fontSmallWeight;
+            }
+        }
+
+        .set-empty {
+            margin-bottom: 32px !important;
+            .el-form-item__error {
+                margin-top: 6px !important;
+            }
+        }
+
+        .set-empty-email {
+            .el-form-item__error {
+                margin-top: 6px !important;
+            }
+        }
+
+        .user-password {
+            margin-bottom: 16px;
+            .el-form-item__error {
+                margin-top: 5px;
+            }
+        }
+
+        .height-user-password {
+            margin-bottom: 47px !important;
+            .el-form-item__error {
+                margin-top: 5px;
+                line-height: 1.4;
+            }
+        }
+
+        .height-user-password,
+        .user-password {
+            .el-form-item__label {
+                align-items: flex-start;
+            }
+        }
+
+        .el-form-item__label,
+        .el-input__inner {
+            font-size: $fontSize;
+            color: $defaultColor;
+        }
+
+        .el-form-item--default {
+            margin-bottom: 16px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        input {
+            width: 515px;
+            height: 30px;
+            color: $defaultColor;
+            border-radius: 4px;
+
+            &:focus {
+                border-color: $border3;
+            }
+        }
+
+        textarea {
+            width: 515px;
+            height: 78px;
+            padding: 5px 8px;
+            margin-top: 7px;
+            font-size: $fontSize;
+            resize: none;
+
+            &::placeholder {
+                font-size: $fontSize;
+            }
+        }
+
+        .set-select-count {
+            .input-select {
+                .el-input__inner {
+                    width: 165px;
+                }
+            }
+        }
+
+        .input-select-count {
+            .input-select {
+                .el-input__inner {
+                    width: 140px;
+                }
+            }
+        }
+
+        .set-select-count,
+        .input-select-count {
+            float: left;
+
+            .input-select {
+                .el-input__inner {
+                    height: 30px;
+                    border-radius: 4px;
+                    color: $defaultColor;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .set-ipt-phone {
+            .el-input--default,
+            .el-input__inner {
+                width: 205px;
+            }
+        }
+
+        .input-phone-count {
+            .el-input--default,
+            .el-input__inner {
+                width: 162px;
+            }
+        }
+
+        .set-ipt-phone,
+        .input-phone-count {
+            display: flex;
+
+            .el-form-item__content {
+                margin-left: 14px !important;
+            }
+
+            .el-input--default,
+            .el-input__inner {
+                height: 30px;
+            }
+        }
+    }
+
+    .set-add-user-ipt {
+        .add-user-ipt-user-img,
+        .add-user-ipt-open-eye,
+        .add-user-ipt-close-eye {
+            left: 0px !important;
+        }
+
+        .el-form-item__error {
+            margin-left: 0px !important;
+        }
+    }
+
+    &-ipt {
+        &-user-img,
+        &-open-eye,
+        &-close-eye {
+            left: 5px;
+        }
+    }
+
+    .set-add-user-ipt,
+    &-ipt {
+        width: 535px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+
+        input {
+            padding-left: 35px;
+            height: 30px;
+            border-radius: 4px;
+
+            &:focus {
+                border-color: $border3;
+            }
+        }
+
+        &-open-eye,
+        &-close-eye {
+            cursor: pointer;
+        }
+
+        &-user-img,
+        &-open-eye,
+        &-close-eye {
+            width: 32px;
+            height: 32px;
+            transform: scale(.5);
+            position: absolute;
+            z-index: 9;
+        }
+
+        &-clear {
+            width: 32px;
+            height: 32px;
+            transform: scale(.5);
+            position: absolute;
+            right: 8px;
+            cursor: pointer;
+        }
+    }
+
+    .user-name-c {
+        margin-bottom: 0;
+        position: relative;
+
+        .is-loading {
+            position: absolute;
+            right: 10px;
+            top: 7px;
+            animation: loading .7s linear ease-in-out;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(100deg);
+            }
+        }
+
+        .el-form-item__label {
+            align-items: flex-start;
+            margin-top: 5px;
+        }
+    }
+
+    .tooltip-img {
+        width: 32px;
+        height: 32px;
+        transform: scale(.5);
+        margin-left: 6px;
+        margin-top: -15px;
+        cursor: pointer;
+    }
+
+    .default-tip,
+    .custom-tip {
+        font-size: 12px;
+        height: 20px;
+        margin-bottom: 13px;
+        margin-top: 5px;
+        line-height: 20px;
+    }
+    .default-tip {
+        font-size: 12px;
+        height: 20px;
+        margin-bottom: 13px;
+        margin-top: 5px;
+        // margin: 3px 0;
+        line-height: 20px;
+    }
+
+    .default-tip {
+        color: #999;
+    }
+
+    .custom-tip {
+        color: #f56c6c;
+    }
+}

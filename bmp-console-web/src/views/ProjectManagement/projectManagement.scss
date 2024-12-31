@@ -1,0 +1,16 @@
+
+.project-list {
+	.project-name-content {
+		cursor: pointer;
+		color: #108ef9;
+	}
+
+	.change-show-style {
+		cursor: pointer;       
+	}
+
+	.disabled-currency-style {
+		cursor: no-drop;
+		color: #999999 !important;
+	}
+}

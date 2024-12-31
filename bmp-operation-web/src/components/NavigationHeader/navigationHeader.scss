@@ -1,0 +1,117 @@
+.operate-header {
+    height: 57px;
+    background: $whiteBackground;
+    box-shadow: 0 0 5px 0 rgba(153, 153, 153, .50);
+    @include display-align(center);
+    @include display-justify(space-between);
+    position: fixed;
+    width: $percentageWidth;
+    top: 0;
+    z-index: 10;
+
+    &-info {
+        @include display-align(center);
+        height: $percentageHeight;
+        margin-left: 34px;
+        @include set-cursor(pointer);
+
+        &-icon,
+        &-img {
+            @include set-width-height(32px);
+            margin-right: 13px;
+        }
+    }
+
+    &-title {
+        font-size: 18px;
+        color: $defaultColor;
+        font-weight: $fontLargeWeight;
+    }
+
+    &-information {
+        @include display-align(center);
+        margin-right: 38px;
+
+        img {
+            @include set-width-height(16px);
+            margin-right: 24px;
+            cursor: pointer;
+        }
+    }
+
+    .header-language-change {
+        @include display-align(center);
+        @include set-cursor(pointer);
+
+        :deep(span) {
+            margin-right: 15px;
+        }
+    }
+
+    :deep(.header-disabled) {
+        font-size: $fontSize;
+        color: $color7;
+        font-weight: $fontSmallWeight;
+
+        &:hover {
+            color: $defaultColor;
+            font-weight: $fontLargeWeight;
+        }
+    }
+
+    :deep(.header-optional) {
+        @extend %def-c-f-style;
+        font-weight: $fontLargeWeight;
+    }
+
+    &-login-info {
+        margin-left: 5px;
+        @include display-align(center);
+        padding: 12px 0;
+        @include set-cursor(pointer);
+
+        :deep(.el-dropdown) {
+            .el-dropdown--default {
+                @include display-align(center);
+
+                .route {
+                    transform: rotate(180deg);
+                }
+            
+                .default-route {
+                    transform: rotate(0);
+                }
+            
+                .route,
+                .default-route {
+                    transition: all .1s;
+                }
+            }
+        }
+
+        :deep(.user-header-img) {
+            @include set-width-height(36px);
+            margin-right: 14px;
+            border-radius: 50%;
+        }
+
+        :deep(.user-header-name) {
+            font-size: $fontSize2;
+            font-weight: $fontSmallWeight;
+
+            span {
+                &:first-child {
+                    color: $defaultColor;
+                    margin-right: 6px;
+                }
+                &:last-child {
+                    color: $color1;
+                }
+            }
+        }
+
+        :deep(.user-header-icon) {
+            margin-left: 9px;
+        }
+    }
+}

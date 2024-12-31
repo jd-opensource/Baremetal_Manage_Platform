@@ -1,0 +1,1 @@
+rm ironic-console.log.DEBUG.2022110315.time ironic-console.log.DEBUG.2022110914.time ironic-console.log.DEBUG.2022-11-18 ironic-console.log.INFO.2022110315.time ironic-console.log.INFO.2022110914.time ironic-console.log.INFO.2022-11-18 ironic-console.log.WARN.2022110315.time ironic-console.log.WARN.2022-11-18

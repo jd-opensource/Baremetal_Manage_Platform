@@ -1,0 +1,62 @@
+@import 'assets/css/deviceOperate.scss';
+
+.delete-model {
+    .el-dialog {
+        &--center {
+            --el-dialog-width: 526px;
+            // height: 298px;
+            padding-bottom: 65px;
+        }
+
+        &__body {
+            padding: 0;
+    
+            .delete-model-count {
+                // @extend %display-flex-align;
+                @include display-align(center);
+                @extend %justify-center;
+                margin-top: 20px;
+                @extend %display-flex-column;
+    
+                &-tip {
+                    width: 480px;
+                    // height: 52px;
+                    text-align: center;
+                    border-radius: 2px;
+                    background: rgb(249, 237, 239);
+                    @include display-align(flex-start);
+                    // @extend %display-flex-start;
+                    // margin-bottom: 44.5px;
+                    padding-bottom: 10px;
+    
+                    img {
+                        @extend %img-count;
+                    }
+    
+                    span {
+                        font-size: $fontSize;
+                        color: $defaultColor;
+                        padding-right: 30px;
+                        font-weight: $fontSmallWeight;
+                        margin-top: 8px;
+                    }
+                }
+    
+                &-title {
+                    font-size: $fontSize2;
+                    font-weight: $fontSmallWeight;
+                    color: $defaultColor;
+                    height: 130px;
+                    // @extend %display-flex-align;
+                    @include display-align(center);
+                    @extend %justify-center ;
+                    text-align: center;
+                }
+            }
+        }
+
+        &__footer {
+            width: 481px;
+        }
+    }
+}

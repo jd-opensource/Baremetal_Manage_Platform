@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm /opt/MegaRAID/ -rf
+#rm  /opt/lsi/ -rf
+
+#rm /usr/local/lib/libx64/ -rf
+#rm /lib64/ld-linux-x86-64.so.2 -rf
+
+rm /usr/bin/qemu-x86_64 -rf
+rm /usr/bin/storcli64_ls -rf

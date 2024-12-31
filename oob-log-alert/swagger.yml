@@ -1,0 +1,836 @@
+basePath: /v1
+consumes:
+    - application/json
+    - application/xml
+definitions:
+    ChangePushRequest:
+        properties:
+            push_status:
+                format: int64
+                type: integer
+                x-go-name: PushStatus
+            rule_id:
+                format: int64
+                type: integer
+                x-go-name: RuleID
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    ChangeUseRequest:
+        properties:
+            rule_id:
+                format: int64
+                type: integer
+                x-go-name: RuleID
+            use_status:
+                format: int64
+                type: integer
+                x-go-name: UseStatus
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    CommonResponse:
+        properties:
+            success:
+                description: 操作是否成功 [true/false]
+                type: boolean
+                x-go-name: Success
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    DealLogCollectionRequest:
+        properties:
+            logid:
+                format: int64
+                type: integer
+                x-go-name: Cid
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    DeviceStatus:
+        properties:
+            brand:
+                type: string
+                x-go-name: Brand
+            cpu_status:
+                format: int64
+                type: integer
+                x-go-name: CpuStatus
+            device_id:
+                type: string
+                x-go-name: DeviceId
+            disk_status:
+                format: int64
+                type: integer
+                x-go-name: DiskStatus
+            idc_id:
+                type: string
+                x-go-name: IdcId
+            idc_name:
+                type: string
+                x-go-name: IdcName
+            manage_status:
+                description: IsSale int    `json:"is_sale"`
+                type: string
+                x-go-name: ManageStatus
+            mem_status:
+                format: int64
+                type: integer
+                x-go-name: MemStatus
+            model:
+                description: Manufacturer string `json:"manufacturer"`
+                type: string
+                x-go-name: Model
+            nic_status:
+                format: int64
+                type: integer
+                x-go-name: NicStatus
+            other_status:
+                format: int64
+                type: integer
+                x-go-name: OtherStatus
+            power_status:
+                format: int64
+                type: integer
+                x-go-name: PowerStatus
+            sn:
+                type: string
+                x-go-name: Sn
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    ErrorResponse:
+        properties:
+            code:
+                format: int64
+                type: integer
+                x-go-name: Code
+            message:
+                type: string
+                x-go-name: Message
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/controllers
+    GetDeviceStatusResponse:
+        properties:
+            detail:
+                items:
+                    $ref: '#/definitions/DeviceStatus'
+                type: array
+                x-go-name: Detail
+            page_number:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            page_size:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            total_count:
+                format: int64
+                type: integer
+                x-go-name: Total
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    GetLogCollectionsResponse:
+        properties:
+            detail:
+                items:
+                    $ref: '#/definitions/LogRespItem'
+                type: array
+                x-go-name: Detail
+            page_number:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            page_size:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            total_count:
+                format: int64
+                type: integer
+                x-go-name: Total
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    LogRespItem:
+        properties:
+            alert_content:
+                description: 故障原始日志
+                type: string
+                x-go-name: AlertContent
+            alert_desc:
+                description: 故障描述
+                type: string
+                x-go-name: AlertDesc
+            alert_level:
+                description: 故障等级
+                type: string
+                x-go-name: AlertLevel
+            alert_name:
+                description: 故障名称
+                type: string
+                x-go-name: AlertName
+            alert_part:
+                description: 故障配件
+                type: string
+                x-go-name: AlertPart
+            alert_type:
+                description: 故障类型
+                type: string
+                x-go-name: AlertType
+            collect_time:
+                description: 带外故障发现时间
+                format: date-time
+                type: string
+                x-go-name: CollectTime
+            count:
+                description: 告警次数
+                format: int64
+                type: integer
+                x-go-name: Count
+            device_id:
+                type: string
+                x-go-name: DeviceId
+            event_time:
+                description: 首次故障报警时间
+                format: date-time
+                type: string
+                x-go-name: EventTime
+            idc_id:
+                type: string
+                x-go-name: IdcId
+            idc_name:
+                type: string
+                x-go-name: IdcName
+            ilo_ip:
+                type: string
+                x-go-name: IloIp
+            logid:
+                format: int64
+                type: integer
+                x-go-name: LogId
+            manage_status:
+                description: 设备状态
+                type: string
+                x-go-name: ManageStatus
+            sn:
+                type: string
+                x-go-name: Sn
+            status:
+                description: 状态：0为未处理，1为已恢复
+                format: int8
+                type: integer
+                x-go-name: Status
+            update_time:
+                description: 更新时间
+                format: date-time
+                type: string
+                x-go-name: UpdateTime
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    RuleListResponse:
+        properties:
+            detail:
+                items:
+                    $ref: '#/definitions/RuleListResponseItem'
+                type: array
+                x-go-name: Detail
+            page_number:
+                format: int64
+                type: integer
+                x-go-name: PageNumber
+            page_size:
+                format: int64
+                type: integer
+                x-go-name: PageSize
+            total_count:
+                format: int64
+                type: integer
+                x-go-name: Total
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    RuleListResponseItem:
+        properties:
+            alert_condition:
+                description: 判定条件
+                type: string
+                x-go-name: AlertCondition
+            alert_desc:
+                type: string
+                x-go-name: AlertDesc
+            alert_level:
+                type: string
+                x-go-name: AlertLevel
+            alert_name:
+                type: string
+                x-go-name: AlertName
+            alert_spec:
+                type: string
+                x-go-name: AlertSpec
+            alert_threshold:
+                description: 判定阈值
+                type: string
+                x-go-name: AlertThreshold
+            alert_type:
+                type: string
+                x-go-name: AlertType
+            push_status:
+                description: 是否推送，0表示关闭，1表示开启
+                format: int64
+                type: integer
+                x-go-name: PushStatus
+            rule_id:
+                format: int64
+                type: integer
+                x-go-name: RuleId
+            use_status:
+                description: 是否启用，0表示关闭，1表示开启
+                format: int64
+                type: integer
+                x-go-name: UseStatus
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+    RuleResetPushAndUseRequest:
+        properties:
+            rule_ids:
+                type: string
+                x-go-name: RuleIDs
+        type: object
+        x-go-package: coding.jd.com/aidc-bmp/oob-log-alert/dao
+host: bmp-oob-alert.bmp.local
+info:
+    contact:
+        email: minping@jd.com
+    description: |-
+        the purpose of this application is to provide an application
+        that is using plain go code to define an API
+
+        This should demonstrate all the possible comment annotations
+        that are available to turn go code into a fully compliant swagger 2.0 spec
+    license:
+        name: MIT
+        url: http://opensource.org/licenses/MIT
+    termsOfService: there are no TOS at this moment, use at your own risk we take no responsibility
+    title: BMP
+    version: 0.0.1
+paths:
+    /custom/getCustomInfo:
+        get:
+            description: GetCustomInfo 获取自定义信息
+            operationId: getCustomInfo
+            responses:
+                "200":
+                    $ref: '#/responses/getCustomInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - custom
+    /custom/setCustomInfo:
+        post:
+            description: SetCustomInfo 设置自定义信息
+            operationId: setCustomInfo
+            responses:
+                "200":
+                    $ref: '#/responses/setCustomInfo'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - custom
+    /v1/oob-alert/consolelogs:
+        get:
+            description: GetLogCollectionsBySn 故障报警日志-控制台(只有符合push状态规则的才在控制台展示)
+            operationId: getLogCollectionsBySn
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - format: int64
+                  in: query
+                  name: page_num
+                  type: integer
+                  x-go-name: PageNum
+                - format: int64
+                  in: query
+                  name: page_size
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - in: query
+                  name: sn
+                  type: string
+                  x-go-name: Sn
+                - description: ExportType 非空要导出
+                  in: query
+                  name: exportType
+                  type: string
+                  x-go-name: ExportType
+            responses:
+                "200":
+                    $ref: '#/responses/getLogCollectionsBySn'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - ooblog
+    /v1/oob-alert/device/status:
+        get:
+            description: GetDeviceStatus 获取设备带外总体状态
+            operationId: getDeviceStatus
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - format: int64
+                  in: query
+                  name: page_num
+                  type: integer
+                  x-go-name: PageNum
+                - format: int64
+                  in: query
+                  name: page_size
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - in: query
+                  name: idc_id
+                  type: string
+                  x-go-name: IdcId
+                - in: query
+                  name: sn
+                  type: string
+                  x-go-name: Sn
+                - description: ExportType 非空要导出
+                  in: query
+                  name: exportType
+                  type: string
+                  x-go-name: ExportType
+            responses:
+                "200":
+                    $ref: '#/responses/getDeviceStatus'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - device
+    /v1/oob-alert/logs:
+        get:
+            description: GetLogCollections 故障报警日志-运营平台
+            operationId: getLogCollections
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - format: int64
+                  in: query
+                  name: page_num
+                  type: integer
+                  x-go-name: PageNum
+                - format: int64
+                  in: query
+                  name: page_size
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - in: query
+                  name: idc_id
+                  type: string
+                  x-go-name: IdcId
+                - in: query
+                  name: sn
+                  type: string
+                  x-go-name: Sn
+                - description: 故障等级
+                  in: query
+                  name: level
+                  type: string
+                  x-go-name: Level
+                - description: 故障配件
+                  in: query
+                  name: spec
+                  type: string
+                  x-go-name: Spec
+                - in: query
+                  name: start_time
+                  type: string
+                  x-go-name: StartTime
+                - in: query
+                  name: end_time
+                  type: string
+                  x-go-name: EndTime
+                - in: query
+                  name: deal_status
+                  type: string
+                  x-go-name: DealStatus
+                - description: ExportType 非空要导出
+                  in: query
+                  name: exportType
+                  type: string
+                  x-go-name: ExportType
+            responses:
+                "200":
+                    $ref: '#/responses/getLogCollections'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - ooblog
+    /v1/oob-alert/logs/deal:
+        post:
+            description: DealLogCollection 故障报警日志-处理
+            operationId: dealLogCollection
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/DealLogCollectionRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/dealLogCollection'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - ooblog
+    /v1/oob-alert/rules:
+        get:
+            description: RuleList 故障报警规则列表
+            operationId: ruleList
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - format: int64
+                  in: query
+                  name: page_num
+                  type: integer
+                  x-go-name: PageNum
+                - format: int64
+                  in: query
+                  name: page_size
+                  type: integer
+                  x-go-name: PageSize
+                - in: query
+                  name: isAll
+                  type: string
+                  x-go-name: IsAll
+                - in: query
+                  name: alert_name
+                  type: string
+                  x-go-name: AlertName
+                - in: query
+                  name: alert_spec
+                  type: string
+                  x-go-name: AlertSpec
+                - in: query
+                  name: alert_level
+                  type: string
+                  x-go-name: AlertLevel
+                - description: ExportType 非空要导出
+                  in: query
+                  name: exportType
+                  type: string
+                  x-go-name: ExportType
+            responses:
+                "200":
+                    $ref: '#/responses/ruleList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - alert-rule
+    /v1/oob-alert/rules/alert-level-list:
+        get:
+            description: AlertLevelList 故障报警规则-故障等级列表
+            operationId: alertLevelList
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+            responses:
+                "200":
+                    $ref: '#/responses/alertLevelList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - alert-rule
+    /v1/oob-alert/rules/alert-spec-list:
+        get:
+            description: AlertPartList 故障报警规则-故障配件列表
+            operationId: alertPartList
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+            responses:
+                "200":
+                    $ref: '#/responses/alertPartList'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - alert-rule
+    /v1/oob-alert/rules/change-push:
+        post:
+            description: ChangePush 故障报警规则列表-故障推送开关
+            operationId: changePush
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ChangePushRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/changePush'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - alert-rule
+    /v1/oob-alert/rules/change-use:
+        post:
+            description: ChangeUse 故障报警规则列表-故障启用开关
+            operationId: changeUse
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/ChangeUseRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/changeUse'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - alert-rule
+    /v1/oob-alert/rules/reset:
+        post:
+            description: RuleResetPushAndUse 故障报警规则列表-恢复默认规则重置
+            operationId: ruleResetPushAndUse
+            parameters:
+                - description: 流量唯一id
+                  in: header
+                  name: traceId
+                  required: true
+                  type: string
+                  x-go-name: TraceID
+                - in: body
+                  name: Body
+                  schema:
+                    $ref: '#/definitions/RuleResetPushAndUseRequest'
+            responses:
+                "200":
+                    $ref: '#/responses/ruleResetPushAndUse'
+                default:
+                    $ref: '#/responses/ErrorResponse'
+            tags:
+                - alert-rule
+produces:
+    - application/json
+    - application/xml
+responses:
+    ErrorResponse:
+        description: unit err response for non 200
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                error:
+                    $ref: '#/definitions/ErrorResponse'
+                requestId:
+                    description: 流量ID
+                    type: string
+                    x-go-name: RequestId
+            required:
+                - error
+                - requestId
+            type: object
+    alertLevelList:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    items:
+                        type: string
+                    type: array
+                    x-go-name: Result
+            type: object
+    alertPartList:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    items:
+                        type: string
+                    type: array
+                    x-go-name: Result
+            type: object
+    changePush:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    changeUse:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    dealLogCollection:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+    getDeviceStatus:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    $ref: '#/definitions/GetDeviceStatusResponse'
+            type: object
+    getLogCollections:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    $ref: '#/definitions/GetLogCollectionsResponse'
+            type: object
+    getLogCollectionsBySn:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    $ref: '#/definitions/GetLogCollectionsResponse'
+            type: object
+    ruleList:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    $ref: '#/definitions/RuleListResponse'
+            type: object
+    ruleResetPushAndUse:
+        description: ""
+        headers:
+            traceId:
+                description: |-
+                    流量ID
+                    in: header
+                type: string
+        schema:
+            properties:
+                result:
+                    $ref: '#/definitions/CommonResponse'
+            type: object
+schemes:
+    - http
+security:
+    - api_key: []
+securityDefinitions:
+    api_key:
+        in: header
+        name: bmp-ak
+        type: apiKey
+swagger: "2.0"
+x-meta-array:
+    - value1
+    - value2
+x-meta-array-obj:
+    - name: obj
+      value: field
+x-meta-value: value

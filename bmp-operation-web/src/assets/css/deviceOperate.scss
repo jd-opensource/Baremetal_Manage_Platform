@@ -1,0 +1,38 @@
+%img-count {
+    @include set-width-height(32px);
+    transform: scale(.5);
+    margin-left: 10px;
+    margin-top: 1px;
+}
+
+%plugin-warnning-tip {
+    @include text-align(center);
+    border-radius: 2px;
+    background: rgb(249, 237, 239);
+    margin-top: 15px;
+    @include display-align(flex-start);
+}
+
+%warnning-tip {
+    @extend %plugin-warnning-tip;
+    @extend %justify-center;
+
+    img {
+        @extend %img-count;
+    }
+
+    span {
+        @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+        padding-right: 30px;
+        margin-top: 8px;
+    }
+}
+
+%tip-title {
+    margin: 15px 0;
+    @include size-weight-color($fontSize, $fontSmallWeight, $defaultColor);
+
+    span {
+        color: $color1;
+    }
+}

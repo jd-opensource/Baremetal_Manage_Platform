@@ -1,0 +1,143 @@
+%public-search-style {
+    @extend %displafy-flex-wrap;
+
+    .el-form-item__label {
+        font-weight: $fontLargeWeight;
+        // @extend %display-flex-align;
+        @include display-align(center);
+        margin-right: 5px;
+    }
+
+    .custom-width {
+        margin-right: 48px;
+
+        .el-input__inner {
+            height: 30px;
+        }
+    }
+
+    .custom-width1 {
+        width: 158px;
+    }
+}
+
+:deep(.operate-management-content) {
+
+    .custom-tip-count {
+        font-size: $fontSize;
+        @include text-align(center);
+        margin-bottom: 30px;
+    }
+
+    .copy-email-info {
+        color: $color1;
+        @include set-cursor(pointer);
+    }
+
+    .operate-management-content-operate {
+        margin-bottom: 0 !important;
+    }
+
+    .search-tip-operate {
+        @include display-justify(space-between);
+        height: 17px;
+        margin-bottom: 16px;
+    }
+
+    .search-tip-operate2 {
+        @include display-justify(space-between);
+    }
+
+    .operate-log-form {
+        @extend %public-search-style;
+    }
+
+    .in-band-monitoring {
+        margin-top: 0;
+    }
+
+    .public-form,
+    .fault-form {
+        margin-top: 22px;
+    }
+
+    .set-ipt-error {
+        .el-form-item__error {
+            margin-top: 5px;
+        }
+    }
+
+    .in-band-monitoring,
+    .public-form,
+    .fault-form {
+    //    @extend %displafy-flex-wrap;
+        padding: 0 30px;
+        @extend %public-search-style;
+
+        // .el-form-item__label {
+        //     font-weight: $fontLargeWeight;
+        //     // @extend %display-flex-align;
+        //     @include display-align(center);
+        //     margin-right: 5px;
+        // }
+
+        // .custom-width {
+        //     margin-right: 48px;
+
+        //     .el-input__inner {
+        //         height: 30px;
+        //     }
+        // }
+
+        .custom-width4 {
+            height: 30px;
+        }
+
+        .custom-width5 {
+            width: 132px;
+        }
+
+        // .custom-width1 {
+        //     width: 158px;
+        // }
+
+        .custom-width3 {
+            width: 118px;
+        }
+
+        .custom-width7 {
+            width: 220px;
+        }
+
+        .custom-width2 {
+            width: 248px;
+        }
+
+        .custom-width6 {
+            width: 330px;
+        }
+
+        button {
+            min-width: 70px;
+            height: 30px;
+            border-radius: 4px;
+        }
+
+        .el-button+.el-button {
+            margin-left: 21px;
+        }
+    }
+    .restore-default-set {
+        margin: 4px 0 16px 30px;
+
+        button {
+            min-width: 112px;
+        }
+    }
+
+    .search-tip-operate {
+        .search-filter-tip {
+            margin-left: 30px;
+        }
+    }
+}
