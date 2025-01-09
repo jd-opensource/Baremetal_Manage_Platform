@@ -167,8 +167,106 @@ set +a
 source .env
 ~~~
 ### 基础组件<a id="2.2"></a>
+#### 配置yum镜像源<a id="update-repo"></a>
+~~~
+cat << EOF > /etc/yum.repos.d/pku.repo
+[base]
+name=CentOS-\$releasever - Base
+##mirrorlist=http://##mirrorlist.centos.org/?release=\$releasever&arch=\$basearch&repo=os&infra=\$infra
+baseurl=http://mirrors.pku.edu.cn/centos/\$releasever/os/\$basearch/
+enabled=1
+gpgcheck=0
+
+#released updates
+[updates]
+name=CentOS-\$releasever - Updates
+##mirrorlist=http://##mirrorlist.centos.org/?release=\$releasever&arch=\$basearch&repo=updates&infra=\$infra
+baseurl=http://mirrors.pku.edu.cn/centos/\$releasever/updates/\$basearch/
+enabled=1
+gpgcheck=0
+
+#additional packages that may be useful
+[extras]
+name=CentOS-\$releasever - Extras
+##mirrorlist=http://##mirrorlist.centos.org/?release=\$releasever&arch=\$basearch&repo=extras&infra=\$infra
+baseurl=http://mirrors.pku.edu.cn/centos/\$releasever/extras/\$basearch/
+enabled=1
+gpgcheck=0
+
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-\$releasever - Plus
+##mirrorlist=http://##mirrorlist.centos.org/?release=\$releasever&arch=\$basearch&repo=centosplus&infra=\$infra
+baseurl=http://mirrors.pku.edu.cn/centos/\$releasever/centosplus/\$basearch/
+enabled=1
+gpgcheck=0
+EOF
+
+cat << EOF > /etc/yum.repos.d/epel.repo
+[epel]
+name=Extra Packages for Enterprise Linux 7 - \$basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/7/\$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=\$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=0
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 7 - \$basearch - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/7/\$basearch/debug
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&arch=\$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=0
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 7 - \$basearch - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/7/SRPMS
+metalink=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&arch=\$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=0
+[epel-testing]
+name=Extra Packages for Enterprise Linux 7 - Testing - \$basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/7/\$basearch
+metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-epel7&arch=\$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=0
+
+[epel-testing-debuginfo]
+name=Extra Packages for Enterprise Linux 7 - Testing - \$basearch - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/7/\$basearch/debug
+metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel7&arch=\$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=0
+
+[epel-testing-source]
+name=Extra Packages for Enterprise Linux 7 - Testing - \$basearch - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/7/SRPMS
+metalink=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel7&arch=\$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=0
+EOF
+
+cat << EOF > /etc/yum.repos.d/tsinghua-mysql-community.repo
+[mysql57-community]
+name=MySQL 5.7 Community Server
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/mysql/yum/mysql-5.7-community-el7-\$basearch
+enabled=1
+gpgcheck=0
+EOF
+
+yum clean all
+yum makecache
+yum update -y
+~~~
 #### bmp-image <a id="2.2.1"></a>
-主要存储 GuestOS镜像文件，bmp-agent(装机节点agent)，device_import template(excel文件)，并以nginx对外提供http服务
+主要存储 GuestOS镜像文件，bmp-agent(装机节点agent)，device_import template(excel文件)，并以nginx对外提供http服务  
+
+安装前，请先确保已经[配置yum镜像源](#update-repo)
 ~~~
 # 第一步：安装nginx，以cetos为例
 yum install nginx
@@ -228,97 +326,14 @@ https://nginx.org/en/docs/
 所以：bmp-tftp提供下载系统启动相关的内核及liveOS镜像的服务
 
 部署tftp步骤如下：
-- 第一步：安装tftp
+- 第一步：安装tftp  
+  安装前，请先确保已经[配置yum镜像源](#update-repo)
 ~~~
 yum install tftp-server
 systemctl start tftp
 ~~~
 
-- 第二步：从京东云对象存储下载下载内核及liveOs文件
-~~~
-mkdir -p /var/lib/tftpboot/images/{arm64,loongarch64}
-mkdir -p /var/lib/tftpboot/uefi/{arm64,loongarch64,x86_64}
-mkdir -p /var/lib/tftpboot/pxelinux.cfg
-
-# arm64-image
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/v2.0.7-centos_7_9_arm64-2024082914-initramfs.gz -P /var/lib/tftpboot/images/arm64
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/v2.0.7-centos_7_9_arm64-2024082914-vmlinuz -P /var/lib/tftpboot/images/arm64
-# loongarch64-image
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/initramfs-loongarch.gz -P /var/lib/tftpboot/images/loongarch64
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/initramfs-loongarch.gz -P /var/lib/tftpboot/images/loongarch64
-# x86_64-image
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/v2.0.7-centos_7_9-2024082914-initramfs.gz -P /var/lib/tftpboot/images/
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/v2.0.7-centos_7_9-2024082914-vmlinuz -P /var/lib/tftpboot/images/
-# bootloader
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/bootloader/BOOTLOONGARCH64.EFI -P /var/lib/tftpboot/uefi/loongarch64
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/bootloader/grubaa64.efi -P /var/lib/tftpboot/uefi/x86_64
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/bootloader/grubx64.efi -P /var/lib/tftpboot/uefi/x86_64
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/bootloader/pxelinux.0 -P /var/lib/tftpboot/
-~~~
-# 第三步：设置配置文件
-~~~
-cat << EOF > /var/lib/tftpboot/pxelinux.cfg/default
-default bmp agent
-    prompt 0
-    timeout 1
-    label bmp agent
-    kernel \${BMP_KERNEL_PATH_x86}
-    append initrd=\${BMP_INITRAMFS_PATH_x86} net.ifnames=0 biosdevname=0 BMP_MQ_HOST=\${BMP_HOST_IP} BMP_MQ_PORT=\${BMP_MQ_PORT} BMP_MQ_USER=\${BMP_MQ_USER} BMP_MQ_PASSWORD=\${BMP_MQ_PASSWORD} BMP_MQ_VHOST=\${BMP_MQ_VHOST} BMP_MQ_EXCHANGE_ROUTING_KEY=\${BMP_MQ_EXCHANGE_ROUTING_KEY} BMP_IMAGE_HOST=\${BMP_HOST_IP} BMP_IMAGE_PORT=\${BMP_IMAGE_PORT} BMP_RSYSLOG_HSOT=\${BMP_HOST_IP} BMP_RSYSLOG_PORT=\${BMP_RSYSLOG_PORT}
-EOF
-
-cat << EOF > /var/lib/tftpboot/uefi/arm64/grub.cfg
-set timeout=1
-set default=1
-menuentry "bmp agent arm64 uefi" {
-    linux \${BMP_KERNEL_PATH_arm64} console=ttyAMA0 console=tty0 net.ifnames=0 biosdevname=0 ksdevice=bootif kssendmac text BMP_MQ_HOST=\${BMP_HOST_IP} BMP_MQ_PORT=\${BMP_MQ_PORT} BMP_MQ_USER=\${BMP_MQ_USER} BMP_MQ_PASSWORD='\${BMP_MQ_PASSWORD}' BMP_MQ_VHOST=\${BMP_MQ_VHOST} BMP_MQ_EXCHANGE_ROUTING_KEY=\${BMP_MQ_EXCHANGE_ROUTING_KEY} BMP_IMAGE_HOST=\${BMP_HOST_IP} BMP_IMAGE_PORT=\${BMP_IMAGE_PORT}
-    initrd \${BMP_INITRAMFS_PATH_arm64}
-}
-EOF
-
-cat << EOF > /var/lib/tftpboot/uefi/loongarch64/grub.cfg
-set timeout=1
-set default=1
-menuentry 'bmp agent loongarch64 uefi' {
-    linux \${BMP_KERNEL_PATH_loonarch64} console=ttyS0,115200 console=tty0 net.ifnames=0 biosdevname=0 ksdevice=bootif kssendmac text BMP_MQ_HOST=\${BMP_HOST_IP} BMP_MQ_PORT=\${BMP_MQ_PORT} BMP_MQ_USER=\${BMP_MQ_USER} BMP_MQ_PASSWORD=\${BMP_MQ_PASSWORD} BMP_MQ_VHOST=\${BMP_MQ_VHOST} BMP_MQ_EXCHANGE_ROUTING_KEY=\${BMP_MQ_EXCHANGE_ROUTING_KEY} BMP_IMAGE_HOST=\${BMP_HOST_IP} BMP_IMAGE_PORT=\${BMP_IMAGE_PORT}
-    initrd \${BMP_INITRAMFS_PATH_loonarch64}
-}
-EOF
-
-cat << EOF > /var/lib/tftpboot/uefi/x86_64/grub.cfg
-set timeout=1
-set default=1
-menuentry 'bmp agent x86_64 uefi' {
-    linuxefi \${BMP_KERNEL_PATH_x86}  net.ifnames=0 biosdevname=0 ksdevice=bootif kssendmac text BMP_MQ_HOST=\${BMP_HOST_IP} BMP_MQ_PORT=\${BMP_MQ_PORT} BMP_MQ_USER=\${BMP_MQ_USER} BMP_MQ_PASSWORD=\${BMP_MQ_PASSWORD} BMP_MQ_VHOST=\${BMP_MQ_VHOST} BMP_MQ_EXCHANGE_ROUTING_KEY=\${BMP_MQ_EXCHANGE_ROUTING_KEY} BMP_IMAGE_HOST=\${BMP_HOST_IP} BMP_IMAGE_PORT=\${BMP_IMAGE_PORT}
-    initrdefi \${BMP_INITRAMFS_PATH_x86}
-}
-EOF
-
-最终目录结构如图：
-.
-├── images
-│   ├── arm64
-│   │   ├── v2.0.7-centos_7_9_arm64-2024082914-initramfs.gz
-│   │   └── v2.0.7-centos_7_9_arm64-2024082914-vmlinuz
-│   └── loongarch64
-│       ├── initramfs-loongarch.gz
-│       └── vmlinuz-loongarch
-├── pxelinux.0
-├── pxelinux.cfg
-│   └── default
-├── uefi
-│   ├── arm64
-│   │   ├── grubaa64.efi
-│   │   └── grub.cfg
-│   ├── loongarch64
-│   │   ├── BOOTLOONGARCH64.EFI
-│   │   └── grub.cfg
-│   └── x86_64
-│       ├── grub.cfg
-│       └── grubx64.efi
-├── v2.0.7-centos_7_9-2024082914-initramfs.gz
-└── v2.0.7-centos_7_9-2024082914-vmlinuz
-~~~
-# 第四步: 设置环境变量 tftp.env
+- 第二步: 设置环境变量 tftp.env
 ~~~
 set -a
 BMP_DB_HOST=192.168.14.80
@@ -399,7 +414,93 @@ set +a
 source tftp.env
 ~~~
 
-# 第五步：启动tftp服务
+- 第三步：从京东云对象存储下载下载内核及liveOs文件
+~~~
+mkdir -p /var/lib/tftpboot/images/{arm64,loongarch64}
+mkdir -p /var/lib/tftpboot/uefi/{arm64,loongarch64,x86_64}
+mkdir -p /var/lib/tftpboot/pxelinux.cfg
+
+# arm64-image
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/v2.0.7-centos_7_9_arm64-2024082914-initramfs.gz -P /var/lib/tftpboot/images/arm64
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/v2.0.7-centos_7_9_arm64-2024082914-vmlinuz -P /var/lib/tftpboot/images/arm64
+# loongarch64-image
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/initramfs-loongarch.gz -P /var/lib/tftpboot/images/loongarch64
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/initramfs-loongarch.gz -P /var/lib/tftpboot/images/loongarch64
+# x86_64-image
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/v2.0.7-centos_7_9-2024082914-initramfs.gz -P /var/lib/tftpboot/
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/LiveOS/v2.0.7-centos_7_9-2024082914-vmlinuz -P /var/lib/tftpboot/
+# bootloader
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/bootloader/BOOTLOONGARCH64.EFI -P /var/lib/tftpboot/uefi/loongarch64
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/bootloader/grubaa64.efi -P /var/lib/tftpboot/uefi/x86_64
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/bootloader/grubx64.efi -P /var/lib/tftpboot/uefi/x86_64
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/bootloader/pxelinux.0 -P /var/lib/tftpboot/
+~~~
+- 第四步：设置配置文件
+~~~
+cat << EOF > /var/lib/tftpboot/pxelinux.cfg/default
+default bmp agent
+    prompt 0
+    timeout 1
+    label bmp agent
+    kernel ${BMP_KERNEL_PATH_x86}
+    append initrd=${BMP_INITRAMFS_PATH_x86} net.ifnames=0 biosdevname=0 BMP_MQ_HOST=${BMP_HOST_IP} BMP_MQ_PORT=${BMP_MQ_PORT} BMP_MQ_USER=${BMP_MQ_USER} BMP_MQ_PASSWORD=${BMP_MQ_PASSWORD} BMP_MQ_VHOST=${BMP_MQ_VHOST} BMP_MQ_EXCHANGE_ROUTING_KEY=${BMP_MQ_EXCHANGE_ROUTING_KEY} BMP_IMAGE_HOST=${BMP_HOST_IP} BMP_IMAGE_PORT=${BMP_IMAGE_PORT} BMP_RSYSLOG_HSOT=${BMP_HOST_IP} BMP_RSYSLOG_PORT=${BMP_RSYSLOG_PORT}
+EOF
+
+cat << EOF > /var/lib/tftpboot/uefi/arm64/grub.cfg
+set timeout=1
+set default=1
+menuentry "bmp agent arm64 uefi" {
+    linux ${BMP_KERNEL_PATH_arm64} console=ttyAMA0 console=tty0 net.ifnames=0 biosdevname=0 ksdevice=bootif kssendmac text BMP_MQ_HOST=${BMP_HOST_IP} BMP_MQ_PORT=${BMP_MQ_PORT} BMP_MQ_USER=${BMP_MQ_USER} BMP_MQ_PASSWORD='${BMP_MQ_PASSWORD}' BMP_MQ_VHOST=${BMP_MQ_VHOST} BMP_MQ_EXCHANGE_ROUTING_KEY=${BMP_MQ_EXCHANGE_ROUTING_KEY} BMP_IMAGE_HOST=${BMP_HOST_IP} BMP_IMAGE_PORT=${BMP_IMAGE_PORT}
+    initrd ${BMP_INITRAMFS_PATH_arm64}
+}
+EOF
+
+cat << EOF > /var/lib/tftpboot/uefi/loongarch64/grub.cfg
+set timeout=1
+set default=1
+menuentry 'bmp agent loongarch64 uefi' {
+    linux ${BMP_KERNEL_PATH_loonarch64} console=ttyS0,115200 console=tty0 net.ifnames=0 biosdevname=0 ksdevice=bootif kssendmac text BMP_MQ_HOST=${BMP_HOST_IP} BMP_MQ_PORT=${BMP_MQ_PORT} BMP_MQ_USER=${BMP_MQ_USER} BMP_MQ_PASSWORD=${BMP_MQ_PASSWORD} BMP_MQ_VHOST=${BMP_MQ_VHOST} BMP_MQ_EXCHANGE_ROUTING_KEY=${BMP_MQ_EXCHANGE_ROUTING_KEY} BMP_IMAGE_HOST=${BMP_HOST_IP} BMP_IMAGE_PORT=${BMP_IMAGE_PORT}
+    initrd ${BMP_INITRAMFS_PATH_loonarch64}
+}
+EOF
+
+cat << EOF > /var/lib/tftpboot/uefi/x86_64/grub.cfg
+set timeout=1
+set default=1
+menuentry 'bmp agent x86_64 uefi' {
+    linuxefi ${BMP_KERNEL_PATH_x86}  net.ifnames=0 biosdevname=0 ksdevice=bootif kssendmac text BMP_MQ_HOST=${BMP_HOST_IP} BMP_MQ_PORT=${BMP_MQ_PORT} BMP_MQ_USER=${BMP_MQ_USER} BMP_MQ_PASSWORD=${BMP_MQ_PASSWORD} BMP_MQ_VHOST=${BMP_MQ_VHOST} BMP_MQ_EXCHANGE_ROUTING_KEY=${BMP_MQ_EXCHANGE_ROUTING_KEY} BMP_IMAGE_HOST=${BMP_HOST_IP} BMP_IMAGE_PORT=${BMP_IMAGE_PORT}
+    initrdefi ${BMP_INITRAMFS_PATH_x86}
+}
+EOF
+
+# 最终目录结构如图：
+.
+├── images
+│   ├── arm64
+│   │   ├── v2.0.7-centos_7_9_arm64-2024082914-initramfs.gz
+│   │   └── v2.0.7-centos_7_9_arm64-2024082914-vmlinuz
+│   └── loongarch64
+│       ├── initramfs-loongarch.gz
+│       └── vmlinuz-loongarch
+├── pxelinux.0
+├── pxelinux.cfg
+│   └── default
+├── uefi
+│   ├── arm64
+│   │   ├── grubaa64.efi
+│   │   └── grub.cfg
+│   ├── loongarch64
+│   │   ├── BOOTLOONGARCH64.EFI
+│   │   └── grub.cfg
+│   └── x86_64
+│       ├── grub.cfg
+│       └── grubx64.efi
+├── v2.0.7-centos_7_9-2024082914-initramfs.gz
+└── v2.0.7-centos_7_9-2024082914-vmlinuz
+~~~
+
+
+- 第五步：启动tftp服务
 ~~~
 systemctl restart tftp
 # 检查状态
@@ -412,20 +513,10 @@ systemctl status tftp
 |-------------------|------| --- |
 | bmp-db            | 基础组件 | mysql |
 
-以下是在Linux系统上安装和部署MySQL的基本步骤：
+以下是在Linux系统上安装和部署MySQL的基本步骤：  
+安装前，请先确保已经[配置yum镜像源](#update-repo)
 ~~~
 # 第一步：安装MySQL
-# 本章节介绍使用清华镜像源进行安装
-cat << EOF > /etc/yum.repos.d/tsinghua-mysql-community.repo
-[mysql57-community]
-name=MySQL 5.7 Community Server
-baseurl=https://mirrors.tuna.tsinghua.edu.cn/mysql/yum/mysql-5.7-community-el7-\$basearch
-enabled=1
-gpgcheck=0
-EOF
-
-sudo yum clean all
-sudo yum makecache
 sudo yum install mysql-community-server
 
 # 第二步：启动MySQL服务
@@ -458,21 +549,14 @@ mysql -uroot -p bmp < ./sql/bmp.sql
 |-------------------|------| --- |
 | bmp-redis         | 基础组件 | redis |
 
+安装前，请先确保已经[配置yum镜像源](#update-repo)
 ~~~
 在CentOS 7上安装Redis可以按照以下步骤进行：
 
-# 第一步： 更新系统包
-# 首先，更新系统包以获取最新的软件包列表：
-sudo yum update -y
-
-# 第二步：安装EPEL仓库
-# Redis不是CentOS默认的软件源中的一部分，所以我们需要添加EPEL（Extra Packages for Enterprise Linux）仓库来获取Redis安装包：
-sudo yum install epel-release -y
-
-# 第三步：安装Redis
+# 第一步：安装Redis
 sudo yum install redis -y
 
-# 第四步：配置Redis密码
+# 第二步：配置Redis密码
 Redis的配置文件位于/etc/redis.conf
 vi /etc/redis.conf
 追加一行，设置密码
@@ -480,10 +564,10 @@ requirepass LpK9Jq12Zf
 追加一行，设置bind地址，即允许哪些地址可访问该redis，本实例用于测试，设置0.0.0.0，即所有地址可访问，生产环境请根据实际情况设置
 bind 0.0.0.0
 
-# 第五步：启动Redis服务
+# 第三步：启动Redis服务
 sudo systemctl start redis
 
-# 第六步：测试密码
+# 第四步：测试密码
 redis-cli -a LpK9Jq12Zf ping
 ~~~
 #### bmp-mq<a id="2.2.5"></a>
@@ -492,25 +576,21 @@ redis-cli -a LpK9Jq12Zf ping
 |-------------------|------| --- |
 | bmp-mq            | 基础组件 | rabbitmq |
 
+安装前，请先确保已经[配置yum镜像源](#update-repo)
 ~~~
 在CentOS 7上安装RabbitMQ可以按照以下步骤进行：
 
-# 第一步：添加EPEL仓库
-
-首先，需要添加EPEL（Extra Packages for Enterprise Linux）仓库来获取RabbitMQ安装包：
-sudo yum install epel-release -y
-
-# 第二步：安装Erlang
+# 第一步：安装Erlang
 # RabbitMQ是用Erlang编写的，所以我们需要先安装Erlang：
 sudo yum install erlang -y
 
-# 第三步：安装RabbitMQ
+# 第二步：安装RabbitMQ
 sudo yum install rabbitmq-server -y
 
-# 第四步：启动RabbitMQ服务
+# 第三步：启动RabbitMQ服务
 sudo systemctl start rabbitmq-server
 
-# 第五步：创建管理员账户
+# 第四步：创建管理员账户
 # 默认情况下，RabbitMQ没有启用管理插件。我们需要创建一个管理员账户并启用管理插件：
 rabbitmqctl add_vhost /bmp
 rabbitmqctl add_user bmp "LpK9Jq12Zf"
@@ -518,7 +598,7 @@ rabbitmqctl set_user_tags bmp administrator
 rabbitmqctl set_permissions -p "/bmp" bmp '.*' '.*' '.*'
 rabbitmqctl list_users
 
-### 第六步：访问RabbitMQ管理界面
+### 第五步：访问RabbitMQ管理界面
 现在，你可以通过浏览器访问`http://your-server-ip:15672`来访问RabbitMQ的管理界面。使用你刚刚创建的管理员账户登录。
 ~~~
 
@@ -527,18 +607,14 @@ rabbitmqctl list_users
 | 应用组件              | 类别   | 语言/组件 |
 |-------------------|------| --- |
 | bmp-rsyslog       | 开源组件 | rsyslog |
-
+安装前，请先确保已经[配置yum镜像源](#update-repo)
 ~~~
 在CentOS 7上安装rsyslog可以按照以下步骤进行：
 
-# 第一步：更新系统包
-首先，更新系统包以获取最新的软件包列表：
-sudo yum update -y
-
-# 第二步：安装rsyslog
+# 第一步：安装rsyslog
 sudo yum install rsyslog -y
 
-# 第三步：配置rsyslog
+# 第二步：配置rsyslog
 cat << EOF > /etc/rsyslog.d/bmp-rsyslog.conf
 module(load="imudp") # needs to be done just once
 input(type="imudp" port="514")
@@ -549,7 +625,7 @@ if $fromhost-ip != "127.0.0.1" then ?RemoteLogs
 & ~
 EOF
 
-# 第四步：启动rsyslog服务
+# 第三步：启动rsyslog服务
 sudo systemctl start rsyslog
 ~~~
 
@@ -817,7 +893,7 @@ bmp_image_port=${BMP_IMAGE_PORT||10000}
 |-------------------|------| --- |
 | bmp-dhcp-agent    | 后端   | python |
 
-该组件依赖环境变量，请先完成 [端口规划](#2.1.2)部分
+该组件依赖环境变量，请先完成 [端口规划](#2.1.2)部分(该部分**必做**)  
 并设置以下环境变量  
 cat bmp-dhcp-agent.env
 ~~~
@@ -829,6 +905,7 @@ BMP_MQ_VHOST=/bmp
 BMP_OMAPI_HOST=${BMP_HOST_IP}
 BMP_OMAPI_PORT=7911
 BMP_OMAPI_TOKEN="LpK9Jq12Zf"
+BMP_OMAPI_KEY=$(echo -n ${BMP_OMAPI_TOKEN} | base64)
 
 BMP_MQ_HOST=${BMP_HOST_IP}
 BMP_OMAPI_HOST=${BMP_HOST_IP}
@@ -857,40 +934,41 @@ mkdir -p /home/dhcp/data
 ~~~
 编辑配置文件 /home/dhcp/data/dhcpd.conf
 ~~~
+cat << EOF > /home/dhcp/data/dhcpd.conf
 ddns-update-style none;
 ignore client-updates;
 ddns-update-style none;
 ignore client-updates;
 
 next-server ${BMP_HOST_IP};
-filename \"pxelinux.0\";
+filename "pxelinux.0";
 
 default-lease-time         600;
 max-lease-time             1200;
-option domain-name \"localhost\";
+option domain-name "localhost";
 option domain-name-servers 114.114.114.114,8.8.8.8;
 
 #pxe
 option client-system-architecture code 93 = unsigned integer 16;
-class \"pxe-clients\" {
-    match if (substring (option vendor-class-identifier, 0, 9) = \"PXEClient\") or
-             (substring (option vendor-class-identifier, 0, 9) = \"HW-Client\");
+class "pxe-clients" {
+    match if (substring (option vendor-class-identifier, 0, 9) = "PXEClient") or
+             (substring (option vendor-class-identifier, 0, 9) = "HW-Client");
     if option client-system-architecture = 00:00 {
-        filename \"pxelinux.0\";
+        filename "pxelinux.0";
     }else if option client-system-architecture = 00:07 {
-        filename \"/uefi/x86_64/grubx64.efi\";
+        filename "/uefi/x86_64/grubx64.efi";
     }else if option client-system-architecture = 00:0b {
-        filename \"/uefi/arm64/grubaa64.efi\";
+        filename "/uefi/arm64/grubaa64.efi";
     }else if option client-system-architecture = 00:0c {
-        filename \"/uefi/loongarch64/BOOTLOONGARCH64.EFI\";
+        filename "/uefi/loongarch64/BOOTLOONGARCH64.EFI";
     }else if option client-system-architecture = 00:27 {
-        filename \"/uefi/loongarch64/BOOTLOONGARCH64.EFI\";
+        filename "/uefi/loongarch64/BOOTLOONGARCH64.EFI";
     }
 }
 
 key omapi_key {
 	algorithm hmac-md5;
-	secret ${BMP_OMAPI_KEY};
+	secret $(echo -n ${BMP_OMAPI_TOKEN} | base64);
 };
 omapi-key omapi_key;
 omapi-port ${BMP_OMAPI_PORT};
@@ -898,6 +976,7 @@ omapi-port ${BMP_OMAPI_PORT};
 subnet ${BMP_HOST_IP} netmask 255.255.255.255 {
     
 }
+EOF
 ~~~
 编辑启动文件/home/dhcp/dhcpd_control.sh
 ~~~
@@ -907,7 +986,7 @@ set -ue
 [ -z "$BMP_DHCP_CONFIG_DIR" ] && echo "error! BMP_DHCP_CONFIG_DIR is unset!" && exit 1
 
 if [ ! -e $BMP_DHCP_CONFIG_DIR/dhcpd.conf ] && [ -e /dhcpd.conf.tpl ]; then
-    eval "echo \"$(cat /dhcpd.conf.tpl)\"" > $BMP_DHCP_CONFIG_DIR/dhcpd.conf
+    eval "echo "$(cat /dhcpd.conf.tpl)"" > $BMP_DHCP_CONFIG_DIR/dhcpd.conf
 fi
 
 LOG_FILE=/var/log/bmp/bmp-dhcp-agent/dhcpd.log
@@ -932,7 +1011,7 @@ help(){
 get_pid()
 {
     local pid=""
-    pid=$(ps -ef | grep "$exec_file" | grep -v 'grep' | awk '{print $1}')
+    pid=$(ps -eo pid,comm,args | grep "$exec_file" | grep -v 'grep' | awk '{print $1}')
     PID=$pid
 }
 
@@ -972,6 +1051,7 @@ case "${1}" in
         ;;
 esac
 ~~~
+安装前，请先确保已经[配置yum镜像源](#update-repo)
 ~~~
 # 要求 python3.6+ 环境
 

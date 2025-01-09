@@ -1,7 +1,5 @@
 ddns-update-style none;
 ignore client-updates;
-ddns-update-style none;
-ignore client-updates;
 
 next-server ${BMP_HOST_IP};
 filename \"pxelinux.0\";
