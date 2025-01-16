@@ -95,8 +95,8 @@ cd ~
   https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 - 方式三：可直接从京东云下载安装包
 ~~~
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/opensource/Baremetal_Manage_Platform-33040a7.zip
-unzip Baremetal_Manage_Platform-33040a7.zip -d Baremetal_Manage_Platform
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/opensource/Baremetal_Manage_Platform.zip
+unzip Baremetal_Manage_Platform.zip -d Baremetal_Manage_Platform
 ~~~
 
 ### 第二步：配置环境参数<a id="1.2.2"></a>
@@ -105,15 +105,13 @@ unzip Baremetal_Manage_Platform-33040a7.zip -d Baremetal_Manage_Platform
   目录内文件说明:[bmp-deploy文件和目录说明](bmp-deploy/bmp-deploy.md)
 
 - 修改配置  
-  编辑.env文件
-  - 修改BMP_HOST_IP为manager节点管理网卡ip。本示例为192.168.14.80，如果服务器多网卡，请配置其中一个ip。如果配置了bond，使用bond网卡。否则尽量选择私网IP地址网卡。
+  编辑.env文件  
+  修改BMP_HOST_IP为manager节点管理网卡ip。如果服务器多网卡，请配置其中一个ip。如果配置了bond，使用bond网卡。否则尽量选择私网IP地址网卡。
     ifconfig命令-bond0示例图
     ![ifconfig-bond0.png](bmp-deploy/picture/ifconfig-bond0.png)
     ifconfig命令-eth0示例图
     ![ifconfig-eth0.png](bmp-deploy/picture/ifconfig-eth0.png)
-  - 修改BASE_REGISTRY，部署需要使用mysql/redis/mq/nginx等基础容器镜像，本示例默认从quay.io拉取，如果网络限制，请修改为其他公共或私有镜像仓库
-
-
+  修改BASE_REGISTRY，部署需要使用mysql/redis/mq/nginx等基础容器镜像，本示例默认从quay.io拉取，如果网络限制，请修改为其他公共或私有镜像仓库
 ~~~
 cd ~/Baremetal_Manage_Platform/bmp-deploy/
 # 查看服务器ip地址,优先查看bond0的ip地址，再次查看eth0的ip地址。如果不确定请咨询运维人员。
@@ -212,6 +210,7 @@ python         3.6-alpine               3a9e80fa4606   3 years ago      40.7MB
 | bmp-pushgateway   | 开源组件 | pushgateway |quay.io/prometheus/pushgateway:v1.9.0 |
 | bmp-alertmanager  | 开源组件 | alertmanager |quay.io/prometheus/alertmanager:v0.27.0|
 | bmp-prometheus    | 开源组件 | prometheus |quay.io/prometheus/prometheus:v2.52.0|
+
 上述组件是使用开源的镜像，可直接拉取  
 源码文件中默认选用镜像源 quay.io/jdcloudbmp  
 拉取镜像命令举例:
@@ -229,6 +228,7 @@ docker pull docker.io/mysql:5.7-debian
 |-------------|------|---------|----------------------------------------------|
 | bmp-rsyslog | 开源组件 | rsyslog | bmp-deploy/dockerfile/bmp-rsyslog.Dockerfile |
 | bmp-tftp    | 开源组件 | tftp    | bmp-deploy/dockerfile/bmp-tftp.Dockerfile |
+
 上述组件的预制镜像已经上传至镜像仓库，如果不需要定制化制作，可直接拉取使用
 ~~~
 docker pull quay.io/jdcloudbmp/bmp-rsyslog:v1.0

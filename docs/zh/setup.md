@@ -90,8 +90,8 @@ cd ~
 https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 - 方式三：可直接从京东云下载安装包
 ~~~
-wget https://bmp.s3.cn-north-1.jdcloud-oss.com/opensource/Baremetal_Manage_Platform-33040a7.zip
-unzip Baremetal_Manage_Platform-33040a7.zip -d Baremetal_Manage_Platform
+wget https://bmp.s3.cn-north-1.jdcloud-oss.com/opensource/Baremetal_Manage_Platform.zip
+unzip Baremetal_Manage_Platform.zip -d Baremetal_Manage_Platform
 ~~~
 
 ### 第二步：配置环境参数<a id="3.2"></a>
